@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CategoryListComponent } from './components/category-list/category-list.component';
+import { CategoryComponent } from './components/category/category.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { LoginComponent } from './components/login/login.component';
@@ -34,6 +36,20 @@ const routes: Routes = [
       {
         path: 'list/product-varients',
         component: ProductVarientsListComponent
+      },
+      {
+        path: 'create/category',
+        component: CategoryComponent,
+        data: { type: 'create' }
+      },
+      {
+        path: 'update/category/:id',
+        component: CategoryComponent,
+        data: { type: 'update' }
+      },
+      {
+        path: 'list/category',
+        component: CategoryListComponent
       },
       {
         path: 'create/product-group',

@@ -60,6 +60,13 @@ export class ApiService {
     });
   }
 
+  getCategoryCreationMetaData() {
+    const uuid = this.getLocalStorage('currentUserSession').uuid;
+    return this.http.get(this.baseUrl + '/v1/admin/categories/creation-metadata', {
+      headers: new HttpHeaders({ 'admin-user-uuid': uuid })
+    });
+  }
+
   getProductVarientList(params: any) {
     const uuid = this.getLocalStorage('currentUserSession').uuid;
     return this.http.get(this.baseUrl + '/v1/admin/product-variants', {
@@ -76,6 +83,14 @@ export class ApiService {
     });
   }
 
+  getProductCategoryList(params: any) {
+    const uuid = this.getLocalStorage('currentUserSession').uuid;
+    return this.http.get(this.baseUrl + '/v1/admin/categories', {
+      params,
+      headers: new HttpHeaders({ 'admin-user-uuid': uuid })
+    });
+  }
+
   getProductVarientInfo(productId: any) {
     const uuid = this.getLocalStorage('currentUserSession').uuid;
     return this.http.get(this.baseUrl + `/v1/admin/product-variants/${productId}`, {
@@ -86,6 +101,13 @@ export class ApiService {
   getProductGroupInfo(productId: any) {
     const uuid = this.getLocalStorage('currentUserSession').uuid;
     return this.http.get(this.baseUrl + `/v1/admin/products/${productId}`, {
+      headers: new HttpHeaders({ 'admin-user-uuid': uuid })
+    });
+  }
+
+  getCategoryInfo(productId: any) {
+    const uuid = this.getLocalStorage('currentUserSession').uuid;
+    return this.http.get(this.baseUrl + `/v1/admin/categories/${productId}`, {
       headers: new HttpHeaders({ 'admin-user-uuid': uuid })
     });
   }
@@ -114,6 +136,13 @@ export class ApiService {
   createProductGroup(body: any) {
     const uuid = this.getLocalStorage('currentUserSession').uuid;
     return this.http.post(this.baseUrl + '/v1/admin/products', body, {
+      headers: new HttpHeaders({ 'admin-user-uuid': uuid })
+    })
+  }
+
+  createCategory(body: any) {
+    const uuid = this.getLocalStorage('currentUserSession').uuid;
+    return this.http.post(this.baseUrl + '/v1/admin/categories', body, {
       headers: new HttpHeaders({ 'admin-user-uuid': uuid })
     })
   }

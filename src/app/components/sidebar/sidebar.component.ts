@@ -61,6 +61,13 @@ export const ROUTES: any[] = [
       { user: 'admin', dropdown: false, path: '/list/product-group', icon: 'fa fa-list', title: 'View product groups', visible: true }
     ]
   },
+  {
+    user: 'admin', dropdown: true, userName: false, className: true, title: 'Category', icon: 'product-icon', visible: true, isCollapsed: true, dropDownMenu: [
+      { user: 'admin', dropdown: false, path: 'create/category', icon: 'fa fa-plus', title: 'Create a new Category', visible: true },
+      // { user: 'admin', dropdown: false, path: '/view/product-varients', icon: 'fa fa-eye', title: 'View Product product Varient Details', visible: true }
+      { user: 'admin', dropdown: false, path: 'list/category', icon: 'fa fa-list', title: 'View Categories', visible: true }
+    ]
+  },
   // {
   //   user: 'admin', dropdown: false, userName: false, className: true, title: 'Products', icon: 'product-icon', visible: true, path: '/product-varients'
   // },

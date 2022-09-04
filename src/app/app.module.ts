@@ -20,6 +20,8 @@ import { ProductVarientsListComponent } from './components/product-varients-list
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProductGroupsListComponent } from './components/product-groups-list/product-groups-list.component';
 import { ProductGroupComponent } from './components/product-group/product-group.component';
+import { CategoryListComponent } from './components/category-list/category-list.component';
+import { CategoryComponent } from './components/category/category.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { ProductGroupComponent } from './components/product-group/product-group.
     ProductVarientsListComponent,
     NavbarComponent,
     ProductGroupsListComponent,
-    ProductGroupComponent
+    ProductGroupComponent,
+    CategoryListComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,
