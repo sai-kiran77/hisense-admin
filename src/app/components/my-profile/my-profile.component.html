@@ -1,0 +1,81 @@
+<section class="userProfile">
+    <div class="card">
+      <div class="card-header position-relative card-box-shadow bt-4">
+        <h4 class="card-title m-0 font-weight-bold">User Profile</h4>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-12 mt-4">
+            <mat-tab-group animationDuration="0ms">
+              <mat-tab label="Change Password">
+
+                <section class="changePassword">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <form [formGroup]="form">
+                          <div class="row">
+                            <div class="col-12 col-md-4 form-group">
+                              <mat-form-field class="" appearance="outline">
+                                <mat-label>Current Password *</mat-label>
+                                <input matInput formControlName="current_password" [type]="currentPassword ? 'password' : 'text'">
+                                <mat-icon matSuffix class="text-muted cursor-pointer" (click)="currentPassword = !currentPassword">{{currentPassword ? 'visibility_off' :
+                                  'visibility'}}</mat-icon>
+                                <mat-error
+                                  *ngIf="form.controls['current_password'].errors && form.controls['current_password'].errors['required']">
+                                  Current password is required
+                                </mat-error>
+                              </mat-form-field>
+                            </div>
+                            <div class="col-12  col-md-4 form-group">
+                              <mat-form-field class=" " appearance="outline">
+                                <mat-label>New Password *</mat-label>
+                                <input matInput formControlName="new_password" [type]="hide ? 'password' : 'text'">
+                                <mat-icon matSuffix class="text-muted cursor-pointer" (click)="hide = !hide">{{hide ? 'visibility_off' :
+                                  'visibility'}}</mat-icon>
+                                <mat-error *ngIf="form.controls['new_password'].errors && form.controls['new_password'].errors['required']">
+                                  New password is required
+                                </mat-error>
+                                <mat-error *ngIf="form.controls['new_password'].errors && form.controls['new_password'].errors['minlength']">
+                                  New password should be minimun of 8 characters!
+                                </mat-error>
+                              </mat-form-field>
+                  
+                            </div>
+                            <div class="col-12 col-md-4 form-group">
+                              <mat-form-field class=" " appearance="outline">
+                                <mat-label>Confirm New Password *</mat-label>
+                                <input matInput formControlName="confirm_new_password" [type]="confirmPasswordHide ? 'password' : 'text'">
+                                <mat-icon matSuffix class="text-muted cursor-pointer" (click)="confirmPasswordHide = !confirmPasswordHide">{{confirmPasswordHide ? 'visibility_off' :
+                                  'visibility'}}</mat-icon>
+                                <mat-error *ngIf="form.hasError('passwordNotMatch')" class="text-danger">
+                                  Confirm passwords should match with password field!
+                                </mat-error>
+                              </mat-form-field>
+                  
+                            </div>
+                            <div class="col-md-12 mt-4 border-top pt-2 button-container">
+                              <div>
+                                <a (click)="goBack()" class="forgot-link" style="color: black; cursor: pointer;">
+                                  <i class='fas fa-arrow-left'></i> Go back
+                                </a>
+                              </div>
+                              <div>
+                                <button mat-raised-button (click)="changePassword()" class="btn btn-info"
+                                  [disabled]="!form.valid || isLoading">
+                                  Change Password <i *ngIf="isLoading" class="fas fa-circle-notch fa-spin text-white ml-1"></i>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </section>
+
+              </mat-tab>
+            </mat-tab-group>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

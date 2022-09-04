@@ -1,0 +1,22 @@
+.wrapper {
+    width: 70%;
+    margin: auto;
+}
+
+.progress-bar {
+    margin: 0 10px;
+    //   position: fixed;
+    //   top: 0;
+}
+
+.progress-bar-container {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    left: -10px;
+    z-index: 1030;
+}
+
+::ng-deep .mat-progress-bar {
+    height: 3px !important;
+}

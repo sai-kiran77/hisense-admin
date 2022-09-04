@@ -1,0 +1,103 @@
+<section class="side-wrapper">
+  <div class="logo">
+    <div class="logo-icon-container">
+      <a class="simple-text" routerLink='/dashboard'>
+        <div class="logo-img position-static">
+          <img class="position-static" src="assets/img/logo.svg" />
+          <!-- onerror="this.onerror=null;this.src='./assets/img/logo.svg'"  -->
+        </div>
+      </a>
+      <!-- <div>
+            <a class="company-name" [routerLink]="['/dashboard']" *ngIf="companyName" matTooltip=" {{companyName}}"
+              matTooltipClass="custom-tooltip">
+              {{companyName}}
+            </a>
+        </div> -->
+      <!-- <div class="links-wrapper ml-1">
+          <ng-container *ngIf="currentUser?.company_users_count > 1 && canSwitchCompany">
+            <a class="cursor-pointer links-wrapper-link " (click)="switchAccount()">
+              <i class="fas fa-exchange-alt"></i>
+              Switch Company
+            </a>
+            <p class="text-secondary">|</p>
+          </ng-container>
+          <a class="links-wrapper-link" matTooltip="Company Profile Settings" matTooltipClass="custom-tooltip"
+            [routerLink]="['/settings/company', { profile: true }]">
+            <i class="fa fa-cog" aria-hidden="true"></i>
+            Settings
+          </a>
+        </div> -->
+    </div>
+
+    <ul class="nav">
+      <!-- <li class="nav-item">
+          <a #jumpTo class="nav-link cursor-pointer jump-to-btn" (click)="isDialogOpen()">
+            <i class="fas fa-directions"></i> Jump To (ctrl + k)
+          </a>
+        </li> -->
+      <li class="nav-item">
+        <a class="nav-link cursor-pointer " routerLink='/dashboard'>
+          <i class="fas fa-home"></i> Home
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="sidebar-wrapper" [ngClass]="{'mb-0': !platformInfo.companySubscriptionPlan?.code}">
+    <ul class="nav" style="margin: 0px">
+      <ng-container *ngFor="let item of menuItems; let i = index">
+        <ng-container *ngIf="item.visible">
+          <li class="nav-item" routerLinkActive="active" *ngIf="!item?.dropdown">
+            <a class="nav-link d-flex align-items-center position-relative" (click)="routeRedirection(item?.path)">
+              <!-- <i class="{{item.icon}}"></i> -->
+              <span>{{item.title}}</span>
+            </a>
+          </li>
+          <li routerLinkActive="active" class="nav-item" *ngIf="item?.dropdown"
+            [class.active]="item?.className == isCollapsed[i]" (click)="item.isCollapsed = !item.isCollapsed">
+            <a>
+              <button style="gap: 12px;color: #000;" [attr.data-target]="'#'+item.title" data-toggle="collapse"
+                class="nav-link w-100 p-0 d-flex justify-content-center align-items-center collapsed"
+                aria-expanded="false">
+                <!-- <i class="{{item.icon}}"></i> -->
+                <p class="mb-0 d-flex justify-content-between align-items-center w-100">{{item.title }}
+                  <i class="fas fa-caret-down"></i>
+                </p>
+              </button>
+            </a>
+            <div [ngbCollapse]="item.isCollapsed" class="collapse navbar-collapse">
+              <ul class="nav">
+                <ng-container *ngFor="let dropdownItem of item?.dropDownMenu">
+                  <ng-container *ngIf="dropdownItem.visible">
+                    <li class="nav-item" routerLinkActive="active" style="margin-left:18px">
+                      <!-- [routerLink]="[dropdownItem?.path]" -->
+                      <a class="nav-link d-flex align-items-center position-relative"
+                        (click)="routeRedirection(dropdownItem?.path); $event.stopPropagation();">
+                        <!-- <i class="{{dropdownItem?.icon}}"></i> -->
+                        <span class="mr-3">{{dropdownItem?.title}}</span>
+                      </a>
+                    </li>
+                  </ng-container>
+                </ng-container>
+              </ul>
+            </div>
+          </li>
+        </ng-container>
+      </ng-container>
+      <li class="nav-item logout">
+        <a class="nav-link cursor-pointer" (click)="logout()">
+          <!-- <i class="fas fa-sign-out-alt"></i> -->
+          Logout
+        </a>
+      </li>
+      <!-- <li class="nav-item thaut-logo d-flex" *ngIf="platformInfo.companySubscriptionPlan?.code">
+          <span class="plan-type" (click)="openSubscriptionModal($event)">{{ platformInfo.companySubscriptionPlan.name }}</span>
+        </li> -->
+      <!-- <img src="assets/img/current-plan-icon.svg" width="25" height="25"> -->
+      <!-- <span>{{platformInfo.companySubscriptionPlan}}</span> -->
+      <!-- <li class="nav-item thaut-logo ">
+          <div class="powered">Powered By:</div>
+          <img class="logo-img" [src]="platformInfo.imgURL" />
+        </li> -->
+    </ul>
+  </div>
+</section>

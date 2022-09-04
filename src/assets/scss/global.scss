@@ -1,0 +1,62 @@
+@import "../../assets/scss/core/themes/primary.scss";
+
+$theme-color: $color-primary;
+
+.btn-theme ,
+.btn-theme.btn-danger {
+    background-color: $theme-color;
+    color: #FFFFFF;
+    &:hover,
+    &:focus{
+        background-color: #3386f3
+    }
+}
+.toast-container .ngx-toastr{
+    padding-left: 15px
+}
+.h-100vh{
+    height: 100vh;
+}
+
+.margin-left-20 {
+    margin-left: 20px;
+}
+
+.delight {
+    color: #9400D3;
+    margin-top: -1px;
+}
+
+.angry {
+    color: #FF0000;
+    margin-top: -1px;
+}
+
+.happy {
+    color: #4B0082;
+    margin-top: -1px;
+}
+
+.mix-positive {
+    color:	#0000FF;
+    margin-top: -1px;
+}
+
+.mix-negative {
+    color: #FFFF00;
+    margin-top: -1px;
+}
+
+.neutral {
+    color: #00FF00;
+    margin-top: -1px;
+}
+
+.un-happy {
+    color: #FF7F00;
+    margin-top: -1px;
+}
+
+a:hover, a:focus {
+    box-shadow: none;
+}

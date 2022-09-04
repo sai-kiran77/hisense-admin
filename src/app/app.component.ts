@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiService } from './services/api.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'hisense-admin';
+  isMenuCollapsed = true;
+  apiService: any;
+
+  constructor(private api: ApiService){
+    this.apiService = this.api;
+  }
 }
