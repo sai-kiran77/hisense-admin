@@ -13,6 +13,7 @@ import { ProductGroupComponent } from './components/product-group/product-group.
 import { ProductGroupsListComponent } from './components/product-groups-list/product-groups-list.component';
 import { ProductVarientsListComponent } from './components/product-varients-list/product-varients-list.component';
 import { ProductsComponent } from './components/products/products.component';
+import { TechTestimonialsComponent } from './components/tech-testimonials/tech-testimonials.component';
 
 const routes: Routes = [
   {
@@ -80,6 +81,10 @@ const routes: Routes = [
       {
         path: 'press-coverages',
         component: PressCoveragesComponent
+      },
+      {
+        path: 'tech-testimonials',
+        component: TechTestimonialsComponent
       },
       {
         path: '', redirectTo: '/dashboard', pathMatch: 'full'

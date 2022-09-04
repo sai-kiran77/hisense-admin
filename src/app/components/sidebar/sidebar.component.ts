@@ -74,6 +74,9 @@ export const ROUTES: any[] = [
   {
     user: 'admin', dropdown: false, userName: false, className: true, title: 'Press coverages', icon: 'product-icon', visible: true, path: '/press-coverages'
   },
+  {
+    user: 'admin', dropdown: false, userName: false, className: true, title: 'Tech testimonials', icon: 'product-icon', visible: true, path: '/tech-testimonials'
+  },
   // {
   //   user: 'admin', dropdown: false, userName: false, className: true, title: 'My Profile', icon: 'fas fa-id-card', visible: true, path: '/user-profile'
   // }

@@ -184,6 +184,13 @@ export class ApiService {
     });
   }
 
+  getTechTestimonials() {
+    const uuid = this.getLocalStorage('currentUserSession').uuid;
+    return this.http.get(this.baseUrl + `/v1/tech-testimonials`, {
+      headers: new HttpHeaders({ 'admin-user-uuid': uuid })
+    });
+  }
+
   createPressCoverage(body: any) {
     const uuid = this.getLocalStorage('currentUserSession').uuid;
     return this.http.post(this.baseUrl + '/v1/admin/press-coverages', body, {
@@ -191,9 +198,23 @@ export class ApiService {
     })
   }
 
+  createTechTestimonial(body: any) {
+    const uuid = this.getLocalStorage('currentUserSession').uuid;
+    return this.http.post(this.baseUrl + '/v1/admin/tech-testimonials', body, {
+      headers: new HttpHeaders({ 'admin-user-uuid': uuid })
+    })
+  }
+
   deletePressCoverage(id: any){
     const uuid = this.getLocalStorage('currentUserSession').uuid;
     return this.http.delete(this.baseUrl + `/v1/admin/press-coverages/${id}`, {
+      headers: new HttpHeaders({ 'admin-user-uuid': uuid })
+    })
+  }
+
+  deleteTeschTestimonial(id: any){
+    const uuid = this.getLocalStorage('currentUserSession').uuid;
+    return this.http.delete(this.baseUrl + `/v1/admin/tech-testimonials/${id}`, {
       headers: new HttpHeaders({ 'admin-user-uuid': uuid })
     })
   }

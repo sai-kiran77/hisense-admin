@@ -1,0 +1,52 @@
+<div class="modal-container">
+    <div class="header border-bottom">
+        <h4 mat-dialog-title>Create a Tech Testimonial</h4>
+        <mat-icon [mat-dialog-close]="false" class="close-icon ">close</mat-icon>
+    </div>
+    <div class="body">
+        <mat-dialog-content class="mat-dialog">
+            <div class="row p-3">
+                <div class="col-md-12">
+                    <form [formGroup]="form">
+                        <div class="row">
+                            <div class="col-6 form-group">
+                                <mat-form-field appearance="outline">
+                                    <mat-label class="mat-label-field-padding">Description</mat-label>
+                                    <input matInput formControlName="description" type="text" />
+                                    <mat-error
+                                        *ngIf="formSubmitted || (formControl['description'].errors && formControl['description'].errors['required'])">
+                                        Description is required!
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            
+                            <div class="col-6 col-lg-3 form-group">
+                                <mat-form-field appearance="outline">
+                                    <mat-label class="mat-label-field-padding">Youtube URL</mat-label>
+                                    <input matInput formControlName="youtube_url" type="text" />
+                                    <mat-error
+                                        *ngIf="formSubmitted || (formControl['youtube_url'].errors && formControl['youtube_url'].errors['required'])">
+                                        Youtube URL is required!
+                                    </mat-error>
+                                    <mat-error
+                                        *ngIf="formSubmitted || (formControl['youtube_url'].errors && formControl['youtube_url'].errors['pattern'])">
+                                        URL is not valid!
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </mat-dialog-content>
+    </div>
+    <div class="footer">
+        <button class="btn btn-theme ml-3 mb-3" (click)="dialogRef.close()">
+            Cancel
+        </button>
+        <button class="btn btn-info ml-3 mb-3" (click)="createPressCoverage()">
+            Create
+        </button>
+    </div>
+</div>

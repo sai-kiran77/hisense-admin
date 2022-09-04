@@ -26,6 +26,8 @@ import { StatsCardComponent } from './components/stats-card/stats-card.component
 import { ContactRequestsComponent } from './components/contact-requests/contact-requests.component';
 import { PressCoveragesComponent } from './components/press-coverages/press-coverages.component';
 import { PressCoverageModalComponent } from './components/press-coverage-modal/press-coverage-modal.component';
+import { TechTestimonialsComponent } from './components/tech-testimonials/tech-testimonials.component';
+import { TechTestimonialsModalComponent } from './components/tech-testimonials-modal/tech-testimonials-modal.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { PressCoverageModalComponent } from './components/press-coverage-modal/p
     StatsCardComponent,
     ContactRequestsComponent,
     PressCoveragesComponent,
-    PressCoverageModalComponent
+    PressCoverageModalComponent,
+    TechTestimonialsComponent,
+    TechTestimonialsModalComponent
   ],
   imports: [
     BrowserModule,
