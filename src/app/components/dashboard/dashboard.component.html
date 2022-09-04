@@ -1,1 +1,40 @@
-<p>dashboard works!</p>
+<section class="cards-container">
+    <article class="row">
+        <article class="col-md-4 col-sm-6 col-xs-12 ">
+            <!--fa fa-location-arrow-->
+            <app-stats-card class="cursor-pointer" [routerLink]="['/list/category']"
+                [headerType]="'card-header-warning'" [cardIcon]="'fas fa-users-cog'" [heading]="'Category'"
+                >
+                <!-- [value]="dashboardInformation?.accounts_count" -->
+            </app-stats-card>
+        </article>
+        
+        <article class="col-md-4 col-sm-6 col-xs-12 ">
+            <app-stats-card class=" cursor-pointer" [routerLink]="['/list/product-group']"
+                [headerType]="'card-header-success'" [cardIcon]="'fa fa-user-tie'" [heading]="'Product groups'"
+                ></app-stats-card>
+                <!-- [value]="dashboardInformation?.company_customers_count" -->
+        </article>
+
+        <article class="col-md-4 col-sm-6 col-xs-12  cursor-pointer">
+            <app-stats-card class=" cursor-pointer" [routerLink]="['/list/product-varients']" [headerType]="'card-header-rose'"
+                [cardIcon]="'fas fa-bullhorn'" [heading]="'Products'"
+                ></app-stats-card>
+                <!-- [value]="dashboardInformation?.thaut_campaigns_count"  -->
+        </article>
+
+
+        <!--fa fa-book-->
+        <!-- <article class="col-md-4 col-sm-6 col-xs-12">
+            <app-stats-card [headerType]="'card-header-danger'" [cardIcon]="'fa fa-comments'" 
+            [heading]="'Engagements'" [value]="dashboardInformation?.customer_engagements_count"></app-stats-card>
+        </article> -->
+
+        <!--fa fa-database fa fa-window-restore-->
+        <!-- <article class="col-md-4 col-sm-6 col-xs-12">
+            <app-stats-card [headerType]="'card-header-info'" [cardIcon]="'fas fa-exchange-alt'"
+             [heading]="'Interactions'" [value]="dashboardInformation?.customer_engagement_interactions_count">
+            </app-stats-card>
+        </article> -->
+    </article>
+</section>

@@ -81,7 +81,7 @@ export class ProductGroupComponent implements OnInit {
     this.api.getProductGroupInfo(this.activatedroute.snapshot.params['id']).subscribe({
       next: (res: any) => {
         console.log(res);
-        this.products = res?.data?.products;
+        // this.products = res?.data?.products;
         // this.purchaseLinksMetaData = this.metaData?.product_variant_purchase_link_vendors;
         // this.purchaseLinksMetaData.forEach((obj: any) => {
         //   this.purchaseLinks[obj.code] = res.data.product_variant_purchase_links.find((o: any) => o.vendor == obj.code)?.purchase_link;
@@ -90,7 +90,7 @@ export class ProductGroupComponent implements OnInit {
           code: res?.data?.code,
           name: res?.data?.name,
           product_type_id: res?.data?.product_type_id,
-          category_id: res?.data?.category_products[0].id,
+          category_id: res?.data?.category_products[0].category_id,
           is_enabled: res?.data?.is_enabled,
         })
 

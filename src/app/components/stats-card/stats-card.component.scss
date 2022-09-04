@@ -1,0 +1,63 @@
+// @import "../../../../assets/scss/core/themes/primary.scss";
+@import "../../../assets/scss/core/themes/primary.scss";
+
+.card-icon {
+  padding: 5px !important;
+  position: absolute;
+  background: #eaaa10 !important;
+  color: white;
+  top: -24px;
+
+  i {
+    font-size: 26px;
+    // line-height: 44px;
+    // width: 44px;
+    // height: 44px;
+    padding: 7px;
+  }
+
+  // .endpoint-form-icon{
+  //   background: url("assets/svgs/endpoint-form.svg") no-repeat;
+  //   height: 36px !important;
+  //   width: 36px !important;
+  //   display: block;
+  // }
+}
+
+.card-header-success .card-icon{
+  background-color: #32a00d !important;
+}
+
+.card-header-rose .card-icon{
+  background-color: #c055b5 !important;
+}
+
+
+a {
+  &:not(.active) {
+    border: 2px solid transparent;
+  }
+
+  &.success {
+    border: 2px solid #32a00d;
+  }
+
+  &.warning.active {
+    border: 2px solid #eaaa10;
+  }
+
+  &.danger.active {
+    border: 2px solid #c41414;
+  }
+
+  &.info.active {
+    border: 2px solid $color-primary;
+  }
+}
+
+@media print {
+  .card-stats {
+    -webkit-filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.466));
+    -webkit-print-color-adjust: exact;
+  }
+}

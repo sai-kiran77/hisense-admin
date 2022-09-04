@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
         // this.getPlatformInfo();
     }
     ngOnInit() {
-        if (this.api.getLocalStorage('currentUserSession') && this.api.getLocalStorage('currentUserSession').loggedIn == 1) {
+        if (this.api.getLocalStorage('currentUserSession') && this.api.getLocalStorage('currentUserSession').uuid) {
             this.router.navigate(['/dashboard']);
         }
     }

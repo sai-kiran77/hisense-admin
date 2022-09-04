@@ -126,6 +126,13 @@ export class ApiService {
     });
   }
 
+  updateCategoryInfo(productId: any, body: any) {
+    const uuid = this.getLocalStorage('currentUserSession').uuid;
+    return this.http.post(this.baseUrl + `/v1/admin/categories/${productId}`, body, {
+      headers: new HttpHeaders({ 'admin-user-uuid': uuid })
+    });
+  }
+
   createProductVarient(body: any) {
     const uuid = this.getLocalStorage('currentUserSession').uuid;
     return this.http.post(this.baseUrl + '/v1/admin/product-variants', body, {

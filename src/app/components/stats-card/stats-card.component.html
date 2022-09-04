@@ -1,0 +1,22 @@
+<ng-container *ngIf="link; then cardWithLink; else showDefaultCard"></ng-container>
+
+<ng-template #cardWithLink>
+    <a [routerLink]="[link]" routerLinkActive="active" class="card card-stats {{ headerType }} my-3" style="height: 100px;">
+        <div class="card-header card-header-{{ headerType }} card-header-icon" style="border-bottom: none !important;">
+            <div class="card-icon"><i class="{{ cardIcon }}"></i></div>
+            <p class="card-category" style="text-align: right;"> {{ heading }} </p>
+            <!-- <h3 class="card-title mb-3">{{ value || 0 }}</h3> -->
+        </div>
+    </a>
+</ng-template>
+<ng-template #showDefaultCard>
+    <article class="stats-card">
+        <div class="card card-stats my-3" style="height: 100px;">
+            <div class="card-header {{ headerType }} card-header-icon" style="border-bottom: none !important;">
+                <div class="card-icon"><i class="{{ cardIcon }}"></i></div>
+                <p class="card-category" style="text-align: right;"> {{ heading }} </p>
+                <!-- <h3 class="card-title mb-3">{{ value || 0 }}</h3> -->
+            </div>
+        </div>
+    </article>
+</ng-template>

@@ -71,9 +71,9 @@ export const ROUTES: any[] = [
   // {
   //   user: 'admin', dropdown: false, userName: false, className: true, title: 'Products', icon: 'product-icon', visible: true, path: '/product-varients'
   // },
-  {
-    user: 'admin', dropdown: false, userName: false, className: true, title: 'My Profile', icon: 'fas fa-id-card', visible: true, path: '/user-profile'
-  }
+  // {
+  //   user: 'admin', dropdown: false, userName: false, className: true, title: 'My Profile', icon: 'fas fa-id-card', visible: true, path: '/user-profile'
+  // }
 ];
 
 @Component({

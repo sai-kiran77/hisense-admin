@@ -104,6 +104,8 @@
                       <mat-form-field class="my-2" appearance="outline">
                         <mat-label class="mat-label-field-padding">Update {{element.name}} Link</mat-label>
                         <input matInput [(ngModel)]="purchaseLinks[element.code]" type="text" />
+                        <mat-hint *ngIf="isLinkValid(purchaseLinks[element.code])" class="error">Invalid Url!
+                        </mat-hint>
                       </mat-form-field>
                     </td>
                   </ng-container>
@@ -194,7 +196,8 @@
                         <tr mat-header-row *matHeaderRowDef="productImagesDisplayedColumns"></tr>
                         <tr mat-row *matRowDef="let row; columns: productImagesDisplayedColumns;"></tr>
                       </table>
-                      <div class="text-center my-3" *ngIf="!productImagesDataSource?.data?.length">No Records Found!</div>
+                      <div class="text-center my-3" *ngIf="!productImagesDataSource?.data?.length">No Records Found!
+                      </div>
                     </div>
                     <div class="m-3" style="margin-top: 80px !important;">
                       <h4 style="font-weight: bold;">Upload More Images</h4>
@@ -203,7 +206,8 @@
                         <img [src]="img" *ngFor="let img of myFilesImages" width="100" height="100">
                       </div>
 
-                      <button style="font-size: 12px;" mat-raised-button (click)="browseMultipleFileButtonClicked()" class="btn btn-info">
+                      <button style="font-size: 12px;" mat-raised-button (click)="browseMultipleFileButtonClicked()"
+                        class="btn btn-info">
                         Browse Multiple Files
                       </button>
                       <input multiple #inputMMultipleFiles (change)="onFileChange($event)" type="file" hidden />

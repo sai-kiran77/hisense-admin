@@ -82,7 +82,6 @@ export class ProductsComponent implements OnInit {
     this.api.getProductVarientInfo(this.activatedroute.snapshot.params['id']).subscribe({
       next: (res: any) => {
         console.log(res);
-        this.products = res?.data?.products;
         this.purchaseLinksMetaData = this.metaData?.product_variant_purchase_link_vendors;
         this.purchaseLinksMetaData.forEach((obj: any) => {
           this.purchaseLinks[obj.code] = res.data.product_variant_purchase_links.find((o: any) => o.vendor == obj.code)?.purchase_link;
@@ -97,13 +96,17 @@ export class ProductsComponent implements OnInit {
         })
 
         this.dataSource = new MatTableDataSource<any>(this.metaData?.product_variant_purchase_link_vendors);
-        res.data.thumb_image.type = 'Large Size'
-        res.data.thumb_image_medium.type = 'Medium Size'
+        const array = [];
+        if (res.data.thumb_image) {
+          res.data.thumb_image.type = 'Large Size'
+          array.push(res.data?.thumb_image);
+        }
+        if (res.data.thumb_image_medium) {
+          res.data.thumb_image_medium.type = 'Medium Size'
+          array.push(res.data?.thumb_image_medium);
+        }
 
-        this.imagesDataSource = new MatTableDataSource<any>([
-          res.data?.thumb_image,
-          res.data?.thumb_image_medium,
-        ])
+        this.imagesDataSource = new MatTableDataSource<any>(array)
 
         this.productImagesDataSource = new MatTableDataSource<any>(res.data.slider_images);
       },
@@ -128,7 +131,7 @@ export class ProductsComponent implements OnInit {
           this.isLoading = false;
           console.log(res);
           this.toaster.success(res.message);
-          this.router.navigate(['/update/product-varients',res.data.id])
+          this.router.navigate(['/update/product-varients', res.data.id])
         },
         error: (err) => {
           this.isLoading = false;
@@ -159,6 +162,11 @@ export class ProductsComponent implements OnInit {
           }
         })
       } else if (this.selectedIndex == 1) {
+        for (let key in this.purchaseLinks) {
+          if (this.purchaseLinks[key] && this.isLinkValid(this.purchaseLinks[key])) {
+            return;
+          }
+        }
         this.isLoading = true;
         console.log(this.purchaseLinks)
         this.api.updateProductVarientInfo(this.activatedroute.snapshot.params['id'], this.purchaseLinks).subscribe({
@@ -326,6 +334,10 @@ export class ProductsComponent implements OnInit {
         this.toaster.error(err.error.message);
       }
     })
+  }
+
+  isLinkValid(link: string) {
+    return link && !/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/.test(link);
   }
 
   goBack() {

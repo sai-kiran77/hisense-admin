@@ -22,6 +22,7 @@ import { ProductGroupsListComponent } from './components/product-groups-list/pro
 import { ProductGroupComponent } from './components/product-group/product-group.component';
 import { CategoryListComponent } from './components/category-list/category-list.component';
 import { CategoryComponent } from './components/category/category.component';
+import { StatsCardComponent } from './components/stats-card/stats-card.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { CategoryComponent } from './components/category/category.component';
     ProductGroupsListComponent,
     ProductGroupComponent,
     CategoryListComponent,
-    CategoryComponent
+    CategoryComponent,
+    StatsCardComponent
   ],
   imports: [
     BrowserModule,

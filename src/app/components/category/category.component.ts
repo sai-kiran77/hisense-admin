@@ -105,10 +105,10 @@ export class CategoryComponent implements OnInit {
           res.data.thumb_image.type = 'Thumb Image'
           array.push(res.data.thumb_image)
         }
-        // if(res.data.thumb_image_medium){
-        //   res.data.thumb_image_medium.type = 'Thumb Image Medium'
-        //   array.push(res.data.thumb_image_medium)
-        // }
+        if(res.data.thumb_image_medium){
+          res.data.thumb_image_medium.type = 'Thumb Image Medium'
+          array.push(res.data.thumb_image_medium)
+        }
         if(res.data.thumb_image_small){
           res.data.thumb_image_small.type = 'Thumb Image Small'
           array.push(res.data.thumb_image_small)
@@ -160,8 +160,10 @@ export class CategoryComponent implements OnInit {
           return;
         }
         this.isLoading = true;
-        // this.productVarientForm.value.is_enabled = this.productVarientForm.value.is_enabled ? 1 : 0;
-        this.api.updateProductVarientInfo(this.activatedroute.snapshot.params['id'], this.productVarientForm.value).subscribe({
+        if(this.productVarientForm.value.parent_category_id == 'null'){
+          this.productVarientForm.value.parent_category_id = null;
+        }
+        this.api.updateCategoryInfo(this.activatedroute.snapshot.params['id'], this.productVarientForm.value).subscribe({
           next: (res: any) => {
             this.isLoading = false;
             console.log(res);
@@ -230,8 +232,10 @@ export class CategoryComponent implements OnInit {
     let mediaType = '';
     if (type == 'Thumb Image') {
       mediaType = 'thumb_image'
-    } else {
+    } else if(type == 'Thumb Image Small'){
       mediaType = 'thumb_image_small'
+    }else{
+      mediaType = 'thumb_image_medium'
     }
 
     var reader = new FileReader();
