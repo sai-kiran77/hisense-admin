@@ -23,6 +23,9 @@ import { ProductGroupComponent } from './components/product-group/product-group.
 import { CategoryListComponent } from './components/category-list/category-list.component';
 import { CategoryComponent } from './components/category/category.component';
 import { StatsCardComponent } from './components/stats-card/stats-card.component';
+import { ContactRequestsComponent } from './components/contact-requests/contact-requests.component';
+import { PressCoveragesComponent } from './components/press-coverages/press-coverages.component';
+import { PressCoverageModalComponent } from './components/press-coverage-modal/press-coverage-modal.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,10 @@ import { StatsCardComponent } from './components/stats-card/stats-card.component
     ProductGroupComponent,
     CategoryListComponent,
     CategoryComponent,
-    StatsCardComponent
+    StatsCardComponent,
+    ContactRequestsComponent,
+    PressCoveragesComponent,
+    PressCoverageModalComponent
   ],
   imports: [
     BrowserModule,

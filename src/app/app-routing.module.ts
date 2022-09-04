@@ -3,10 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth.guard';
 import { CategoryListComponent } from './components/category-list/category-list.component';
 import { CategoryComponent } from './components/category/category.component';
+import { ContactRequestsComponent } from './components/contact-requests/contact-requests.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { LoginComponent } from './components/login/login.component';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
+import { PressCoveragesComponent } from './components/press-coverages/press-coverages.component';
 import { ProductGroupComponent } from './components/product-group/product-group.component';
 import { ProductGroupsListComponent } from './components/product-groups-list/product-groups-list.component';
 import { ProductVarientsListComponent } from './components/product-varients-list/product-varients-list.component';
@@ -70,6 +72,14 @@ const routes: Routes = [
       {
         path: 'user-profile',
         component: MyProfileComponent
+      },
+      {
+        path: 'contact-requests',
+        component: ContactRequestsComponent
+      },
+      {
+        path: 'press-coverages',
+        component: PressCoveragesComponent
       },
       {
         path: '', redirectTo: '/dashboard', pathMatch: 'full'

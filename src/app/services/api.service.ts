@@ -168,6 +168,36 @@ export class ApiService {
     })
   }
 
+  getContactRequests(params: any) {
+    const uuid = this.getLocalStorage('currentUserSession').uuid;
+    return this.http.get(this.baseUrl + `/v1/admin/contact-requests`, {
+      params,
+      headers: new HttpHeaders({ 'admin-user-uuid': uuid })
+    });
+  }
+
+  getPressCoverages(params: any) {
+    const uuid = this.getLocalStorage('currentUserSession').uuid;
+    return this.http.get(this.baseUrl + `/v1/press-coverages`, {
+      params,
+      headers: new HttpHeaders({ 'admin-user-uuid': uuid })
+    });
+  }
+
+  createPressCoverage(body: any) {
+    const uuid = this.getLocalStorage('currentUserSession').uuid;
+    return this.http.post(this.baseUrl + '/v1/admin/press-coverages', body, {
+      headers: new HttpHeaders({ 'admin-user-uuid': uuid })
+    })
+  }
+
+  deletePressCoverage(id: any){
+    const uuid = this.getLocalStorage('currentUserSession').uuid;
+    return this.http.delete(this.baseUrl + `/v1/admin/press-coverages/${id}`, {
+      headers: new HttpHeaders({ 'admin-user-uuid': uuid })
+    })
+  }
+
   changePassword(a: any, b: any): any {
 
   }
