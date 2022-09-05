@@ -80,6 +80,9 @@ export const ROUTES: any[] = [
   {
     user: 'admin', dropdown: false, userName: false, className: true, title: 'Offers and Promotions', icon: 'product-icon', visible: true, path: '/offers-and-promotions'
   },
+  {
+    user: 'admin', dropdown: false, userName: false, className: true, title: 'Home Page Slides', icon: 'product-icon', visible: true, path: '/home-slider'
+  },
   // {
   //   user: 'admin', dropdown: false, userName: false, className: true, title: 'My Profile', icon: 'fas fa-id-card', visible: true, path: '/user-profile'
   // }

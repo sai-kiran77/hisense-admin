@@ -153,6 +153,13 @@ export class ApiService {
       headers: new HttpHeaders({ 'admin-user-uuid': uuid })
     })
   }
+
+  createHomePageSlide(fd: any) {
+    const uuid = this.getLocalStorage('currentUserSession').uuid;
+    return this.http.post(this.baseUrl + '/v1/admin/home-page-slides', fd, {
+      headers: new HttpHeaders({ 'admin-user-uuid': uuid })
+    })
+  }
   
   uploadFiles(fd: any){
     const uuid = this.getLocalStorage('currentUserSession').uuid;
@@ -199,6 +206,13 @@ export class ApiService {
     });
   }
 
+  getHomePageSlides() {
+    const uuid = this.getLocalStorage('currentUserSession').uuid;
+    return this.http.get(this.baseUrl + `/v1/admin/home-page-slides`, {
+      headers: new HttpHeaders({ 'admin-user-uuid': uuid })
+    });
+  }
+
   createPressCoverage(body: any) {
     const uuid = this.getLocalStorage('currentUserSession').uuid;
     return this.http.post(this.baseUrl + '/v1/admin/press-coverages', body, {
@@ -230,6 +244,13 @@ export class ApiService {
   deleteOffersAndPromotions(id: any){
     const uuid = this.getLocalStorage('currentUserSession').uuid;
     return this.http.delete(this.baseUrl + `/v1/admin/offer-promotions/${id}`, {
+      headers: new HttpHeaders({ 'admin-user-uuid': uuid })
+    })
+  }
+  
+  deleteHomePageSlide(id: any){
+    const uuid = this.getLocalStorage('currentUserSession').uuid;
+    return this.http.delete(this.baseUrl + `/v1/admin/home-page-slides/${id}`, {
       headers: new HttpHeaders({ 'admin-user-uuid': uuid })
     })
   }

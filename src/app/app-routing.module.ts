@@ -5,6 +5,7 @@ import { CategoryListComponent } from './components/category-list/category-list.
 import { CategoryComponent } from './components/category/category.component';
 import { ContactRequestsComponent } from './components/contact-requests/contact-requests.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { HomeSliderComponent } from './components/home-slider/home-slider.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { LoginComponent } from './components/login/login.component';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
@@ -91,6 +92,10 @@ const routes: Routes = [
       {
         path: 'offers-and-promotions',
         component: OffersAndPromotionsComponent
+      },
+      {
+        path: 'home-slider',
+        component: HomeSliderComponent
       },
       {
         path: '', redirectTo: '/dashboard', pathMatch: 'full'

@@ -30,6 +30,8 @@ import { TechTestimonialsComponent } from './components/tech-testimonials/tech-t
 import { TechTestimonialsModalComponent } from './components/tech-testimonials-modal/tech-testimonials-modal.component';
 import { OffersAndPromotionsComponent } from './components/offers-and-promotions/offers-and-promotions.component';
 import { OffersAndPromotionsModalComponent } from './components/offers-and-promotions-modal/offers-and-promotions-modal.component';
+import { HomeSliderComponent } from './components/home-slider/home-slider.component';
+import { HomeSliderModalComponent } from './components/home-slider-modal/home-slider-modal.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,9 @@ import { OffersAndPromotionsModalComponent } from './components/offers-and-promo
     TechTestimonialsComponent,
     TechTestimonialsModalComponent,
     OffersAndPromotionsComponent,
-    OffersAndPromotionsModalComponent
+    OffersAndPromotionsModalComponent,
+    HomeSliderComponent,
+    HomeSliderModalComponent
   ],
   imports: [
     BrowserModule,
