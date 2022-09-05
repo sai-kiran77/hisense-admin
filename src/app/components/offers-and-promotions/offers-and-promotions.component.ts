@@ -7,6 +7,8 @@ import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/services/api.service';
 import { OffersAndPromotionsModalComponent } from '../offers-and-promotions-modal/offers-and-promotions-modal.component';
 
+declare var swal: any;
+
 @Component({
   selector: 'app-offers-and-promotions',
   templateUrl: './offers-and-promotions.component.html',
@@ -56,20 +58,31 @@ export class OffersAndPromotionsComponent implements OnInit {
   }
 
   deleteItem(el: any) {
-    console.log(el);
-    this.api.deleteOffersAndPromotions(el.id).subscribe({
-      next: (res: any) => {
-        console.log(res);
-        this.isLoading = false;
-        this.toaster.success(res.message)
-        this.getPressCoverages();
-      },
-      error: (err: any) => {
-        this.isLoading = false;
-        console.log(err);
-        this.toaster.error(err.error.message);
-      }
+    swal({
+      text: 'Are you sure you want to Delete?',
+      type: 'warning',
+      showConfirmButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No'
     })
+      .then((willDelete: any) => {
+        console.log(el);
+        this.api.deleteOffersAndPromotions(el.id).subscribe({
+          next: (res: any) => {
+            console.log(res);
+            this.isLoading = false;
+            this.toaster.success(res.message)
+            this.getPressCoverages();
+          },
+          error: (err: any) => {
+            this.isLoading = false;
+            console.log(err);
+            this.toaster.error(err.error.message);
+          }
+        })
+      }, (error: any) => { });
+
   }
 
   openSubscriptionModal() {

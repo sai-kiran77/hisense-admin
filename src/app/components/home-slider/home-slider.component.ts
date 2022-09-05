@@ -7,6 +7,8 @@ import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/services/api.service';
 import { HomeSliderModalComponent } from '../home-slider-modal/home-slider-modal.component';
 
+declare var swal: any;
+
 @Component({
   selector: 'app-home-slider',
   templateUrl: './home-slider.component.html',
@@ -14,7 +16,7 @@ import { HomeSliderModalComponent } from '../home-slider-modal/home-slider-modal
 })
 export class HomeSliderComponent implements OnInit {
 
-  displayedColumns: string[] = ['Link', 'desktop image', 'mobile image','priority', 'Actions'];
+  displayedColumns: string[] = ['Link', 'desktop image', 'mobile image', 'priority', 'Actions'];
   dataSource: any;
   // pageSize = 50;
   isLoading = false;
@@ -56,20 +58,31 @@ export class HomeSliderComponent implements OnInit {
   }
 
   deleteItem(el: any) {
-    console.log(el);
-    this.api.deleteHomePageSlide(el.id).subscribe({
-      next: (res: any) => {
-        console.log(res);
-        this.isLoading = false;
-        this.toaster.success(res.message)
-        this.getPressCoverages();
-      },
-      error: (err: any) => {
-        this.isLoading = false;
-        console.log(err);
-        this.toaster.error(err.error.message);
-      }
+    swal({
+      text: 'Are you sure you want to Delete?',
+      type: 'warning',
+      showConfirmButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No'
     })
+      .then((willDelete: any) => {
+        console.log(el);
+        this.api.deleteHomePageSlide(el.id).subscribe({
+          next: (res: any) => {
+            console.log(res);
+            this.isLoading = false;
+            this.toaster.success(res.message)
+            this.getPressCoverages();
+          },
+          error: (err: any) => {
+            this.isLoading = false;
+            console.log(err);
+            this.toaster.error(err.error.message);
+          }
+        })
+      }, (error: any) => { });
+
   }
 
   openSubscriptionModal() {

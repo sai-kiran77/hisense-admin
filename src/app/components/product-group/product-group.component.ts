@@ -7,6 +7,8 @@ import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/services/api.service';
 import { environment } from 'src/environments/environment';
 
+declare var swal: any;
+
 @Component({
   selector: 'app-product-group',
   templateUrl: './product-group.component.html',
@@ -23,7 +25,7 @@ export class ProductGroupComponent implements OnInit {
   purchaseLinks: any = {};
   metaData: any;
 
-  displayedColumns: string[] = ['Product', 'Open on Website','Actions']; //'Purchase Link'
+  displayedColumns: string[] = ['Product', 'Open on Website', 'Actions']; //'Purchase Link'
   productImagesDisplayedColumns: any = ['Image', 'Actions'];
   dataSource: any;
   imagesDataSource: any;
@@ -120,7 +122,7 @@ export class ProductGroupComponent implements OnInit {
       if (!this.productVarientForm.valid) {
         return;
       }
-      this.isLoading = true; 
+      this.isLoading = true;
       const category_products = {
         category_products: [{
           category_id: this.productVarientForm.value.category_id
@@ -133,7 +135,7 @@ export class ProductGroupComponent implements OnInit {
           this.isLoading = false;
           console.log(res);
           this.toaster.success(res.message);
-          this.router.navigate(['/update/product-group',res.data.id])
+          this.router.navigate(['/update/product-group', res.data.id])
         },
         error: (err) => {
           this.isLoading = false;
@@ -253,18 +255,29 @@ export class ProductGroupComponent implements OnInit {
   }
 
   removeFile(ele: any) {
-    console.log(ele)
-    this.api.deleteFiles(ele.id).subscribe({
-      next: (res: any) => {
-        console.log(res);
-        this.loadProductInfo();
-        this.toaster.success(res.message);
-      },
-      error: err => {
-        console.log(err);
-        this.toaster.error(err.error.message);
-      }
+    swal({
+      text: 'Are you sure you want to Delete?',
+      type: 'warning',
+      showConfirmButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No'
     })
+      .then((willDelete: any) => {
+        console.log(ele)
+        this.api.deleteFiles(ele.id).subscribe({
+          next: (res: any) => {
+            console.log(res);
+            this.loadProductInfo();
+            this.toaster.success(res.message);
+          },
+          error: err => {
+            console.log(err);
+            this.toaster.error(err.error.message);
+          }
+        })
+      }, (error: any) => {
+      });
   }
 
   @ViewChild('inputMMultipleFiles') inputMultipleFiles: any;

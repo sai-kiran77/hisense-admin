@@ -7,6 +7,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/services/api.service';
 
+declare var swal: any;
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -198,7 +200,7 @@ export class ProductsComponent implements OnInit {
       this.imagesTabSelectedIndex = 1;
       setTimeout(() => {
         this.imagesTabSelectedIndex = 0;
-      }, 100)
+      }, 0)
     }
   }
 
@@ -271,18 +273,29 @@ export class ProductsComponent implements OnInit {
   }
 
   removeFile(ele: any) {
-    console.log(ele)
-    this.api.deleteFiles(ele.id).subscribe({
-      next: (res: any) => {
-        console.log(res);
-        this.loadProductInfo();
-        this.toaster.success(res.message);
-      },
-      error: err => {
-        console.log(err);
-        this.toaster.error(err.error.message);
-      }
+    swal({
+      text: 'Are you sure you want to Delete?',
+      type: 'warning',
+      showConfirmButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No'
     })
+      .then((willDelete: any) => {
+        console.log(ele)
+        this.api.deleteFiles(ele.id).subscribe({
+          next: (res: any) => {
+            console.log(res);
+            this.loadProductInfo();
+            this.toaster.success(res.message);
+          },
+          error: err => {
+            console.log(err);
+            this.toaster.error(err.error.message);
+          }
+        })
+      }, (error: any) => {
+      });
   }
 
   @ViewChild('inputMMultipleFiles') inputMultipleFiles: any;

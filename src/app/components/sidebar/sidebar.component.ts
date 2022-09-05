@@ -48,7 +48,7 @@ export const ROUTES: any[] = [
   //   user: 'admin', dropdown: false, userName: false, className: true, title: 'QR Code Generator', icon: 'qr-generator-icon', visible: true, path: '/qr-code-generator'
   // },
   {
-    user: 'admin', dropdown: true, userName: false, className: true, title: 'Product', icon: 'product-icon', visible: true,isCollapsed: true, dropDownMenu: [
+    user: 'admin', dropdown: true, userName: false, className: true, title: 'Product', icon: 'product-icon', visible: true, isCollapsed: true, dropDownMenu: [
       { user: 'admin', dropdown: false, path: '/create/product-varients', icon: 'fa fa-plus', title: 'Create a new product', visible: true },
       // { user: 'admin', dropdown: false, path: '/view/product-varients', icon: 'fa fa-eye', title: 'View Product product Varient Details', visible: true }
       { user: 'admin', dropdown: false, path: '/list/product-varients', icon: 'fa fa-list', title: 'View Products', visible: true }
@@ -177,7 +177,7 @@ export class SidebarComponent implements OnInit, AfterContentChecked, OnDestroy 
 
   logout() {
     swal({
-      text: 'Are you sure want to logout?',
+      text: 'Are you sure you want to logout?',
       type: 'warning',
       showConfirmButton: true,
       showCancelButton: true,
@@ -186,12 +186,6 @@ export class SidebarComponent implements OnInit, AfterContentChecked, OnDestroy 
     })
       .then((willDelete: any) => {
         this.api.logout();
-        // this.utility.removeLocalStorage('authToken');
-        // this.utility.removeLocalStorage('currentUserSession');
-        // this.utility.removeLocalStorage('companyUsers');
-        // this.utility.removeLocalStorage('companies');
-        // this.utility.readLocalStorage('activeCompanyUser');
-        // this.router.navigate(['/login']);
       }, (error: any) => {
       });
   }

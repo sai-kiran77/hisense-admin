@@ -7,6 +7,8 @@ import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/services/api.service';
 import { environment } from 'src/environments/environment';
 
+declare var swal: any;
+
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
@@ -23,7 +25,7 @@ export class CategoryComponent implements OnInit {
   purchaseLinks: any = {};
   metaData: any;
 
-  displayedColumns: string[] = ['Product Group', 'Open on Website','Actions']; //'Purchase Link'
+  displayedColumns: string[] = ['Product Group', 'Open on Website', 'Actions']; //'Purchase Link'
   imagesDisplayedColumns: string[] = ['Image Type', 'Current Image', 'Upload New Image'];
   productImagesDisplayedColumns: any = ['Image', 'Actions'];
   dataSource: any;
@@ -40,7 +42,7 @@ export class CategoryComponent implements OnInit {
     // variant_size: ['', [Validators.required]],
     parent_category_id: ['', [Validators.required]],
     // short_description: ['', [Validators.required]],
-    // is_enabled: [0]
+    is_enabled: [0]
   })
 
   get formControl() {
@@ -67,7 +69,7 @@ export class CategoryComponent implements OnInit {
       next: (res: any) => {
         console.log(res);
         this.metaData = res?.data;
-        this.products = [ {id: 'null',name: 'No Category'}, ...res?.data?.categories];
+        this.products = [{ id: 'null', name: 'No Category' }, ...res?.data?.categories];
         if (data.type == 'update') {
           this.loadProductInfo();
         }
@@ -94,22 +96,22 @@ export class CategoryComponent implements OnInit {
           // variant_size: res?.data?.variant_size,
           parent_category_id: res?.data?.parent_category_id ? res?.data?.parent_category_id : 'null',
           // short_description: res?.data?.short_description,
-          // is_enabled: res?.data?.is_enabled,
+          is_enabled: res?.data?.is_enabled,
         })
 
         this.dataSource = new MatTableDataSource<any>(res?.data?.category_products);
-        
+
         const array = [];
-        
-        if(res.data.thumb_image){
+
+        if (res.data.thumb_image) {
           res.data.thumb_image.type = 'Thumb Image'
           array.push(res.data.thumb_image)
         }
-        if(res.data.thumb_image_medium){
+        if (res.data.thumb_image_medium) {
           res.data.thumb_image_medium.type = 'Thumb Image Medium'
           array.push(res.data.thumb_image_medium)
         }
-        if(res.data.thumb_image_small){
+        if (res.data.thumb_image_small) {
           res.data.thumb_image_small.type = 'Thumb Image Small'
           array.push(res.data.thumb_image_small)
         }
@@ -134,8 +136,8 @@ export class CategoryComponent implements OnInit {
         return;
       }
       this.isLoading = true;
-      // delete this.productVarientForm.value.is_enabled;
-      if(this.productVarientForm.value.parent_category_id == 'null'){
+      delete this.productVarientForm.value.is_enabled;
+      if (this.productVarientForm.value.parent_category_id == 'null') {
         this.productVarientForm.value.parent_category_id = null;
       }
       this.api.createCategory(this.productVarientForm.value).subscribe({
@@ -143,7 +145,7 @@ export class CategoryComponent implements OnInit {
           this.isLoading = false;
           console.log(res);
           this.toaster.success(res.message);
-          this.router.navigate(['/update/category',res.data.id])
+          this.router.navigate(['/update/category', res.data.id])
         },
         error: (err) => {
           this.isLoading = false;
@@ -160,9 +162,10 @@ export class CategoryComponent implements OnInit {
           return;
         }
         this.isLoading = true;
-        if(this.productVarientForm.value.parent_category_id == 'null'){
+        if (this.productVarientForm.value.parent_category_id == 'null') {
           this.productVarientForm.value.parent_category_id = null;
         }
+        this.productVarientForm.value.is_enabled = this.productVarientForm.value.is_enabled ? 1 : 0;
         this.api.updateCategoryInfo(this.activatedroute.snapshot.params['id'], this.productVarientForm.value).subscribe({
           next: (res: any) => {
             this.isLoading = false;
@@ -232,9 +235,9 @@ export class CategoryComponent implements OnInit {
     let mediaType = '';
     if (type == 'Thumb Image') {
       mediaType = 'thumb_image'
-    } else if(type == 'Thumb Image Small'){
+    } else if (type == 'Thumb Image Small') {
       mediaType = 'thumb_image_small'
-    }else{
+    } else {
       mediaType = 'thumb_image_medium'
     }
 
@@ -282,18 +285,28 @@ export class CategoryComponent implements OnInit {
   }
 
   removeFile(ele: any) {
-    console.log(ele)
-    this.api.deleteFiles(ele.id).subscribe({
-      next: (res: any) => {
-        console.log(res);
-        this.loadProductInfo();
-        this.toaster.success(res.message);
-      },
-      error: err => {
-        console.log(err);
-        this.toaster.error(err.error.message);
-      }
+    swal({
+      text: 'Are you sure you want to Delete?',
+      type: 'warning',
+      showConfirmButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No'
     })
+      .then((willDelete: any) => {
+        console.log(ele)
+        this.api.deleteFiles(ele.id).subscribe({
+          next: (res: any) => {
+            console.log(res);
+            this.loadProductInfo();
+            this.toaster.success(res.message);
+          },
+          error: err => {
+            console.log(err);
+            this.toaster.error(err.error.message);
+          }
+        })
+      }, (error: any) => { });
   }
 
   @ViewChild('inputMMultipleFiles') inputMultipleFiles: any;

@@ -6,6 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/services/api.service';
 import { TechTestimonialsModalComponent } from '../tech-testimonials-modal/tech-testimonials-modal.component';
+declare var swal: any;
 
 @Component({
   selector: 'app-tech-testimonials',
@@ -56,20 +57,31 @@ export class TechTestimonialsComponent implements OnInit {
   }
 
   deleteItem(el: any) {
-    console.log(el);
-    this.api.deletePressCoverage(el.id).subscribe({
-      next: (res: any) => {
-        console.log(res);
-        this.isLoading = false;
-        this.toaster.success(res.message)
-        this.getTechTestimonials();
-      },
-      error: (err: any) => {
-        this.isLoading = false;
-        console.log(err);
-        this.toaster.error(err.error.message);
-      }
+    swal({
+      text: 'Are you sure you want to Delete?',
+      type: 'warning',
+      showConfirmButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No'
     })
+      .then((willDelete: any) => {
+        console.log(el);
+        this.api.deleteTechTestimonial(el.id).subscribe({
+          next: (res: any) => {
+            console.log(res);
+            this.isLoading = false;
+            this.toaster.success(res.message)
+            this.getTechTestimonials();
+          },
+          error: (err: any) => {
+            this.isLoading = false;
+            console.log(err);
+            this.toaster.error(err.error.message);
+          }
+        })
+      }, (error: any) => { });
+
   }
 
   openSubscriptionModal() {

@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 
+declare var swal: any;
 @Injectable({
   providedIn: 'root'
 })
@@ -160,15 +161,15 @@ export class ApiService {
       headers: new HttpHeaders({ 'admin-user-uuid': uuid })
     })
   }
-  
-  uploadFiles(fd: any){
+
+  uploadFiles(fd: any) {
     const uuid = this.getLocalStorage('currentUserSession').uuid;
     return this.http.post(this.baseUrl + '/v1/admin/catalog-media', fd, {
       headers: new HttpHeaders({ 'admin-user-uuid': uuid })
     })
   }
 
-  deleteFiles(id: any){
+  deleteFiles(id: any) {
     const uuid = this.getLocalStorage('currentUserSession').uuid;
     return this.http.delete(this.baseUrl + `/v1/admin/catalog-media/${id}`, {
       headers: new HttpHeaders({ 'admin-user-uuid': uuid })
@@ -234,28 +235,28 @@ export class ApiService {
     })
   }
 
-  deletePressCoverage(id: any){
+  deletePressCoverage(id: any) {
     const uuid = this.getLocalStorage('currentUserSession').uuid;
     return this.http.delete(this.baseUrl + `/v1/admin/press-coverages/${id}`, {
       headers: new HttpHeaders({ 'admin-user-uuid': uuid })
     })
   }
 
-  deleteOffersAndPromotions(id: any){
+  deleteOffersAndPromotions(id: any) {
     const uuid = this.getLocalStorage('currentUserSession').uuid;
     return this.http.delete(this.baseUrl + `/v1/admin/offer-promotions/${id}`, {
       headers: new HttpHeaders({ 'admin-user-uuid': uuid })
     })
   }
-  
-  deleteHomePageSlide(id: any){
+
+  deleteHomePageSlide(id: any) {
     const uuid = this.getLocalStorage('currentUserSession').uuid;
     return this.http.delete(this.baseUrl + `/v1/admin/home-page-slides/${id}`, {
       headers: new HttpHeaders({ 'admin-user-uuid': uuid })
     })
   }
 
-  deleteTeschTestimonial(id: any){
+  deleteTechTestimonial(id: any) {
     const uuid = this.getLocalStorage('currentUserSession').uuid;
     return this.http.delete(this.baseUrl + `/v1/admin/tech-testimonials/${id}`, {
       headers: new HttpHeaders({ 'admin-user-uuid': uuid })
