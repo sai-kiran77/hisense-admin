@@ -1,31 +1,25 @@
 import { Injectable } from '@angular/core';
-import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpResponse, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import {
+  HttpRequest,
+  HttpHandler,
+  HttpEvent,
+  HttpInterceptor,
+} from '@angular/common/http';
 import { Observable } from 'rxjs';
-import 'rxjs/add/operator/do';
-import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
-import { finalize, tap } from 'rxjs/operators';
+import { finalize } from 'rxjs/operators';
 import { ApiService } from './services/api.service';
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable()
+export class LoaderInterceptor implements HttpInterceptor {
 
-export class SessionIntercepterService implements HttpInterceptor {
-    httpRequestcount = 0;
-    intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        this.api.isLoading.next(true);
-        this.httpRequestcount++;
+  constructor(private loaderService: ApiService) {
+  }
 
-        return next.handle(request).pipe(finalize(() => {
-            this.httpRequestcount--;
-            if (!this.httpRequestcount) this.api.isLoading.next(false);
-        }
-        ));
-    }
+  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+     this.loaderService.show();
 
-    constructor(private router: Router,
-        private toaster: ToastrService,
-        public api: ApiService
-    ) { }
+     return next.handle(request).pipe(
+           finalize(() => this.loaderService.hide()),
+     );
+  }
 }

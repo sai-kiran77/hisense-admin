@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {MatInputModule} from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
@@ -32,6 +32,7 @@ import { OffersAndPromotionsComponent } from './components/offers-and-promotions
 import { OffersAndPromotionsModalComponent } from './components/offers-and-promotions-modal/offers-and-promotions-modal.component';
 import { HomeSliderComponent } from './components/home-slider/home-slider.component';
 import { HomeSliderModalComponent } from './components/home-slider-modal/home-slider-modal.component';
+import { LoaderInterceptor } from './session-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,13 @@ import { HomeSliderModalComponent } from './components/home-slider-modal/home-sl
     BrowserAnimationsModule,
     MaterialExampleModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptor,
+      multi: true,
+   },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

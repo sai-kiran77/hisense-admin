@@ -1,6 +1,11 @@
-<div class="progress-bar-container" *ngIf="apiService.isLoading | async">
+<!-- <div class="progress-bar-container" *ngIf="apiService.isLoading | async">
   <mat-progress-bar class="progress-bar" [color]="'primary'" [mode]="'indeterminate'">
   </mat-progress-bar>
+</div> -->
+
+<div *ngIf="isLoading | async" class="overlay">
+  <mat-progress-spinner color="primary" class="spinner" mode="indeterminate">
+  </mat-progress-spinner>
 </div>
 
 <router-outlet></router-outlet>

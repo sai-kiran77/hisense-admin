@@ -9,9 +9,9 @@ import { ApiService } from './services/api.service';
 export class AppComponent {
   title = 'hisense-admin';
   isMenuCollapsed = true;
-  apiService: any;
+
+  isLoading = this.api.isLoading;
 
   constructor(private api: ApiService){
-    this.apiService = this.api;
   }
 }

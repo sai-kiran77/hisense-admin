@@ -13,6 +13,15 @@ export class ApiService {
   baseUrl = environment.baseUrl;
   public isLoading: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
+
+  show() {
+    this.isLoading.next(true);
+  }
+
+  hide() {
+    this.isLoading.next(false);
+  }
+
   constructor(private http: HttpClient,
     private router: Router) { }
 
