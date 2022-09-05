@@ -28,6 +28,8 @@ import { PressCoveragesComponent } from './components/press-coverages/press-cove
 import { PressCoverageModalComponent } from './components/press-coverage-modal/press-coverage-modal.component';
 import { TechTestimonialsComponent } from './components/tech-testimonials/tech-testimonials.component';
 import { TechTestimonialsModalComponent } from './components/tech-testimonials-modal/tech-testimonials-modal.component';
+import { OffersAndPromotionsComponent } from './components/offers-and-promotions/offers-and-promotions.component';
+import { OffersAndPromotionsModalComponent } from './components/offers-and-promotions-modal/offers-and-promotions-modal.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,9 @@ import { TechTestimonialsModalComponent } from './components/tech-testimonials-m
     PressCoveragesComponent,
     PressCoverageModalComponent,
     TechTestimonialsComponent,
-    TechTestimonialsModalComponent
+    TechTestimonialsModalComponent,
+    OffersAndPromotionsComponent,
+    OffersAndPromotionsModalComponent
   ],
   imports: [
     BrowserModule,

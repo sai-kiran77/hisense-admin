@@ -8,6 +8,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { LoginComponent } from './components/login/login.component';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
+import { OffersAndPromotionsModalComponent } from './components/offers-and-promotions-modal/offers-and-promotions-modal.component';
+import { OffersAndPromotionsComponent } from './components/offers-and-promotions/offers-and-promotions.component';
 import { PressCoveragesComponent } from './components/press-coverages/press-coverages.component';
 import { ProductGroupComponent } from './components/product-group/product-group.component';
 import { ProductGroupsListComponent } from './components/product-groups-list/product-groups-list.component';
@@ -85,6 +87,10 @@ const routes: Routes = [
       {
         path: 'tech-testimonials',
         component: TechTestimonialsComponent
+      },
+      {
+        path: 'offers-and-promotions',
+        component: OffersAndPromotionsComponent
       },
       {
         path: '', redirectTo: '/dashboard', pathMatch: 'full'

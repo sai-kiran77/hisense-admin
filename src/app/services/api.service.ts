@@ -184,6 +184,14 @@ export class ApiService {
     });
   }
 
+  getOffersAndPromotions(params: any) {
+    const uuid = this.getLocalStorage('currentUserSession').uuid;
+    return this.http.get(this.baseUrl + `/v1/admin/offer-promotions`, {
+      params,
+      headers: new HttpHeaders({ 'admin-user-uuid': uuid })
+    });
+  }
+
   getTechTestimonials() {
     const uuid = this.getLocalStorage('currentUserSession').uuid;
     return this.http.get(this.baseUrl + `/v1/tech-testimonials`, {
@@ -198,6 +206,13 @@ export class ApiService {
     })
   }
 
+  createOfferPromotion(body: any) {
+    const uuid = this.getLocalStorage('currentUserSession').uuid;
+    return this.http.post(this.baseUrl + '/v1/admin/offer-promotions', body, {
+      headers: new HttpHeaders({ 'admin-user-uuid': uuid })
+    })
+  }
+
   createTechTestimonial(body: any) {
     const uuid = this.getLocalStorage('currentUserSession').uuid;
     return this.http.post(this.baseUrl + '/v1/admin/tech-testimonials', body, {
@@ -208,6 +223,13 @@ export class ApiService {
   deletePressCoverage(id: any){
     const uuid = this.getLocalStorage('currentUserSession').uuid;
     return this.http.delete(this.baseUrl + `/v1/admin/press-coverages/${id}`, {
+      headers: new HttpHeaders({ 'admin-user-uuid': uuid })
+    })
+  }
+
+  deleteOffersAndPromotions(id: any){
+    const uuid = this.getLocalStorage('currentUserSession').uuid;
+    return this.http.delete(this.baseUrl + `/v1/admin/offer-promotions/${id}`, {
       headers: new HttpHeaders({ 'admin-user-uuid': uuid })
     })
   }
