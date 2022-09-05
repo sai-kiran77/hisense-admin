@@ -32,6 +32,26 @@
   background-color: #c055b5 !important;
 }
 
+.card-header-contact-req .card-icon{
+  background-color: #fcd8a2 !important;
+}
+
+.card-header-press .card-icon{
+  background-color: #7d4fb0 !important;
+}
+
+.card-header-drive .card-icon{
+  background-color: #9c986d !important;
+}
+
+.card-header-offers .card-icon{
+  background-color: #e8f57a !important;
+}
+
+.card-header-invoice .card-icon{
+  background-color: #81b9a9 !important;
+}
+
 
 a {
   &:not(.active) {
@@ -60,4 +80,8 @@ a {
     -webkit-filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.466));
     -webkit-print-color-adjust: exact;
   }
+}
+
+.card-category{
+  font-size: 16px;
 }

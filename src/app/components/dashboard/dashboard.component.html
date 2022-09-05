@@ -3,7 +3,7 @@
         <article class="col-md-4 col-sm-6 col-xs-12 ">
             <!--fa fa-location-arrow-->
             <app-stats-card class="cursor-pointer" [routerLink]="['/list/category']"
-                [headerType]="'card-header-warning'" [cardIcon]="'fas fa-users-cog'" [heading]="'Category'"
+                [headerType]="'card-header-warning'" [cardIcon]="'fas fa-users-cog'" [heading]="'Categories'"
                 >
                 <!-- [value]="dashboardInformation?.accounts_count" -->
             </app-stats-card>
@@ -22,19 +22,37 @@
                 ></app-stats-card>
                 <!-- [value]="dashboardInformation?.thaut_campaigns_count"  -->
         </article>
+        <article class="col-md-4 col-sm-6 col-xs-12  cursor-pointer">
+            <app-stats-card class=" cursor-pointer" [routerLink]="['/contact-requests']" [headerType]="'card-header-contact-req'"
+                [cardIcon]="'fa fa-plus'" [heading]="'Contact Requests'"
+                ></app-stats-card>
+                <!-- [value]="dashboardInformation?.thaut_campaigns_count"  -->
+        </article>
+        <article class="col-md-4 col-sm-6 col-xs-12  cursor-pointer">
+            <app-stats-card class=" cursor-pointer" [routerLink]="['/press-coverages']" [headerType]="'card-header-press'"
+                [cardIcon]="'far fa-chart-bar'" [heading]="'Press coverages'"
+                ></app-stats-card>
+                <!-- [value]="dashboardInformation?.thaut_campaigns_count"  -->
+        </article>
+        <article class="col-md-4 col-sm-6 col-xs-12  cursor-pointer">
+            <app-stats-card class=" cursor-pointer" [routerLink]="['/tech-testimonials']" [headerType]="'card-header-drive'"
+                [cardIcon]="'fab fa-google-drive'" [heading]="'Tech testimonials'"
+                ></app-stats-card>
+                <!-- [value]="dashboardInformation?.thaut_campaigns_count"  -->
+        </article>
+        <article class="col-md-4 col-sm-6 col-xs-12  cursor-pointer">
+            <app-stats-card class=" cursor-pointer" [routerLink]="['/offers-and-promotions']" [headerType]="'card-header-offers'"
+                [cardIcon]="'fa fa-credit-card'" [heading]="'Offers and promotions'"
+                ></app-stats-card>
+                <!-- [value]="dashboardInformation?.thaut_campaigns_count"  -->
+        </article>
 
+        <article class="col-md-4 col-sm-6 col-xs-12  cursor-pointer">
+            <app-stats-card class="cursor-pointer" [routerLink]="['/home-slider']" [headerType]="'card-header-invoice'"
+                [cardIcon]="'fas fa-file-invoice'" [heading]="'Home Page Slides'"
+                ></app-stats-card>
+                <!-- [value]="dashboardInformation?.thaut_campaigns_count"  -->
+        </article>
 
-        <!--fa fa-book-->
-        <!-- <article class="col-md-4 col-sm-6 col-xs-12">
-            <app-stats-card [headerType]="'card-header-danger'" [cardIcon]="'fa fa-comments'" 
-            [heading]="'Engagements'" [value]="dashboardInformation?.customer_engagements_count"></app-stats-card>
-        </article> -->
-
-        <!--fa fa-database fa fa-window-restore-->
-        <!-- <article class="col-md-4 col-sm-6 col-xs-12">
-            <app-stats-card [headerType]="'card-header-info'" [cardIcon]="'fas fa-exchange-alt'"
-             [heading]="'Interactions'" [value]="dashboardInformation?.customer_engagement_interactions_count">
-            </app-stats-card>
-        </article> -->
     </article>
 </section>
