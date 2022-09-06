@@ -164,14 +164,20 @@ export class ProductsComponent implements OnInit {
           }
         })
       } else if (this.selectedIndex == 1) {
+        const object: any = { product_variant_purchase_links: [] }
+
         for (let key in this.purchaseLinks) {
           if (this.purchaseLinks[key] && this.isLinkValid(this.purchaseLinks[key])) {
             return;
+          } else if (this.purchaseLinks[key]) {
+            object.product_variant_purchase_links.push({
+              vendor: key,
+              purchase_link: this.purchaseLinks[key]
+            })
           }
         }
         this.isLoading = true;
-        console.log(this.purchaseLinks)
-        this.api.updateProductVarientInfo(this.activatedroute.snapshot.params['id'], this.purchaseLinks).subscribe({
+        this.api.updateProductVarientInfo(this.activatedroute.snapshot.params['id'], object).subscribe({
           next: (res: any) => {
             this.isLoading = false;
             console.log(res);
@@ -274,7 +280,7 @@ export class ProductsComponent implements OnInit {
 
   removeFile(ele: any) {
     swal({
-      text: 'Are you sure you want to Delete?',
+      text: 'Are you sure you want to delete?',
       type: 'warning',
       showConfirmButton: true,
       showCancelButton: true,

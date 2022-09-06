@@ -58,7 +58,7 @@ export class TechTestimonialsComponent implements OnInit {
 
   deleteItem(el: any) {
     swal({
-      text: 'Are you sure you want to Delete?',
+      text: 'Are you sure you want to delete?',
       type: 'warning',
       showConfirmButton: true,
       showCancelButton: true,
