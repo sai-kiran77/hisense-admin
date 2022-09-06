@@ -544,7 +544,7 @@ CategoryListComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODU
     } if (rf & 2) {
         let _t;
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵloadQuery"]()) && (ctx.paginator = _t.first);
-    } }, decls: 31, vars: 6, consts: [[1, "pb-1"], [1, "card"], [1, "card-header", "card-box-shadow", "bt-4"], [1, "card-title", "m-0", "font-weight-bold"], [1, "card-body"], [1, "w-100", "table-responsive"], ["mat-table", "", 3, "dataSource"], ["matColumnDef", "name"], ["mat-header-cell", "", 4, "matHeaderCellDef"], ["mat-cell", "", 4, "matCellDef"], ["matColumnDef", "code"], ["matColumnDef", "Product Code"], ["matColumnDef", "size"], ["matColumnDef", "Actions"], ["mat-header-row", "", 4, "matHeaderRowDef"], ["mat-row", "", 4, "matRowDef", "matRowDefColumns"], [3, "pageSizeOptions", "pageSize", "page"], [1, "col-md-12", "border-top", "p-2", "button-container", "d-flex", "justify-content-between", "align-items-center"], [1, "forgot-link", 2, "color", "black", "cursor", "pointer", 3, "click"], [1, "fas", "fa-arrow-left"], ["mat-header-cell", ""], ["mat-cell", ""], ["matTooltip", "Edit Account", "matTooltipClass", "custom-tooltip", 3, "routerLink"], [1, "fas", "fa-2x", "text-dark", "fa-pen-square"], ["mat-header-row", ""], ["mat-row", ""]], template: function CategoryListComponent_Template(rf, ctx) { if (rf & 1) {
+    } }, decls: 31, vars: 6, consts: [[1, "pb-1"], [1, "card"], [1, "card-header", "card-box-shadow", "bt-4"], [1, "card-title", "m-0", "font-weight-bold"], [1, "card-body"], [1, "w-100", "table-responsive"], ["mat-table", "", 3, "dataSource"], ["matColumnDef", "name"], ["mat-header-cell", "", 4, "matHeaderCellDef"], ["mat-cell", "", 4, "matCellDef"], ["matColumnDef", "code"], ["matColumnDef", "Product Code"], ["matColumnDef", "size"], ["matColumnDef", "Actions"], ["mat-header-row", "", 4, "matHeaderRowDef"], ["mat-row", "", 4, "matRowDef", "matRowDefColumns"], [3, "pageSizeOptions", "pageSize", "page"], [1, "col-md-12", "border-top", "p-2", "button-container", "d-flex", "justify-content-between", "align-items-center"], [1, "forgot-link", 2, "color", "black", "cursor", "pointer", 3, "click"], [1, "fas", "fa-arrow-left"], ["mat-header-cell", ""], ["mat-cell", ""], ["matTooltip", "Edit Category", "matTooltipClass", "custom-tooltip", 3, "routerLink"], [1, "fas", "fa-2x", "text-dark", "fa-pen-square"], ["mat-header-row", ""], ["mat-row", ""]], template: function CategoryListComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "section", 0)(1, "div", 1)(2, "div", 2)(3, "h4", 3);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](4, "Category List");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
@@ -1136,7 +1136,7 @@ class CategoryComponent {
     }
     removeFile(ele) {
         swal({
-            text: 'Are you sure you want to Delete?',
+            text: 'Are you sure you want to delete?',
             type: 'warning',
             showConfirmButton: true,
             showCancelButton: true,
@@ -1921,7 +1921,7 @@ class HomeSliderComponent {
     }
     deleteItem(el) {
         swal({
-            text: 'Are you sure you want to Delete?',
+            text: 'Are you sure you want to delete?',
             type: 'warning',
             showConfirmButton: true,
             showCancelButton: true,
@@ -1965,7 +1965,7 @@ class HomeSliderComponent {
     }
 }
 HomeSliderComponent.ɵfac = function HomeSliderComponent_Factory(t) { return new (t || HomeSliderComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](src_app_services_api_service__WEBPACK_IMPORTED_MODULE_1__.ApiService), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](ngx_toastr__WEBPACK_IMPORTED_MODULE_4__.ToastrService), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_common__WEBPACK_IMPORTED_MODULE_5__.Location), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__.MatDialog)); };
-HomeSliderComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: HomeSliderComponent, selectors: [["app-home-slider"]], decls: 30, vars: 4, consts: [[1, "card"], [1, "card-header", "card-box-shadow", "bt-4", "d-flex", "justify-content-between", "p-3"], [1, "card-title", "m-0", "float-left", "font-weight-bold"], [1, "d-flex", "justify-content-end"], ["matTooltip", "Create Press Coverage", "matTooltipClass", "custom-tooltip", 1, "pr-3", "card-header-icon", "pointer", 3, "click"], [1, "card-body"], [1, "w-100", "table-responsive"], ["mat-table", "", 1, "w-100", 3, "dataSource"], ["matColumnDef", "Link"], ["mat-header-cell", "", 4, "matHeaderCellDef"], ["mat-cell", "", 4, "matCellDef"], ["matColumnDef", "desktop image"], ["matColumnDef", "mobile image"], ["matColumnDef", "priority"], ["matColumnDef", "Actions"], ["mat-header-row", "", 4, "matHeaderRowDef"], ["mat-row", "", 4, "matRowDef", "matRowDefColumns"], ["class", "text-center py-2 no-record", 4, "ngIf"], ["mat-header-cell", ""], ["mat-cell", ""], [4, "ngIf"], ["target", "_blank", 3, "href"], ["width", "100", "height", "100", 1, "my-3", 3, "src"], ["matTooltipClass", "custom-tooltip", 1, "pointer", 3, "matTooltip", "click"], [1, "fas", "fa-2x", "fa-trash-alt", 2, "font-size", "1.6em", "color", "#c41414"], ["mat-header-row", ""], ["mat-row", ""], [1, "text-center", "py-2", "no-record"]], template: function HomeSliderComponent_Template(rf, ctx) { if (rf & 1) {
+HomeSliderComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: HomeSliderComponent, selectors: [["app-home-slider"]], decls: 30, vars: 4, consts: [[1, "card"], [1, "card-header", "card-box-shadow", "bt-4", "d-flex", "justify-content-between", "p-3"], [1, "card-title", "m-0", "float-left", "font-weight-bold"], [1, "d-flex", "justify-content-end"], ["matTooltip", "Add a New Home Slide", "matTooltipClass", "custom-tooltip", 1, "pr-3", "card-header-icon", "pointer", 3, "click"], [1, "card-body"], [1, "w-100", "table-responsive"], ["mat-table", "", 1, "w-100", 3, "dataSource"], ["matColumnDef", "Link"], ["mat-header-cell", "", 4, "matHeaderCellDef"], ["mat-cell", "", 4, "matCellDef"], ["matColumnDef", "desktop image"], ["matColumnDef", "mobile image"], ["matColumnDef", "priority"], ["matColumnDef", "Actions"], ["mat-header-row", "", 4, "matHeaderRowDef"], ["mat-row", "", 4, "matRowDef", "matRowDefColumns"], ["class", "text-center py-2 no-record", 4, "ngIf"], ["mat-header-cell", ""], ["mat-cell", ""], [4, "ngIf"], ["target", "_blank", 3, "href"], ["width", "100", "height", "100", 1, "my-3", 3, "src"], ["matTooltipClass", "custom-tooltip", 1, "pointer", 3, "matTooltip", "click"], [1, "fas", "fa-2x", "fa-trash-alt", 2, "font-size", "1.6em", "color", "#c41414"], ["mat-header-row", ""], ["mat-row", ""], [1, "text-center", "py-2", "no-record"]], template: function HomeSliderComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "section")(1, "div", 0)(2, "div", 1)(3, "h4", 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](4, " Home Page Slides List ");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
@@ -2942,7 +2942,7 @@ class OffersAndPromotionsComponent {
     }
     deleteItem(el) {
         swal({
-            text: 'Are you sure you want to Delete?',
+            text: 'Are you sure you want to delete?',
             type: 'warning',
             showConfirmButton: true,
             showCancelButton: true,
@@ -2991,7 +2991,7 @@ OffersAndPromotionsComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORT
     } if (rf & 2) {
         let _t;
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵloadQuery"]()) && (ctx.paginator = _t.first);
-    } }, decls: 28, vars: 7, consts: [[1, "card"], [1, "card-header", "card-box-shadow", "bt-4", "d-flex", "justify-content-between", "p-3"], [1, "card-title", "m-0", "float-left", "font-weight-bold"], [1, "d-flex", "justify-content-end"], ["matTooltip", "Create Press Coverage", "matTooltipClass", "custom-tooltip", 1, "pr-3", "card-header-icon", "pointer", 3, "click"], [1, "card-body"], [1, "w-100", "table-responsive"], ["mat-table", "", 1, "w-100", 3, "dataSource"], ["matColumnDef", "start date"], ["mat-header-cell", "", 4, "matHeaderCellDef"], ["mat-cell", "", 4, "matCellDef"], ["matColumnDef", "file name"], ["matColumnDef", "image"], ["matColumnDef", "Actions"], ["mat-header-row", "", 4, "matHeaderRowDef"], ["mat-row", "", 4, "matRowDef", "matRowDefColumns"], ["class", "text-center py-2 no-record", 4, "ngIf"], [3, "pageSizeOptions", "pageSize", "page"], ["mat-header-cell", ""], ["mat-cell", ""], [1, "my-3"], ["width", "100", "height", "100", 1, "my-3", 3, "src"], ["matTooltipClass", "custom-tooltip", 1, "pointer", 3, "matTooltip", "click"], [1, "fas", "fa-2x", "fa-trash-alt", 2, "font-size", "1.6em", "color", "#c41414"], ["mat-header-row", ""], ["mat-row", ""], [1, "text-center", "py-2", "no-record"]], template: function OffersAndPromotionsComponent_Template(rf, ctx) { if (rf & 1) {
+    } }, decls: 28, vars: 7, consts: [[1, "card"], [1, "card-header", "card-box-shadow", "bt-4", "d-flex", "justify-content-between", "p-3"], [1, "card-title", "m-0", "float-left", "font-weight-bold"], [1, "d-flex", "justify-content-end"], ["matTooltip", "Add an Offer / Promotion", "matTooltipClass", "custom-tooltip", 1, "pr-3", "card-header-icon", "pointer", 3, "click"], [1, "card-body"], [1, "w-100", "table-responsive"], ["mat-table", "", 1, "w-100", 3, "dataSource"], ["matColumnDef", "start date"], ["mat-header-cell", "", 4, "matHeaderCellDef"], ["mat-cell", "", 4, "matCellDef"], ["matColumnDef", "file name"], ["matColumnDef", "image"], ["matColumnDef", "Actions"], ["mat-header-row", "", 4, "matHeaderRowDef"], ["mat-row", "", 4, "matRowDef", "matRowDefColumns"], ["class", "text-center py-2 no-record", 4, "ngIf"], [3, "pageSizeOptions", "pageSize", "page"], ["mat-header-cell", ""], ["mat-cell", ""], [1, "my-3"], ["width", "100", "height", "100", 1, "my-3", 3, "src"], ["matTooltipClass", "custom-tooltip", 1, "pointer", 3, "matTooltip", "click"], [1, "fas", "fa-2x", "fa-trash-alt", 2, "font-size", "1.6em", "color", "#c41414"], ["mat-header-row", ""], ["mat-row", ""], [1, "text-center", "py-2", "no-record"]], template: function OffersAndPromotionsComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "section")(1, "div", 0)(2, "div", 1)(3, "h4", 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](4, " Offers and Promotions ");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
@@ -3448,7 +3448,7 @@ class PressCoveragesComponent {
     }
     deleteItem(el) {
         swal({
-            text: 'Are you sure you want to Delete?',
+            text: 'Are you sure you want to delete?',
             type: 'warning',
             showConfirmButton: true,
             showCancelButton: true,
@@ -3497,7 +3497,7 @@ PressCoveragesComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MO
     } if (rf & 2) {
         let _t;
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵloadQuery"]()) && (ctx.paginator = _t.first);
-    } }, decls: 37, vars: 7, consts: [[1, "card"], [1, "card-header", "card-box-shadow", "bt-4", "d-flex", "justify-content-between", "p-3"], [1, "card-title", "m-0", "float-left", "font-weight-bold"], [1, "d-flex", "justify-content-end"], ["matTooltip", "Create Press Coverage", "matTooltipClass", "custom-tooltip", 1, "pr-3", "card-header-icon", "pointer", 3, "click"], [1, "card-body"], [1, "w-100", "table-responsive"], ["mat-table", "", 1, "w-100", 3, "dataSource"], ["matColumnDef", "title"], ["mat-header-cell", "", 4, "matHeaderCellDef"], ["mat-cell", "", 4, "matCellDef"], ["matColumnDef", "description"], ["matColumnDef", "image"], ["matColumnDef", "vendor"], ["matColumnDef", "external_url"], ["matColumnDef", "priority"], ["matColumnDef", "Actions"], ["mat-header-row", "", 4, "matHeaderRowDef"], ["mat-row", "", 4, "matRowDef", "matRowDefColumns"], ["class", "text-center py-2 no-record", 4, "ngIf"], [3, "pageSizeOptions", "pageSize", "page"], ["mat-header-cell", ""], ["mat-cell", ""], [1, "my-3"], ["width", "100", "height", "100", 1, "my-3", 3, "src"], ["target", "_blank", 3, "href", 4, "ngIf"], [4, "ngIf"], ["target", "_blank", 3, "href"], ["matTooltipClass", "custom-tooltip", 1, "pointer", 3, "matTooltip", "click"], [1, "fas", "fa-2x", "fa-trash-alt", 2, "font-size", "1.6em", "color", "#c41414"], ["mat-header-row", ""], ["mat-row", ""], [1, "text-center", "py-2", "no-record"]], template: function PressCoveragesComponent_Template(rf, ctx) { if (rf & 1) {
+    } }, decls: 37, vars: 7, consts: [[1, "card"], [1, "card-header", "card-box-shadow", "bt-4", "d-flex", "justify-content-between", "p-3"], [1, "card-title", "m-0", "float-left", "font-weight-bold"], [1, "d-flex", "justify-content-end"], ["matTooltip", "Add a Press Coverage", "matTooltipClass", "custom-tooltip", 1, "pr-3", "card-header-icon", "pointer", 3, "click"], [1, "card-body"], [1, "w-100", "table-responsive"], ["mat-table", "", 1, "w-100", 3, "dataSource"], ["matColumnDef", "title"], ["mat-header-cell", "", 4, "matHeaderCellDef"], ["mat-cell", "", 4, "matCellDef"], ["matColumnDef", "description"], ["matColumnDef", "image"], ["matColumnDef", "vendor"], ["matColumnDef", "external_url"], ["matColumnDef", "priority"], ["matColumnDef", "Actions"], ["mat-header-row", "", 4, "matHeaderRowDef"], ["mat-row", "", 4, "matRowDef", "matRowDefColumns"], ["class", "text-center py-2 no-record", 4, "ngIf"], [3, "pageSizeOptions", "pageSize", "page"], ["mat-header-cell", ""], ["mat-cell", ""], [1, "my-3"], ["width", "100", "height", "100", 1, "my-3", 3, "src"], ["target", "_blank", 3, "href", 4, "ngIf"], [4, "ngIf"], ["target", "_blank", 3, "href"], ["matTooltipClass", "custom-tooltip", 1, "pointer", 3, "matTooltip", "click"], [1, "fas", "fa-2x", "fa-trash-alt", 2, "font-size", "1.6em", "color", "#c41414"], ["mat-header-row", ""], ["mat-row", ""], [1, "text-center", "py-2", "no-record"]], template: function PressCoveragesComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "section")(1, "div", 0)(2, "div", 1)(3, "h4", 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](4, " Press Coverages ");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
@@ -4105,7 +4105,7 @@ class ProductGroupComponent {
     }
     removeFile(ele) {
         swal({
-            text: 'Are you sure you want to Delete?',
+            text: 'Are you sure you want to delete?',
             type: 'warning',
             showConfirmButton: true,
             showCancelButton: true,
@@ -4399,7 +4399,7 @@ ProductGroupsListComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED
     } if (rf & 2) {
         let _t;
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵloadQuery"]()) && (ctx.paginator = _t.first);
-    } }, decls: 28, vars: 6, consts: [[1, "pb-1"], [1, "card"], [1, "card-header", "card-box-shadow", "bt-4"], [1, "card-title", "m-0", "font-weight-bold"], [1, "card-body"], [1, "w-100", "table-responsive"], ["mat-table", "", 3, "dataSource"], ["matColumnDef", "name"], ["mat-header-cell", "", 4, "matHeaderCellDef"], ["mat-cell", "", 4, "matCellDef"], ["matColumnDef", "code"], ["matColumnDef", "Product Group Type"], ["matColumnDef", "Actions"], ["mat-header-row", "", 4, "matHeaderRowDef"], ["mat-row", "", 4, "matRowDef", "matRowDefColumns"], [3, "pageSizeOptions", "pageSize", "page"], [1, "col-md-12", "border-top", "p-2", "button-container", "d-flex", "justify-content-between", "align-items-center"], [1, "forgot-link", 2, "color", "black", "cursor", "pointer", 3, "click"], [1, "fas", "fa-arrow-left"], ["mat-header-cell", ""], ["mat-cell", ""], ["matTooltip", "Edit Account", "matTooltipClass", "custom-tooltip", 3, "routerLink"], [1, "fas", "fa-2x", "text-dark", "fa-pen-square"], ["mat-header-row", ""], ["mat-row", ""]], template: function ProductGroupsListComponent_Template(rf, ctx) { if (rf & 1) {
+    } }, decls: 28, vars: 6, consts: [[1, "pb-1"], [1, "card"], [1, "card-header", "card-box-shadow", "bt-4"], [1, "card-title", "m-0", "font-weight-bold"], [1, "card-body"], [1, "w-100", "table-responsive"], ["mat-table", "", 3, "dataSource"], ["matColumnDef", "name"], ["mat-header-cell", "", 4, "matHeaderCellDef"], ["mat-cell", "", 4, "matCellDef"], ["matColumnDef", "code"], ["matColumnDef", "Product Group Type"], ["matColumnDef", "Actions"], ["mat-header-row", "", 4, "matHeaderRowDef"], ["mat-row", "", 4, "matRowDef", "matRowDefColumns"], [3, "pageSizeOptions", "pageSize", "page"], [1, "col-md-12", "border-top", "p-2", "button-container", "d-flex", "justify-content-between", "align-items-center"], [1, "forgot-link", 2, "color", "black", "cursor", "pointer", 3, "click"], [1, "fas", "fa-arrow-left"], ["mat-header-cell", ""], ["mat-cell", ""], ["matTooltip", "Edit Product Group", "matTooltipClass", "custom-tooltip", 3, "routerLink"], [1, "fas", "fa-2x", "text-dark", "fa-pen-square"], ["mat-header-row", ""], ["mat-row", ""]], template: function ProductGroupsListComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "section", 0)(1, "div", 1)(2, "div", 2)(3, "h4", 3);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](4, "Product Group List");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
@@ -4601,7 +4601,7 @@ ProductVarientsListComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORT
     } if (rf & 2) {
         let _t;
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵloadQuery"]()) && (ctx.paginator = _t.first);
-    } }, decls: 31, vars: 6, consts: [[1, "pb-1"], [1, "card"], [1, "card-header", "card-box-shadow", "bt-4"], [1, "card-title", "m-0", "font-weight-bold"], [1, "card-body"], [1, "w-100", "table-responsive"], ["mat-table", "", 3, "dataSource"], ["matColumnDef", "name"], ["mat-header-cell", "", 4, "matHeaderCellDef"], ["mat-cell", "", 4, "matCellDef"], ["matColumnDef", "code"], ["matColumnDef", "Product Code"], ["matColumnDef", "size"], ["matColumnDef", "Actions"], ["mat-header-row", "", 4, "matHeaderRowDef"], ["mat-row", "", 4, "matRowDef", "matRowDefColumns"], [3, "pageSizeOptions", "pageSize", "page"], [1, "col-md-12", "border-top", "p-2", "button-container", "d-flex", "justify-content-between", "align-items-center"], [1, "forgot-link", 2, "color", "black", "cursor", "pointer", 3, "click"], [1, "fas", "fa-arrow-left"], ["mat-header-cell", ""], ["mat-cell", ""], ["matTooltip", "Edit Account", "matTooltipClass", "custom-tooltip", 3, "routerLink"], [1, "fas", "fa-2x", "text-dark", "fa-pen-square"], ["mat-header-row", ""], ["mat-row", ""]], template: function ProductVarientsListComponent_Template(rf, ctx) { if (rf & 1) {
+    } }, decls: 31, vars: 6, consts: [[1, "pb-1"], [1, "card"], [1, "card-header", "card-box-shadow", "bt-4"], [1, "card-title", "m-0", "font-weight-bold"], [1, "card-body"], [1, "w-100", "table-responsive"], ["mat-table", "", 3, "dataSource"], ["matColumnDef", "name"], ["mat-header-cell", "", 4, "matHeaderCellDef"], ["mat-cell", "", 4, "matCellDef"], ["matColumnDef", "code"], ["matColumnDef", "Product Code"], ["matColumnDef", "size"], ["matColumnDef", "Actions"], ["mat-header-row", "", 4, "matHeaderRowDef"], ["mat-row", "", 4, "matRowDef", "matRowDefColumns"], [3, "pageSizeOptions", "pageSize", "page"], [1, "col-md-12", "border-top", "p-2", "button-container", "d-flex", "justify-content-between", "align-items-center"], [1, "forgot-link", 2, "color", "black", "cursor", "pointer", 3, "click"], [1, "fas", "fa-arrow-left"], ["mat-header-cell", ""], ["mat-cell", ""], ["matTooltip", "Edit Product", "matTooltipClass", "custom-tooltip", 3, "routerLink"], [1, "fas", "fa-2x", "text-dark", "fa-pen-square"], ["mat-header-row", ""], ["mat-row", ""]], template: function ProductVarientsListComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "section", 0)(1, "div", 1)(2, "div", 2)(3, "h4", 3);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](4, "Product Variants List");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
@@ -5214,14 +5214,20 @@ class ProductsComponent {
                 });
             }
             else if (this.selectedIndex == 1) {
+                const object = { product_variant_purchase_links: [] };
                 for (let key in this.purchaseLinks) {
                     if (this.purchaseLinks[key] && this.isLinkValid(this.purchaseLinks[key])) {
                         return;
                     }
+                    else if (this.purchaseLinks[key]) {
+                        object.product_variant_purchase_links.push({
+                            vendor: key,
+                            purchase_link: this.purchaseLinks[key]
+                        });
+                    }
                 }
                 this.isLoading = true;
-                console.log(this.purchaseLinks);
-                this.api.updateProductVarientInfo(this.activatedroute.snapshot.params['id'], this.purchaseLinks).subscribe({
+                this.api.updateProductVarientInfo(this.activatedroute.snapshot.params['id'], object).subscribe({
                     next: (res) => {
                         this.isLoading = false;
                         console.log(res);
@@ -5308,7 +5314,7 @@ class ProductsComponent {
     }
     removeFile(ele) {
         swal({
-            text: 'Are you sure you want to Delete?',
+            text: 'Are you sure you want to delete?',
             type: 'warning',
             showConfirmButton: true,
             showCancelButton: true,
@@ -6202,7 +6208,7 @@ class TechTestimonialsComponent {
     }
     deleteItem(el) {
         swal({
-            text: 'Are you sure you want to Delete?',
+            text: 'Are you sure you want to delete?',
             type: 'warning',
             showConfirmButton: true,
             showCancelButton: true,
@@ -6246,7 +6252,7 @@ class TechTestimonialsComponent {
     }
 }
 TechTestimonialsComponent.ɵfac = function TechTestimonialsComponent_Factory(t) { return new (t || TechTestimonialsComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](src_app_services_api_service__WEBPACK_IMPORTED_MODULE_1__.ApiService), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](ngx_toastr__WEBPACK_IMPORTED_MODULE_4__.ToastrService), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_common__WEBPACK_IMPORTED_MODULE_5__.Location), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__.MatDialog)); };
-TechTestimonialsComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: TechTestimonialsComponent, selectors: [["app-tech-testimonials"]], decls: 27, vars: 4, consts: [[1, "card"], [1, "card-header", "card-box-shadow", "bt-4", "d-flex", "justify-content-between", "p-3"], [1, "card-title", "m-0", "float-left", "font-weight-bold"], [1, "d-flex", "justify-content-end"], ["matTooltip", "Create Press Coverage", "matTooltipClass", "custom-tooltip", 1, "pr-3", "card-header-icon", "pointer", 3, "click"], [1, "card-body"], [1, "w-100", "table-responsive"], ["mat-table", "", 1, "w-100", 3, "dataSource"], ["matColumnDef", "description"], ["mat-header-cell", "", 4, "matHeaderCellDef"], ["mat-cell", "", 4, "matCellDef"], ["matColumnDef", "youtube_url"], ["matColumnDef", "priority"], ["matColumnDef", "Actions"], ["mat-header-row", "", 4, "matHeaderRowDef"], ["mat-row", "", 4, "matRowDef", "matRowDefColumns"], ["class", "text-center py-2 no-record", 4, "ngIf"], ["mat-header-cell", ""], ["mat-cell", ""], [1, "my-3"], ["target", "_blank", 3, "href", 4, "ngIf"], [4, "ngIf"], ["target", "_blank", 3, "href"], ["matTooltipClass", "custom-tooltip", 1, "pointer", 3, "matTooltip", "click"], [1, "fas", "fa-2x", "fa-trash-alt", 2, "font-size", "1.6em", "color", "#c41414"], ["mat-header-row", ""], ["mat-row", ""], [1, "text-center", "py-2", "no-record"]], template: function TechTestimonialsComponent_Template(rf, ctx) { if (rf & 1) {
+TechTestimonialsComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: TechTestimonialsComponent, selectors: [["app-tech-testimonials"]], decls: 27, vars: 4, consts: [[1, "card"], [1, "card-header", "card-box-shadow", "bt-4", "d-flex", "justify-content-between", "p-3"], [1, "card-title", "m-0", "float-left", "font-weight-bold"], [1, "d-flex", "justify-content-end"], ["matTooltip", "Add a Testimonial", "matTooltipClass", "custom-tooltip", 1, "pr-3", "card-header-icon", "pointer", 3, "click"], [1, "card-body"], [1, "w-100", "table-responsive"], ["mat-table", "", 1, "w-100", 3, "dataSource"], ["matColumnDef", "description"], ["mat-header-cell", "", 4, "matHeaderCellDef"], ["mat-cell", "", 4, "matCellDef"], ["matColumnDef", "youtube_url"], ["matColumnDef", "priority"], ["matColumnDef", "Actions"], ["mat-header-row", "", 4, "matHeaderRowDef"], ["mat-row", "", 4, "matRowDef", "matRowDefColumns"], ["class", "text-center py-2 no-record", 4, "ngIf"], ["mat-header-cell", ""], ["mat-cell", ""], [1, "my-3"], ["target", "_blank", 3, "href", 4, "ngIf"], [4, "ngIf"], ["target", "_blank", 3, "href"], ["matTooltipClass", "custom-tooltip", 1, "pointer", 3, "matTooltip", "click"], [1, "fas", "fa-2x", "fa-trash-alt", 2, "font-size", "1.6em", "color", "#c41414"], ["mat-header-row", ""], ["mat-row", ""], [1, "text-center", "py-2", "no-record"]], template: function TechTestimonialsComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "section")(1, "div", 0)(2, "div", 1)(3, "h4", 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](4, " Tech Testimonials ");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
