@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  baseUrl: 'https://api.hisense-india.com',
+  websiteUrl: 'https://api.hisense-india.com'
 };
