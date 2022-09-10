@@ -243,7 +243,8 @@ button.toast-close-button {
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[6].rules[1].use[0]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[6].rules[1].use[1]!./src/styles.scss ***!
   \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 @charset "UTF-8";
-html, body {
+html,
+body {
   height: 100%;
 }
 body {
@@ -10864,12 +10865,17 @@ ngb-datepicker {
   left: inherit !important;
   right: 0;
 }
-.ngb-dp-day.disabled, .ngb-dp-day.hidden {
+.ngb-dp-day.disabled,
+.ngb-dp-day.hidden {
   cursor: default;
   color: #d0d0d0;
   pointer-events: none;
-  -webkit-user-select: none; /* Chrome all / Safari all */ /* Firefox all */ /* IE 10+ */
-  user-select: none; /* Likely future */
+  -webkit-user-select: none;
+  /* Chrome all / Safari all */
+  /* Firefox all */
+  /* IE 10+ */
+  user-select: none;
+  /* Likely future */
 }
 .mat-dialog-container {
   padding: 0 !important;
@@ -10932,7 +10938,8 @@ button .premium-lock-icon {
 .feature-locked {
   color: #ffc70b !important;
 }
-.stats-card, .card-stats {
+.stats-card,
+.card-stats {
   position: relative;
 }
 .card-stats .backdrop {
@@ -10988,6 +10995,13 @@ mat-progress-bar .mat-progress-bar-buffer {
 }
 .btn:hover {
   color: white !important;
+}
+.error {
+  font-size: 10px;
+  color: red;
+}
+a {
+  color: #00b3ac !important;
 }
 /*!************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[5].rules[0].oneOf[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[5].rules[0].oneOf[0].use[2]!./src/style.swal.css ***!
