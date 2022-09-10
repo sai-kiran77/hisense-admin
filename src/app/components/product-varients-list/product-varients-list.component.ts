@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/services/api.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-product-varients-list',
@@ -13,8 +14,11 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class ProductVarientsListComponent implements OnInit {
 
-  displayedColumns: string[] = ['name', 'code', 'Product Code', 'size', 'Actions'];
+  environment = environment;
+
+  displayedColumns: string[] = ['name', 'code', 'Product Link', 'size', 'Actions'];
   dataSource: any;
+
   isLoading = true;
   pageSize = 10
 

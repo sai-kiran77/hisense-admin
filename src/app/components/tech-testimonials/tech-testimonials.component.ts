@@ -15,7 +15,7 @@ declare var swal: any;
 })
 export class TechTestimonialsComponent implements OnInit {
 
-  displayedColumns: string[] = ['description', 'youtube_url', 'priority', 'Actions'];
+  displayedColumns: string[] = ['description', 'youtube_url', 'Actions']; //'priority'
   dataSource: any;
   pageSize = 50;
   isLoading = false;
@@ -86,7 +86,7 @@ export class TechTestimonialsComponent implements OnInit {
 
   openSubscriptionModal() {
     const dailogRef = this.modal.open(TechTestimonialsModalComponent, {
-      width: "60vw",
+      width: "500px",
       panelClass: "switcher-panel",
       data: {},
     });

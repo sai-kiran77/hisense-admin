@@ -152,8 +152,13 @@ export class ProductGroupComponent implements OnInit {
           return;
         }
         this.isLoading = true;
+        const category_products = {
+          category_products: [{
+            category_id: this.productVarientForm.value.category_id
+          }]
+        }
         this.productVarientForm.value.is_enabled = this.productVarientForm.value.is_enabled ? 1 : 0;
-        this.api.updateProductGroupInfo(this.activatedroute.snapshot.params['id'], this.productVarientForm.value).subscribe({
+        this.api.updateProductGroupInfo(this.activatedroute.snapshot.params['id'], { ...this.productVarientForm.value, ...category_products }).subscribe({
           next: (res: any) => {
             this.isLoading = false;
             console.log(res);

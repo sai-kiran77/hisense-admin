@@ -12,7 +12,7 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./product-groups-list.component.scss']
 })
 export class ProductGroupsListComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'code', 'Product Group Type', 'Actions'];
+  displayedColumns: string[] = ['name', 'code', 'Actions']; //'Product Group Type'
   dataSource: any;
   isLoading = true;
   pageSize = 10;

@@ -109,6 +109,7 @@ export class ProductsComponent implements OnInit {
         }
 
         this.imagesDataSource = new MatTableDataSource<any>(array)
+        console.log(this.imagesDataSource.data);
 
         this.productImagesDataSource = new MatTableDataSource<any>(res.data.slider_images);
       },

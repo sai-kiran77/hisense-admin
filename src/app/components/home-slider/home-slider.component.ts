@@ -87,7 +87,7 @@ export class HomeSliderComponent implements OnInit {
 
   openSubscriptionModal() {
     const dailogRef = this.modal.open(HomeSliderModalComponent, {
-      width: "60vw",
+      width: "500px",
       panelClass: "switcher-panel",
       data: {},
     });

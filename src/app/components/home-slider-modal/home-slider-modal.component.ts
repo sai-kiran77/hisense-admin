@@ -26,6 +26,7 @@ export class HomeSliderModalComponent implements OnInit {
     click_link: ['',[Validators.required,Validators.pattern(/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/)]],
     desktop_image: ['',[Validators.required]],
     mobile_image: ['',[Validators.required]],
+    is_enabled: ['']
   })
 
   constructor(
@@ -50,6 +51,7 @@ export class HomeSliderModalComponent implements OnInit {
     formData.append('click_link',this.form.value.click_link + '');
     formData.append('desktop_image',this.UpdatedDesktopThumbImgFile);
     formData.append('mobile_image',this.UpdatedMobileThumbImgFile);
+    formData.append('is_enabled',this.form.value.is_enabled ? '1' : '0');
     this.api.createHomePageSlide(formData).subscribe({
       next: (res: any) => {
         console.log(res);

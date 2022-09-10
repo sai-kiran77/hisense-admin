@@ -13,45 +13,52 @@
                                 <mat-form-field appearance="outline">
                                     <mat-label class="mat-label-field-padding">Title</mat-label>
                                     <input matInput formControlName="title" type="text" />
-                                    <mat-error
-                                        *ngIf="formSubmitted || (formControl['title'].errors && formControl['title'].errors['required'])">
+                                    <mat-hint class="error"
+                                        *ngIf="formSubmitted && (formControl['title'].errors && formControl['title'].errors['required'])">
                                         Title is required!
-                                    </mat-error>
+                                    </mat-hint>
                                 </mat-form-field>
                             </div>
                             <div class="col-12 col-sm-6 col-md-6 col-lg-3 form-group">
                                 <mat-form-field appearance="outline">
                                     <mat-label class="mat-label-field-padding">Description</mat-label>
                                     <input matInput formControlName="description" type="text" />
-                                    <mat-error
-                                        *ngIf="formSubmitted || (formControl['description'].errors && formControl['description'].errors['required'])">
+                                    <mat-hint class="error"
+                                        *ngIf="formSubmitted && (formControl['description'].errors && formControl['description'].errors['required'])">
                                         Description is required!
-                                    </mat-error>
+                                    </mat-hint>
                                 </mat-form-field>
                             </div>
                             <div class="col-12 col-sm-6 col-md-6 col-lg-3 form-group">
                                 <mat-form-field appearance="outline">
                                     <mat-label class="mat-label-field-padding">Vendor</mat-label>
                                     <input matInput formControlName="vendor" type="text" />
-                                    <!-- <mat-error
-                            *ngIf="formSubmitted || (formControl['vendor'].errors && formControl['vendor'].errors['required'])">
+                                    <!-- <mat-hint
+                            *ngIf="formSubmitted && (formControl['vendor'].errors && formControl['vendor'].errors['required'])">
                             Description is required!
-                          </mat-error> -->
+                          </mat-hint> -->
                                 </mat-form-field>
                             </div>
                             <div class="col-12 col-sm-6 col-md-6 col-lg-3 form-group">
                                 <mat-form-field appearance="outline">
                                     <mat-label class="mat-label-field-padding">External URL</mat-label>
                                     <input matInput formControlName="external_url" type="text" />
-                                    <mat-error
-                                        *ngIf="formSubmitted || (formControl['external_url'].errors && formControl['external_url'].errors['required'])">
+                                    <mat-hint class="error"
+                                        *ngIf="formSubmitted && (formControl['external_url'].errors && formControl['external_url'].errors['required'])">
                                         External URL is required!
-                                    </mat-error>
-                                    <mat-error
-                                        *ngIf="formSubmitted || (formControl['external_url'].errors && formControl['external_url'].errors['pattern'])">
+                                    </mat-hint>
+                                    <mat-hint class="error"
+                                        *ngIf="formSubmitted && (formControl['external_url'].errors && formControl['external_url'].errors['pattern'])">
                                         URL is not valid!
-                                    </mat-error>
+                                    </mat-hint>
                                 </mat-form-field>
+                            </div>
+
+                            <div class="col-12 form-group my-3">
+                                <mat-slide-toggle formControlName="is_enabled" class="d-block example-margin">
+                                    Enable/Disable
+                                    the
+                                    Press Coverage</mat-slide-toggle>
                             </div>
 
                             <div class="col-12">
@@ -60,25 +67,30 @@
                                         Thumb Image
                                     </h3>
                                 </div>
-                        
+
                                 <div class="row col-md-12">
                                     <div class="col-md-12 mb-3" *ngIf="thumbImage">
-                                        <img class="logo-btn" [src]="thumbImage" width="100" height="100"/>
+                                        <img class="logo-btn" [src]="thumbImage" width="100" height="100" />
                                     </div>
                                     <div class="col-md-12 mb-3" *ngIf="UpdatedThumbImg">
                                         <div class="logo-wrap">
-                                            <i (click)="UpdatedThumbImg=null;UpdatedThumbImgFile=null" class="fa fa-times fa-1x" aria-hidden="true"></i>
-                                            <img class="logo-btn" [src]="UpdatedThumbImg" width="100" height="100"/>
+                                            <i (click)="UpdatedThumbImg=null;UpdatedThumbImgFile=null"
+                                                class="fa fa-times fa-1x" aria-hidden="true"></i>
+                                            <img class="logo-btn" [src]="UpdatedThumbImg" width="100" height="100" />
                                         </div>
                                     </div>
                                     <div class="col-md-4 mb-3">
-                                        <input class="file-input" id="file-upload" type="file" accept="image/png, image/jpeg"
-                                            (change)="preview($event)" />
+                                        <input class="file-input" id="file-upload" type="file"
+                                            accept="image/png, image/jpeg, image/webp" (change)="preview($event)" />
                                         <button mat-raised-button type="button" class="file-upload-btn">
                                             <label for="file-upload">
                                                 Browse and upload Thumb Image
                                             </label>
                                         </button>
+                                        <mat-hint class="error"
+                                            *ngIf="formSubmitted && (formControl['image'].errors && formControl['image'].errors['required'])">
+                                            Thumb image is required!
+                                        </mat-hint>
                                     </div>
                                 </div>
                             </div>

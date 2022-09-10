@@ -21,6 +21,7 @@ export class TechTestimonialsModalComponent implements OnInit {
   form = this.fb.group({
     description: ['',[Validators.required]],
     youtube_url: ['',[Validators.required,Validators.pattern(/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/)]],
+    is_enabled: ['']
   })
 
   constructor(
@@ -45,7 +46,8 @@ export class TechTestimonialsModalComponent implements OnInit {
     // formData.append('vendor',this.form.value.vendor + '');
     // formData.append('external_url',this.form.value.external_url + '');
     // formData.append('image',this.UpdatedThumbImgFile);
-    this.api.createTechTestimonial(this.form.value).subscribe({
+    const is_enabled = this.form.value.is_enabled ? 1 : 0;
+    this.api.createTechTestimonial({ ...this.form.value, is_enabled }).subscribe({
       next: (res: any) => {
         console.log(res);
         this.dialogRef.close(true);
