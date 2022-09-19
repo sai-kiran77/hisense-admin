@@ -11,7 +11,7 @@
                         <div class="row">
 
                             <div class="col-12 form-group">
-                                <mat-form-field appearance="outline">
+                                <mat-form-field class="w-100" appearance="outline">
                                     <mat-label class="mat-label-field-padding">Start Date</mat-label>
                                     <input matInput [matDatepicker]="picker" formControlName="start_date" type="text" />
                                     <mat-hint>mm/dd/yyyy</mat-hint>
@@ -44,13 +44,17 @@
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <input class="file-input" id="file-upload" type="file"
-                                        accept="image/png, image/jpeg, image/webp" (change)="preview($event)" />
+                                            accept="image/png, image/jpeg, image/webp" (change)="preview($event)" />
                                         <button mat-raised-button type="button" class="file-upload-btn">
                                             <label for="file-upload">
                                                 Browse and upload Image
                                             </label>
                                         </button>
                                     </div>
+                                    <mat-hint class="error"
+                                        *ngIf="formSubmitted && (formControl['image'].errors && formControl['image'].errors['required'])">
+                                        Thumb Image is required!
+                                    </mat-hint>
                                 </div>
                             </div>
 

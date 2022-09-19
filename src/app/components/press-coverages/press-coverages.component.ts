@@ -17,7 +17,7 @@ export class PressCoveragesComponent implements OnInit {
 
   displayedColumns: string[] = ['title', 'description', 'image', 'vendor', 'external_url', 'Actions']; //'priority',
   dataSource: any;
-  pageSize = 20;
+  pageSize = 50;
   isLoading = false;
 
 
@@ -36,7 +36,7 @@ export class PressCoveragesComponent implements OnInit {
     this.getPressCoverages();
   }
 
-  getPressCoverages(params = { page: 1, per_page: 20 }) {
+  getPressCoverages(params = { page: 1, per_page: 50 }) {
     this.api.getPressCoverages(params).subscribe({
       next: (res: any) => {
         console.log(res);

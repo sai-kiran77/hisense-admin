@@ -21,7 +21,8 @@ export class TechTestimonialsModalComponent implements OnInit {
   form: FormGroup = this.fb.group({
     description: ['', [Validators.required]],
     youtube_url: ['', [Validators.required, Validators.pattern(/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/)]],
-    is_enabled: ['']
+    is_enabled: [''],
+    country: ['', [Validators.required]]
   })
 
   constructor(
@@ -37,6 +38,7 @@ export class TechTestimonialsModalComponent implements OnInit {
         youtube_url: this.data.dataToEdit.youtube_url,
         is_enabled: this.data.dataToEdit.is_enabled ? true : false,
         priority: this.data.dataToEdit.priority,
+        country: this.data.dataToEdit.country,
       })
     }
   }

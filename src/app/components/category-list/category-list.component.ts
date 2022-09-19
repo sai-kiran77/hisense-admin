@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/services/api.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-category-list',
@@ -13,10 +14,12 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class CategoryListComponent implements OnInit {
 
-  displayedColumns: string[] = ['name', 'code', 'Actions']; //'Product Code', 'size'
+  environment = environment
+
+  displayedColumns: string[] = ['name', 'code', 'View on website', 'Actions']; //'Product Code', 'size'
   dataSource: any;
   isLoading = true;
-  pageSize = 10
+  pageSize = 50
 
   @ViewChild(MatPaginator) paginator: any;
 
@@ -34,7 +37,7 @@ export class CategoryListComponent implements OnInit {
     this.getProductVarientList();
   }
 
-  getProductVarientList(params = { page: 1, per_page: 10 }) {
+  getProductVarientList(params = { page: 1, per_page: 50 }) {
     this.api.getProductCategoryList(params).subscribe({
       next: (res: any) => {
         console.log(res);

@@ -1,8 +1,8 @@
 <div class="modal-container">
     <div class="header border-bottom">
         <h4 mat-dialog-title>
-            <span *ngIf="!data.isEdit">Create</span> 
-            <span *ngIf="data.isEdit">Update</span> 
+            <span *ngIf="!data.isEdit">Create</span>
+            <span *ngIf="data.isEdit">Update</span>
             a Tech Testimonial
         </h4>
         <mat-icon [mat-dialog-close]="false" class="close-icon ">close</mat-icon>
@@ -35,6 +35,20 @@
                                     <mat-error
                                         *ngIf="formSubmitted || (formControl['youtube_url'].errors && formControl['youtube_url'].errors['pattern'])">
                                         URL is not valid!
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-12 form-group">
+                                <mat-form-field class="w-100" appearance="outline">
+                                    <mat-label>Country</mat-label>
+                                    <mat-select formControlName="country">
+                                        <mat-option value="national">National</mat-option>
+                                        <mat-option value="global">Global</mat-option>
+                                    </mat-select>
+                                    <mat-error
+                                        *ngIf="formSubmitted || (formControl['country'].errors && formControl['country'].errors['required'])">
+                                        Country is required!
                                     </mat-error>
                                 </mat-form-field>
                             </div>

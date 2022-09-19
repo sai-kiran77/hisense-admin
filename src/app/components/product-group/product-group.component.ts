@@ -18,6 +18,8 @@ export class ProductGroupComponent implements OnInit {
 
   environment = environment
 
+  relativeUrl = '';
+
   products: any = [];
   // purchaseLinksMetaData: any = [];
   componentType = 'create';
@@ -88,6 +90,7 @@ export class ProductGroupComponent implements OnInit {
         // this.purchaseLinksMetaData.forEach((obj: any) => {
         //   this.purchaseLinks[obj.code] = res.data.product_variant_purchase_links.find((o: any) => o.vendor == obj.code)?.purchase_link;
         // })
+        this.relativeUrl = res.data.relative_url;
         this.productVarientForm.patchValue({
           code: res?.data?.code,
           name: res?.data?.name,
@@ -230,6 +233,14 @@ export class ProductGroupComponent implements OnInit {
     // console.log(this.imagesCatalogMedia);
 
     // const catalog = [];
+
+    this.imagesCatalogMedia = this.imagesCatalogMedia.filter((obj: any) => obj.file && obj.media_type);
+    console.log(this.imagesCatalogMedia);
+
+    if (this.imagesCatalogMedia == 0) {
+      this.toaster.error('Please modify files before uploading!');
+      return;
+    }
 
     let formData: any = new FormData();
     let index = 0;

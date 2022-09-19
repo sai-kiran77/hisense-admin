@@ -55,6 +55,20 @@
                                 </mat-form-field>
                             </div>
 
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-3 form-group">
+                                <mat-form-field class="w-100" appearance="outline">
+                                    <mat-label>Country</mat-label>
+                                    <mat-select formControlName="country">
+                                        <mat-option value="national">National</mat-option>
+                                        <mat-option value="global">Global</mat-option>
+                                    </mat-select>
+                                    <mat-error
+                                        *ngIf="formSubmitted || (formControl['country'].errors && formControl['country'].errors['required'])">
+                                        Country is required!
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+
                             <div class="col-12 col-sm-6 col-md-6 col-lg-3 form-group" *ngIf="data.isEdit">
                                 <mat-form-field class="w-100" appearance="outline">
                                     <mat-label class="mat-label-field-padding">Priority</mat-label>

@@ -21,11 +21,11 @@ export class HomeSliderModalComponent implements OnInit {
   //desktop
   desktopthumbImage: any;
   UpdatedDesktopThumbImgFile: any;
-
+  // Validators.pattern(/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/)
   form = this.fb.group({
-    click_link: ['',[Validators.required,Validators.pattern(/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/)]],
-    desktop_image: ['',[Validators.required]],
-    mobile_image: ['',[Validators.required]],
+    click_link: ['', [Validators.required]],
+    desktop_image: ['', [Validators.required]],
+    mobile_image: ['', [Validators.required]],
     is_enabled: ['']
   })
 
@@ -39,19 +39,19 @@ export class HomeSliderModalComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  createPressCoverage(){
+  createPressCoverage() {
     this.formSubmitted = true;
     console.log(this.form.value)
 
-    if(!this.form.valid){
+    if (!this.form.valid) {
       return;
     }
     this.isLoading = true;
     const formData = new FormData();
-    formData.append('click_link',this.form.value.click_link + '');
-    formData.append('desktop_image',this.UpdatedDesktopThumbImgFile);
-    formData.append('mobile_image',this.UpdatedMobileThumbImgFile);
-    formData.append('is_enabled',this.form.value.is_enabled ? '1' : '0');
+    formData.append('click_link', this.form.value.click_link + '');
+    formData.append('desktop_image', this.UpdatedDesktopThumbImgFile);
+    formData.append('mobile_image', this.UpdatedMobileThumbImgFile);
+    formData.append('is_enabled', this.form.value.is_enabled ? '1' : '0');
     this.api.createHomePageSlide(formData).subscribe({
       next: (res: any) => {
         console.log(res);
@@ -66,7 +66,7 @@ export class HomeSliderModalComponent implements OnInit {
     })
   }
 
-  preview(event: any,device = 'mobile') {
+  preview(event: any, device = 'mobile') {
     let files = event.target?.files
     if (files.length === 0)
       return;
@@ -80,11 +80,11 @@ export class HomeSliderModalComponent implements OnInit {
     reader.readAsDataURL(files[0]);
     reader.onload = (_event) => {
       console.log(device);
-      if(device == 'desktop'){
+      if (device == 'desktop') {
         this.desktopthumbImage = reader.result;
         this.UpdatedDesktopThumbImgFile = files[0];
         this.form.controls.desktop_image.setValue(files[0]);
-      }else{
+      } else {
         this.mobileThumbImage = reader.result;
         this.UpdatedMobileThumbImgFile = files[0];
         this.form.controls.mobile_image.setValue(files[0]);

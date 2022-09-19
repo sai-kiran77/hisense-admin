@@ -46,7 +46,7 @@ export class HomeSliderComponent implements OnInit {
       next: (res: any) => {
         console.log(res);
         res.data = res.data.map((obj: any,i: number)=>{
-          obj.click_link = environment.websiteUrl + obj.click_link;
+          // obj.click_link = environment.websiteUrl + obj.click_link;
           this.priorities.push(i+1)
           return{
             ...obj,

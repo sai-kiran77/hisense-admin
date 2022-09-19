@@ -87,7 +87,7 @@ export class OffersAndPromotionsComponent implements OnInit {
 
   openSubscriptionModal() {
     const dailogRef = this.modal.open(OffersAndPromotionsModalComponent, {
-      width: "60vw",
+      width: "500px",
       panelClass: "switcher-panel",
       data: {},
     });
