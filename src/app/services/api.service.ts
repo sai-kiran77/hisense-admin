@@ -195,7 +195,7 @@ export class ApiService {
 
   getPressCoverages(params: any) {
     const uuid = this.getLocalStorage('currentUserSession').uuid;
-    return this.http.get(this.baseUrl + `/v1/press-coverages`, {
+    return this.http.get(this.baseUrl + `/v1/admin/press-coverages`, {
       params,
       headers: new HttpHeaders({ 'admin-user-uuid': uuid })
     });
@@ -209,10 +209,11 @@ export class ApiService {
     });
   }
 
-  getTechTestimonials() {
+  getTechTestimonials(params: any) {
     const uuid = this.getLocalStorage('currentUserSession').uuid;
-    return this.http.get(this.baseUrl + `/v1/tech-testimonials`, {
-      headers: new HttpHeaders({ 'admin-user-uuid': uuid })
+    return this.http.get(this.baseUrl + `/v1/admin/tech-testimonials`, {
+      headers: new HttpHeaders({ 'admin-user-uuid': uuid }),
+      params
     });
   }
 
@@ -268,6 +269,36 @@ export class ApiService {
   deleteTechTestimonial(id: any) {
     const uuid = this.getLocalStorage('currentUserSession').uuid;
     return this.http.delete(this.baseUrl + `/v1/admin/tech-testimonials/${id}`, {
+      headers: new HttpHeaders({ 'admin-user-uuid': uuid })
+    })
+  }
+
+  updateHomeSlider(body: any) {
+    body._method = 'PATCH';
+    const uuid = this.getLocalStorage('currentUserSession').uuid;
+    return this.http.patch(this.baseUrl + `/v1/admin/home-page-slides`, body, {
+      headers: new HttpHeaders({ 'admin-user-uuid': uuid })
+    })
+  }
+
+  updateOffersPromotions(body: any) {
+    body._method = 'PATCH';
+    const uuid = this.getLocalStorage('currentUserSession').uuid;
+    return this.http.patch(this.baseUrl + `/v1/admin/offer-promotions`, body, {
+      headers: new HttpHeaders({ 'admin-user-uuid': uuid })
+    })
+  }
+
+  updateTechTestimonials(body: any, id: any) {
+    const uuid = this.getLocalStorage('currentUserSession').uuid;
+    return this.http.patch(this.baseUrl + `/v1/admin/tech-testimonials/${id}`, body, {
+      headers: new HttpHeaders({ 'admin-user-uuid': uuid })
+    })
+  }
+
+  updatePressCoverage(body: any, id: any) {
+    const uuid = this.getLocalStorage('currentUserSession').uuid;
+    return this.http.patch(this.baseUrl + `/v1/admin/press-coverages/${id}`, body, {
       headers: new HttpHeaders({ 'admin-user-uuid': uuid })
     })
   }

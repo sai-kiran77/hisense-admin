@@ -15,7 +15,7 @@ declare var swal: any;
 })
 export class PressCoveragesComponent implements OnInit {
 
-  displayedColumns: string[] = ['title', 'description', 'image', 'vendor', 'external_url', 'priority', 'Actions'];
+  displayedColumns: string[] = ['title', 'description', 'image', 'vendor', 'external_url', 'Actions']; //'priority',
   dataSource: any;
   pageSize = 50;
   isLoading = false;
@@ -83,11 +83,11 @@ export class PressCoveragesComponent implements OnInit {
       }, (error: any) => { });
   }
 
-  openSubscriptionModal() {
+  openSubscriptionModal(dataToEdit?: any, isEdit = false) {
     const dailogRef = this.modal.open(PressCoverageModalComponent, {
       width: "80vw",
       panelClass: "switcher-panel",
-      data: {},
+      data: { isEdit, dataToEdit },
     });
 
     dailogRef.afterClosed().subscribe(

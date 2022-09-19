@@ -6,6 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/services/api.service';
+import { environment } from 'src/environments/environment';
 
 declare var swal: any;
 
@@ -16,6 +17,9 @@ declare var swal: any;
 })
 export class ProductsComponent implements OnInit {
 
+  environment = environment
+
+  relativeUrl = '';
   products: any = [];
   purchaseLinksMetaData: any = [];
   componentType = 'create';
@@ -84,6 +88,7 @@ export class ProductsComponent implements OnInit {
     this.api.getProductVarientInfo(this.activatedroute.snapshot.params['id']).subscribe({
       next: (res: any) => {
         console.log(res);
+        this.relativeUrl = res.data.relative_url;
         this.purchaseLinksMetaData = this.metaData?.product_variant_purchase_link_vendors;
         this.purchaseLinksMetaData.forEach((obj: any) => {
           this.purchaseLinks[obj.code] = res.data.product_variant_purchase_links.find((o: any) => o.vendor == obj.code)?.purchase_link;
@@ -109,6 +114,7 @@ export class ProductsComponent implements OnInit {
         }
 
         this.imagesDataSource = new MatTableDataSource<any>(array)
+        console.log(this.imagesDataSource.data);
 
         this.productImagesDataSource = new MatTableDataSource<any>(res.data.slider_images);
       },
@@ -249,6 +255,14 @@ export class ProductsComponent implements OnInit {
     // console.log(this.imagesCatalogMedia);
 
     // const catalog = [];
+
+    this.imagesCatalogMedia = this.imagesCatalogMedia.filter((obj: any) => obj.file && obj.media_type);
+    console.log(this.imagesCatalogMedia);
+
+    if (this.imagesCatalogMedia == 0) {
+      this.toaster.error('Please modify files before uploading!');
+      return;
+    }
 
     let formData: any = new FormData();
     let index = 0;

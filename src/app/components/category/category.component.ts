@@ -17,6 +17,7 @@ declare var swal: any;
 export class CategoryComponent implements OnInit {
 
   environment = environment;
+  relativeUrl = '';
 
   products: any = [];
   purchaseLinksMetaData: any = [];
@@ -58,7 +59,6 @@ export class CategoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedroute.data.subscribe((data: any) => {
-      console.log(data);
       this.componentType = data.type;
       this.getMetaData(data);
     })
@@ -67,7 +67,6 @@ export class CategoryComponent implements OnInit {
   getMetaData(data: any) {
     this.api.getCategoryCreationMetaData().subscribe({
       next: (res: any) => {
-        console.log(res);
         this.metaData = res?.data;
         this.products = [{ id: 'null', name: 'No Category' }, ...res?.data?.categories];
         if (data.type == 'update') {
@@ -84,12 +83,12 @@ export class CategoryComponent implements OnInit {
   loadProductInfo() {
     this.api.getCategoryInfo(this.activatedroute.snapshot.params['id']).subscribe({
       next: (res: any) => {
-        console.log(res);
         // this.products = res?.data?.products;
         // this.purchaseLinksMetaData = this.metaData?.product_variant_purchase_link_vendors;
         // this.purchaseLinksMetaData.forEach((obj: any) => {
         //   this.purchaseLinks[obj.code] = res.data.product_variant_purchase_links.find((o: any) => o.vendor == obj.code)?.purchase_link;
         // })
+        this.relativeUrl = res.data.relative_url;
         this.productVarientForm.patchValue({
           code: res?.data?.code,
           name: res?.data?.name,
@@ -143,7 +142,6 @@ export class CategoryComponent implements OnInit {
       this.api.createCategory(this.productVarientForm.value).subscribe({
         next: (res: any) => {
           this.isLoading = false;
-          console.log(res);
           this.toaster.success(res.message);
           this.router.navigate(['/update/category', res.data.id])
         },
@@ -154,7 +152,6 @@ export class CategoryComponent implements OnInit {
         }
       })
     } else {
-      console.log(this.selectedIndex);
       if (this.selectedIndex == 0) {
         this.productVarientForm.markAllAsTouched();
         this.productVarientFormSubmitted = true;
@@ -169,7 +166,6 @@ export class CategoryComponent implements OnInit {
         this.api.updateCategoryInfo(this.activatedroute.snapshot.params['id'], this.productVarientForm.value).subscribe({
           next: (res: any) => {
             this.isLoading = false;
-            console.log(res);
             this.toaster.success(res.message);
           },
           error: (err: any) => {
@@ -180,11 +176,9 @@ export class CategoryComponent implements OnInit {
         })
       } else if (this.selectedIndex == 1) {
         this.isLoading = true;
-        console.log(this.purchaseLinks)
         this.api.updateProductVarientInfo(this.activatedroute.snapshot.params['id'], this.purchaseLinks).subscribe({
           next: (res: any) => {
             this.isLoading = false;
-            console.log(res);
             this.toaster.success(res.message);
           },
           error: (err) => {
@@ -200,8 +194,6 @@ export class CategoryComponent implements OnInit {
   imagesTabSelectedIndex: any;
 
   changeTab(event: any) {
-    console.log(event);
-    console.log(event.index);
     this.selectedIndex = event.index;
     this.isLoading = false;
     this.productVarientFormSubmitted = false;
@@ -220,7 +212,6 @@ export class CategoryComponent implements OnInit {
     // console.log(this.inputForFile[0]);
     // console.log(this.inputForFile[1]);
     this.inputForFile.forEach((a: any, index: number) => {
-      console.log(a);
       if (i === index) {
         a.nativeElement.click();
       }
@@ -230,8 +221,8 @@ export class CategoryComponent implements OnInit {
   imagesCatalogMedia: any = [];
 
   inputChangeEventListener(event: any, type: any, i: number) {
-    console.log(i);
-    console.log(this.imagesDataSource);
+    // console.log(i);
+    // console.log(this.imagesDataSource);
     let mediaType = '';
     if (type == 'Thumb Image') {
       mediaType = 'thumb_image'
@@ -255,26 +246,32 @@ export class CategoryComponent implements OnInit {
     // console.log(this.imagesCatalogMedia);
 
     // const catalog = [];
+    
+    this.imagesCatalogMedia = this.imagesCatalogMedia.filter((obj: any) => obj.file && obj.media_type);
+    console.log(this.imagesCatalogMedia);
+  
+    if(this.imagesCatalogMedia == 0){
+      this.toaster.error('Please modify files before uploading!');
+      return;
+    }
 
     let formData: any = new FormData();
     let index = 0;
     for (let obj of this.imagesCatalogMedia) {
       for (var key in obj) {
-        console.log(key);
         formData.append(`catalog_media[${index}][${key}]`, obj[key]);
       }
       index++;
     }
 
-    for (var key1 of formData.entries()) {
-      console.log(key1[0] + ', ' + key1[1]);
-    }
+    // for (var key1 of formData.entries()) {
+    //   console.log(key1[0] + ', ' + key1[1]);
+    // }
 
 
-    console.log(formData);
+    // console.log(formData);
     this.api.uploadFiles(formData).subscribe({
       next: (res: any) => {
-        console.log(res);
         this.toaster.success(res.message);
       },
       error: (err) => {
@@ -294,10 +291,8 @@ export class CategoryComponent implements OnInit {
       cancelButtonText: 'No'
     })
       .then((willDelete: any) => {
-        console.log(ele)
         this.api.deleteFiles(ele.id).subscribe({
           next: (res: any) => {
-            console.log(res);
             this.loadProductInfo();
             this.toaster.success(res.message);
           },
@@ -314,12 +309,10 @@ export class CategoryComponent implements OnInit {
   myFilesImages: any = [];
 
   browseMultipleFileButtonClicked() {
-    console.log('came here');
     this.inputMultipleFiles.nativeElement.click();
   }
 
   onFileChange(event: any) {
-    console.log(event);
     for (let i = 0; i < event.target.files.length; i++) {
 
       this.myFiles.push({
@@ -335,7 +328,6 @@ export class CategoryComponent implements OnInit {
         this.myFilesImages.push(reader.result);
       }
     }
-    console.log(this.myFiles);
   }
 
   uploadMultipleImages() {
@@ -349,7 +341,6 @@ export class CategoryComponent implements OnInit {
 
     this.api.uploadFiles(formData).subscribe({
       next: (res: any) => {
-        console.log(res);
         this.toaster.success(res.message);
         this.loadProductInfo();
       },

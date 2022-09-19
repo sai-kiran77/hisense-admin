@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/services/api.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-product-groups-list',
@@ -12,10 +13,11 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./product-groups-list.component.scss']
 })
 export class ProductGroupsListComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'code', 'Product Group Type', 'Actions'];
+  displayedColumns: string[] = ['name', 'code', 'View on website', 'Actions']; //'Product Group Type'
   dataSource: any;
   isLoading = true;
-  pageSize = 10;
+  pageSize = 50;
+  environment = environment
 
   @ViewChild(MatPaginator) paginator: any;
 
@@ -33,7 +35,7 @@ export class ProductGroupsListComponent implements OnInit {
     this.getProductVarientList();
   }
 
-  getProductVarientList(params = { page: 1, per_page: 10 }) {
+  getProductVarientList(params = { page: 1, per_page: 50 }) {
     this.api.getProductGroupList(params).subscribe({
       next: (res: any) => {
         console.log(res);

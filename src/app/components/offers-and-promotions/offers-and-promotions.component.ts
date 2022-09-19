@@ -16,7 +16,7 @@ declare var swal: any;
 })
 export class OffersAndPromotionsComponent implements OnInit {
 
-  displayedColumns: string[] = ['start date', 'file name', 'image', 'Actions'];
+  displayedColumns: string[] = ['start date', 'file name', 'image', 'is_enabled', 'Actions'];
   dataSource: any;
   pageSize = 50;
   isLoading = false;
@@ -34,10 +34,10 @@ export class OffersAndPromotionsComponent implements OnInit {
     private modal: MatDialog,) { }
 
   ngOnInit(): void {
-    this.getPressCoverages();
+    this.getOffersPromotions();
   }
 
-  getPressCoverages(params = { page: 1, per_page: 50 }) {
+  getOffersPromotions(params = { page: 1, per_page: 50 }) {
     this.api.getOffersAndPromotions(params).subscribe({
       next: (res: any) => {
         console.log(res);
@@ -73,7 +73,7 @@ export class OffersAndPromotionsComponent implements OnInit {
             console.log(res);
             this.isLoading = false;
             this.toaster.success(res.message)
-            this.getPressCoverages();
+            this.getOffersPromotions();
           },
           error: (err: any) => {
             this.isLoading = false;
@@ -87,7 +87,7 @@ export class OffersAndPromotionsComponent implements OnInit {
 
   openSubscriptionModal() {
     const dailogRef = this.modal.open(OffersAndPromotionsModalComponent, {
-      width: "60vw",
+      width: "500px",
       panelClass: "switcher-panel",
       data: {},
     });
@@ -95,13 +95,43 @@ export class OffersAndPromotionsComponent implements OnInit {
     dailogRef.afterClosed().subscribe(
       (result) => {
         if (result) {
-          this.getPressCoverages();
+          this.getOffersPromotions();
         }
       });
   }
 
   pageChanged(event: any) {
-    this.getPressCoverages({ page: event.pageIndex + 1, per_page: event.pageSize })
+    this.getOffersPromotions({ page: event.pageIndex + 1, per_page: event.pageSize })
+  }
+
+  updateOffersPromotions() {
+    this.isLoading = true;
+    const body = this.dataSource.data.map((obj: any) => {
+      console.log(typeof obj.start_date);
+      const split: any = obj.start_date?.toString().split(' ');
+      if(typeof obj.start_date != 'string'){
+        obj.start_date = `${split[3]}-${(new Date(obj.start_date as string).getMonth() + 1).toString().padStart(2,'0')}-${split[2]}`
+      }
+      return {
+        id: obj.id,
+        is_enabled: obj.is_enabled ? 1 : 0,
+        start_date: obj.start_date
+      }
+    })
+    console.log(body);
+    this.api.updateOffersPromotions({ offer_promotions: body }).subscribe({
+      next: (res: any) => {
+        console.log(res);
+        this.getOffersPromotions();
+        this.toaster.success(res.message);
+        this.isLoading = false;
+      },
+      error: (err: any) => {
+        this.isLoading = false;
+        console.log(err);
+        this.toaster.error(err.error.message);
+      }
+    })
   }
 
   goBack() {

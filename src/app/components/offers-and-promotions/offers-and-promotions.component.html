@@ -20,23 +20,42 @@
                     <ng-container matColumnDef="start date">
                         <th mat-header-cell *matHeaderCellDef> Start Date </th>
                         <td mat-cell *matCellDef="let element">
-                            {{element?.start_date}}
+                            <!-- {{element?.start_date}} -->
+                            <mat-form-field style="max-width: 150px;margin: auto;" appearance="outline">
+                                <mat-label class="mat-label-field-padding">Start Date</mat-label>
+                                <input matInput [matDatepicker]="picker" [(ngModel)]="element.start_date" type="text" />
+                                <mat-hint>mm/dd/yyyy</mat-hint>
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                                <mat-hint class="error"
+                                    *ngIf="!element.start_date">
+                                    Start Date is required!
+                                </mat-hint>
+                            </mat-form-field>
                         </td>
                     </ng-container>
 
                     <ng-container matColumnDef="file name">
                         <th mat-header-cell *matHeaderCellDef>File Name </th>
-                        <td mat-cell *matCellDef="let element"> 
+                        <td mat-cell *matCellDef="let element">
                             <div class="my-3">
-                                {{element?.image || 'N/A'}} 
+                                {{element?.image || 'N/A'}}
                             </div>
                         </td>
                     </ng-container>
 
                     <ng-container matColumnDef="image">
                         <th mat-header-cell *matHeaderCellDef>Image </th>
-                        <td mat-cell *matCellDef="let element"> 
-                            <img [src]="element.image_full_url" width="100" height="100" class="my-3">     
+                        <td mat-cell *matCellDef="let element">
+                            <img [src]="element.image_full_url" width="100" height="100" class="my-3">
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="is_enabled">
+                        <th mat-header-cell *matHeaderCellDef>Enable / Disable </th>
+                        <td mat-cell *matCellDef="let element">
+                            <mat-slide-toggle style="max-width: max-content;margin: auto;" [(ngModel)]="element.is_enabled"
+                                class="d-block example-margin"></mat-slide-toggle>
                         </td>
                     </ng-container>
 
@@ -46,9 +65,9 @@
                             <a class="pointer" (click)="deleteItem(element)" [matTooltip]="'Delete File'"
                                 matTooltipClass="custom-tooltip">
                                 <i style="font-size: 1.6em; color: #c41414;" class="fas fa-2x fa-trash-alt"></i>
-                              </a>
+                            </a>
                         </td>
-                      </ng-container>
+                    </ng-container>
 
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
@@ -56,8 +75,23 @@
             </div>
             <div class="text-center py-2 no-record" *ngIf="!dataSource?.data.length">
                 No record found</div>
-            <mat-paginator [pageSizeOptions]="[5, 10, 20]" (page)="pageChanged($event)" [pageSize]="pageSize">
+            <mat-paginator [pageSizeOptions]="[50, 100, 200]" (page)="pageChanged($event)" [pageSize]="pageSize">
             </mat-paginator>
+
+            <div
+                class="col-md-12 mt-3 border-top p-2 button-container d-flex justify-content-between align-items-center">
+                <div>
+                    <a (click)="goBack()" class="forgot-link" style="color: black; cursor: pointer;">
+                        <i class='fas fa-arrow-left'></i> Go back
+                    </a>
+                </div>
+                <button mat-raised-button type="submit" (click)="updateOffersPromotions()" class="btn btn-info">
+                    <span [ngClass]="{'mr-2': isLoading}">
+                        <ng-container>Update</ng-container>
+                    </span>
+                    <i *ngIf="isLoading" class="fas fa-circle-notch fa-spin"></i>
+                </button>
+            </div>
         </div>
     </div>
 </section>

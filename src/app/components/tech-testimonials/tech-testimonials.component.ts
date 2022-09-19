@@ -15,7 +15,7 @@ declare var swal: any;
 })
 export class TechTestimonialsComponent implements OnInit {
 
-  displayedColumns: string[] = ['description', 'youtube_url', 'priority', 'Actions'];
+  displayedColumns: string[] = ['description', 'youtube_url', 'Actions']; //'priority'
   dataSource: any;
   pageSize = 50;
   isLoading = false;
@@ -36,8 +36,8 @@ export class TechTestimonialsComponent implements OnInit {
     this.getTechTestimonials();
   }
 
-  getTechTestimonials(params = { page: 1, per_page: 50 }) {
-    this.api.getTechTestimonials().subscribe({
+  getTechTestimonials(params = { page: 1, per_page: 20 }) {
+    this.api.getTechTestimonials(params).subscribe({
       next: (res: any) => {
         console.log(res);
         this.dataSource = new MatTableDataSource<any>(res.data);
@@ -84,11 +84,11 @@ export class TechTestimonialsComponent implements OnInit {
 
   }
 
-  openSubscriptionModal() {
+  openSubscriptionModal(dataToEdit?: any, isEdit = false) {
     const dailogRef = this.modal.open(TechTestimonialsModalComponent, {
-      width: "60vw",
+      width: "400px",
       panelClass: "switcher-panel",
-      data: {},
+      data: { isEdit, dataToEdit },
     });
 
     dailogRef.afterClosed().subscribe(
