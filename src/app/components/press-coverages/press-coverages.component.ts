@@ -17,7 +17,7 @@ export class PressCoveragesComponent implements OnInit {
 
   displayedColumns: string[] = ['title', 'description', 'image', 'vendor', 'external_url', 'Actions']; //'priority',
   dataSource: any;
-  pageSize = 50;
+  pageSize = 20;
   isLoading = false;
 
 
@@ -36,7 +36,7 @@ export class PressCoveragesComponent implements OnInit {
     this.getPressCoverages();
   }
 
-  getPressCoverages(params = { page: 1, per_page: 50 }) {
+  getPressCoverages(params = { page: 1, per_page: 20 }) {
     this.api.getPressCoverages(params).subscribe({
       next: (res: any) => {
         console.log(res);
@@ -83,11 +83,11 @@ export class PressCoveragesComponent implements OnInit {
       }, (error: any) => { });
   }
 
-  openSubscriptionModal() {
+  openSubscriptionModal(dataToEdit?: any, isEdit = false) {
     const dailogRef = this.modal.open(PressCoverageModalComponent, {
       width: "80vw",
       panelClass: "switcher-panel",
-      data: {},
+      data: { isEdit, dataToEdit },
     });
 
     dailogRef.afterClosed().subscribe(

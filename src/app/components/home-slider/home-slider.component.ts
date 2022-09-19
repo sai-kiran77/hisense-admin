@@ -5,6 +5,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/services/api.service';
+import { environment } from 'src/environments/environment';
 import { HomeSliderModalComponent } from '../home-slider-modal/home-slider-modal.component';
 
 declare var swal: any;
@@ -16,10 +17,13 @@ declare var swal: any;
 })
 export class HomeSliderComponent implements OnInit {
 
-  displayedColumns: string[] = ['Link', 'desktop image', 'mobile image', 'priority', 'Actions'];
+  environment = environment;
+
+  displayedColumns: string[] = ['Link', 'desktop image', 'mobile image', 'priority', 'is_enabled', 'Actions'];
   dataSource: any;
   // pageSize = 50;
   isLoading = false;
+  priorities: any = [];
 
 
   // @ViewChild(MatPaginator) paginator: any;
@@ -34,13 +38,20 @@ export class HomeSliderComponent implements OnInit {
     private modal: MatDialog,) { }
 
   ngOnInit(): void {
-    this.getPressCoverages();
+    this.getHomePageSlides();
   }
 
-  getPressCoverages() {
+  getHomePageSlides() {
     this.api.getHomePageSlides().subscribe({
       next: (res: any) => {
         console.log(res);
+        res.data = res.data.map((obj: any,i: number)=>{
+          obj.click_link = environment.websiteUrl + obj.click_link;
+          this.priorities.push(i+1)
+          return{
+            ...obj,
+          }
+        })
         this.dataSource = new MatTableDataSource<any>(res.data);
         // setTimeout(() => {
         //   this.paginator.pageIndex = params.page - 1;
@@ -73,7 +84,7 @@ export class HomeSliderComponent implements OnInit {
             console.log(res);
             this.isLoading = false;
             this.toaster.success(res.message)
-            this.getPressCoverages();
+            this.getHomePageSlides();
           },
           error: (err: any) => {
             this.isLoading = false;
@@ -95,7 +106,7 @@ export class HomeSliderComponent implements OnInit {
     dailogRef.afterClosed().subscribe(
       (result) => {
         if (result) {
-          this.getPressCoverages();
+          this.getHomePageSlides();
         }
       });
   }
@@ -103,6 +114,33 @@ export class HomeSliderComponent implements OnInit {
   // pageChanged(event: any) {
   //   this.getPressCoverages({ page: event.pageIndex + 1, per_page: event.pageSize })
   // }
+
+  updateHomeSlider(){
+    this.isLoading = true;
+    console.log(this.dataSource.data);
+    const body = this.dataSource.data.map((obj: any) => {
+      return {
+        id: obj.id,
+        click_link: obj.click_link,
+        is_enabled: obj.is_enabled ? 1 : 0,
+        priority: obj.priority
+      }
+    })
+    console.log(body);
+    this.api.updateHomeSlider({home_page_slides: body }).subscribe({
+      next: (res: any) => {
+        console.log(res);
+        this.getHomePageSlides();
+        this.toaster.success(res.message);
+        this.isLoading = false;
+      },
+      error: (err: any) => {
+        this.isLoading = false;
+        console.log(err);
+        this.toaster.error(err.error.message);
+      }
+    })
+  }
 
   goBack() {
     this.location.back();
