@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild, ViewChildren } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -38,12 +38,12 @@ export class ProductsComponent implements OnInit {
   isLoading = false;
   productVarientFormSubmitted = false;
 
-  productVarientForm = this.fb.group({
+  productVarientForm: FormGroup = this.fb.group({
     code: ['', [Validators.required]],
     name: ['', [Validators.required]],
     variant_size: ['', [Validators.required]],
     product_id: ['', [Validators.required]],
-    short_description: ['', [Validators.required]],
+    short_description: [''],
     is_enabled: [0]
   })
 
@@ -62,6 +62,11 @@ export class ProductsComponent implements OnInit {
     this.activatedroute.data.subscribe((data: any) => {
       console.log(data);
       this.componentType = data.type;
+      if (data.type == "update") {
+        this.productVarientForm.addControl('variant_size_numeric', this.fb.control('', Validators.pattern(/^[0-9]*$/)))
+        this.productVarientForm.addControl('top_specifications', this.fb.control(''))
+        this.productVarientForm.addControl('all_specifications', this.fb.control(''))
+      }
       this.getMetaData(data);
     })
   }
@@ -101,6 +106,14 @@ export class ProductsComponent implements OnInit {
           short_description: res?.data?.short_description,
           is_enabled: res?.data?.is_enabled,
         })
+
+        if (this.componentType == 'update') {
+          this.productVarientForm.patchValue({
+            all_specifications: JSON.stringify(res?.data?.all_specifications),
+            top_specifications: JSON.stringify(res?.data?.top_specifications),
+            variant_size_numeric: res?.data?.variant_size_numeric
+          })
+        }
 
         this.dataSource = new MatTableDataSource<any>(this.metaData?.product_variant_purchase_link_vendors);
         const array = [];
@@ -149,6 +162,9 @@ export class ProductsComponent implements OnInit {
       })
     } else {
       console.log(this.selectedIndex);
+      this.productVarientForm.value.top_specifications = JSON.stringify(JSON.parse(this.productVarientForm.value.top_specifications));
+      this.productVarientForm.value.all_specifications = JSON.stringify(JSON.parse(this.productVarientForm.value.all_specifications));
+      this.productVarientForm.value.variant_size_numeric = this.productVarientForm.value.variant_size_numeric;
       if (this.selectedIndex == 0) {
         this.productVarientForm.markAllAsTouched();
         this.productVarientFormSubmitted = true;

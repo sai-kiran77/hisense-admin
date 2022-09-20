@@ -16,8 +16,8 @@
                 <div class="col-md-12">
                   <form [formGroup]="productVarientForm">
                     <div class="row">
-                      <div class="col-12 col-sm-6 col-md-6 col-lg-3 form-group">
-                        <mat-form-field appearance="outline">
+                      <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 form-group">
+                        <mat-form-field appearance="outline" class="w-100">
                           <mat-label class="mat-label-field-padding">Product Code</mat-label>
                           <input matInput formControlName="code" type="text" />
                           <mat-error
@@ -26,8 +26,8 @@
                           </mat-error>
                         </mat-form-field>
                       </div>
-                      <div class="col-12 col-sm-6 col-md-6 col-lg-3 form-group">
-                        <mat-form-field appearance="outline">
+                      <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 form-group">
+                        <mat-form-field appearance="outline" class="w-100">
                           <mat-label class="mat-label-field-padding">Product Name</mat-label>
                           <input matInput formControlName="name" type="text" />
                           <mat-error
@@ -36,8 +36,8 @@
                           </mat-error>
                         </mat-form-field>
                       </div>
-                      <div class="col-12 col-sm-6 col-md-6 col-lg-3 form-group">
-                        <mat-form-field appearance="outline">
+                      <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 form-group">
+                        <mat-form-field appearance="outline" class="w-100">
                           <mat-label class="mat-label-field-padding">Product Size</mat-label>
                           <input matInput formControlName="variant_size" type="text" />
                           <mat-error
@@ -46,8 +46,8 @@
                           </mat-error>
                         </mat-form-field>
                       </div>
-                      <div class="col-12 col-sm-6 col-md-6 col-lg-3 form-group">
-                        <mat-form-field appearance="outline">
+                      <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 form-group">
+                        <mat-form-field appearance="outline" class="w-100">
                           <mat-label>Product Group</mat-label>
                           <mat-select formControlName="product_id">
                             <mat-option *ngFor="let product of products" [value]="product.id">
@@ -60,16 +60,50 @@
                           </mat-error>
                         </mat-form-field>
                       </div>
-                      <div class="col-12 form-group">
+                      <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 form-group" *ngIf="componentType == 'update'">
                         <mat-form-field appearance="outline" class="w-100">
-                          <mat-label>Short Description</mat-label>
-                          <textarea matInput trim="blur" style="resize: none; overflow-y: auto; padding: 8px;" rows="5"
-                            formControlName="short_description"></textarea>
+                          <mat-label class="mat-label-field-padding">Product Varient Size</mat-label>
+                          <input matInput formControlName="variant_size_numeric" type="text" />
                           <mat-error
-                            *ngIf="productVarientFormSubmitted || (formControl['short_description'].errors && formControl['short_description'].errors['required'])">
-                            Product Group is required!
+                            *ngIf="productVarientFormSubmitted || (formControl['variant_size_numeric'].errors && formControl['variant_size_numeric'].errors['pattern'])">
+                            Product Varient Size should be a number!
                           </mat-error>
                         </mat-form-field>
+                      </div>
+                      <div class="row">
+                        <div class="col-12 col-md-4 form-group" [ngClass]="{'col-md-12': componentType != 'update'}">
+                          <mat-form-field appearance="outline" class="w-100">
+                            <mat-label>Short Description</mat-label>
+                            <textarea matInput trim="blur" style="resize: none; overflow-y: auto; padding: 8px;" rows="5"
+                              formControlName="short_description"></textarea>
+                            <!-- <mat-error
+                              *ngIf="productVarientFormSubmitted || (formControl['short_description'].errors && formControl['short_description'].errors['required'])">
+                              Product Group is required!
+                            </mat-error> -->
+                          </mat-form-field>
+                        </div>
+                        <div class="col-12 col-md-4 form-group" *ngIf="componentType == 'update'">
+                          <mat-form-field appearance="outline" class="w-100">
+                            <mat-label>Top Specifications</mat-label>
+                            <textarea matInput trim="blur" style="resize: none; overflow-y: auto; padding: 8px;" rows="5"
+                              formControlName="top_specifications"></textarea>
+                            <!-- <mat-error
+                              *ngIf="productVarientFormSubmitted || (formControl['short_description'].errors && formControl['short_description'].errors['required'])">
+                              Product Group is required!
+                            </mat-error> -->
+                          </mat-form-field>
+                        </div>
+                        <div class="col-12 col-md-4 form-group" *ngIf="componentType == 'update'">
+                          <mat-form-field appearance="outline" class="w-100">
+                            <mat-label>All Specifications</mat-label>
+                            <textarea matInput trim="blur" style="resize: none; overflow-y: auto; padding: 8px;" rows="5"
+                              formControlName="all_specifications"></textarea>
+                            <!-- <mat-error
+                              *ngIf="productVarientFormSubmitted || (formControl['short_description'].errors && formControl['short_description'].errors['required'])">
+                              Product Group is required!
+                            </mat-error> -->
+                          </mat-form-field>
+                        </div>
                       </div>
                       <div class="col-12 form-group" *ngIf="componentType == 'update'">
                         <mat-slide-toggle formControlName="is_enabled" class="d-block example-margin">Enable/Disable the
