@@ -77,10 +77,10 @@
                           <mat-label>Short Description</mat-label>
                           <textarea matInput trim="blur" style="resize: none; overflow-y: auto; padding: 8px;" rows="5"
                             formControlName="short_description"></textarea>
-                          <!-- <mat-error
+                          <mat-error
                             *ngIf="productVarientFormSubmitted || (formControl['short_description'].errors && formControl['short_description'].errors['required'])">
                             Product Group is required!
-                          </mat-error> -->
+                          </mat-error>
                         </mat-form-field>
                       </div>
                       <div class="col-12 col-md-4 form-group" *ngIf="componentType == 'update'">

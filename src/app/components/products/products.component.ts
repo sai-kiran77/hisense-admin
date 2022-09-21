@@ -43,7 +43,7 @@ export class ProductsComponent implements OnInit {
     name: ['', [Validators.required]],
     variant_size: ['', [Validators.required]],
     product_id: ['', [Validators.required]],
-    short_description: [''],
+    short_description: ['',[Validators.required]],
     variant_size_numeric: ['', Validators.pattern(/^[0-9]*$/)],
     is_enabled: [0]
   })
@@ -162,8 +162,8 @@ export class ProductsComponent implements OnInit {
       })
     } else {
       console.log(this.selectedIndex);
-      this.productVarientForm.value.top_specifications = JSON.stringify(JSON.parse(this.productVarientForm.value.top_specifications));
-      this.productVarientForm.value.all_specifications = JSON.stringify(JSON.parse(this.productVarientForm.value.all_specifications));
+      this.productVarientForm.value.top_specifications = this.productVarientForm.value.top_specifications ? JSON.stringify(JSON.parse(this.productVarientForm.value.top_specifications)) : '';
+      this.productVarientForm.value.all_specifications = this.productVarientForm.value.all_specifications ? JSON.stringify(JSON.parse(this.productVarientForm.value.all_specifications)) : '';
       this.productVarientForm.value.variant_size_numeric = this.productVarientForm.value.variant_size_numeric;
       if (this.selectedIndex == 0) {
         this.productVarientForm.markAllAsTouched();
