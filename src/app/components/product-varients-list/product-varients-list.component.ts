@@ -20,7 +20,7 @@ export class ProductVarientsListComponent implements OnInit {
   dataSource: any;
 
   isLoading = true;
-  pageSize = 10
+  pageSize = 50
 
   @ViewChild(MatPaginator) paginator: any;
 
@@ -38,7 +38,7 @@ export class ProductVarientsListComponent implements OnInit {
     this.getProductVarientList();
   }
 
-  getProductVarientList(params = { page: 1, per_page: 10 }) {
+  getProductVarientList(params = { page: 1, per_page: 50 }) {
     this.api.getProductVarientList(params).subscribe({
       next: (res: any) => {
         console.log(res);
