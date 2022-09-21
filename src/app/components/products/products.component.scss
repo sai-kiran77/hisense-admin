@@ -7,3 +7,45 @@ input[type="file"] {
 table {
     width: 100%;
 }
+
+.grid__container{
+    display: grid !important;
+    grid-template-columns: repeat(5,1fr);
+    width: 100%;
+}
+
+@media screen and (max-width: 1500px) {
+    .grid__item{
+        max-width: 200px;
+        mat-form-field{
+            max-width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 1350px) {
+    .grid__item{
+        max-width: 175px;
+        mat-form-field{
+            max-width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .grid__item{
+        max-width: 150px;
+        mat-form-field{
+            max-width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .grid__item{
+        max-width: 125px;
+        mat-form-field{
+            max-width: 100%;
+        }
+    }
+}

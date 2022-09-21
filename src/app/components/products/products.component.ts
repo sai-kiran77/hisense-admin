@@ -44,6 +44,7 @@ export class ProductsComponent implements OnInit {
     variant_size: ['', [Validators.required]],
     product_id: ['', [Validators.required]],
     short_description: [''],
+    variant_size_numeric: ['', Validators.pattern(/^[0-9]*$/)],
     is_enabled: [0]
   })
 
@@ -63,7 +64,6 @@ export class ProductsComponent implements OnInit {
       console.log(data);
       this.componentType = data.type;
       if (data.type == "update") {
-        this.productVarientForm.addControl('variant_size_numeric', this.fb.control('', Validators.pattern(/^[0-9]*$/)))
         this.productVarientForm.addControl('top_specifications', this.fb.control(''))
         this.productVarientForm.addControl('all_specifications', this.fb.control(''))
       }
@@ -109,8 +109,8 @@ export class ProductsComponent implements OnInit {
 
         if (this.componentType == 'update') {
           this.productVarientForm.patchValue({
-            all_specifications: JSON.stringify(res?.data?.all_specifications),
-            top_specifications: JSON.stringify(res?.data?.top_specifications),
+            all_specifications: res?.data?.all_specifications ? JSON.stringify(res?.data?.all_specifications) : '',
+            top_specifications: res?.data?.top_specifications ? JSON.stringify(res?.data?.top_specifications) : '',
             variant_size_numeric: res?.data?.variant_size_numeric
           })
         }
