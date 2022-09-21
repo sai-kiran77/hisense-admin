@@ -64,8 +64,8 @@ export class ProductsComponent implements OnInit {
       console.log(data);
       this.componentType = data.type;
       if (data.type == "update") {
-        this.productVarientForm.addControl('top_specifications', this.fb.control(''))
-        this.productVarientForm.addControl('all_specifications', this.fb.control(''))
+        this.productVarientForm.addControl('top_specifications', this.fb.control(null))
+        this.productVarientForm.addControl('all_specifications', this.fb.control(null))
       }
       this.getMetaData(data);
     })
@@ -162,8 +162,8 @@ export class ProductsComponent implements OnInit {
       })
     } else {
       console.log(this.selectedIndex);
-      this.productVarientForm.value.top_specifications = this.productVarientForm.value.top_specifications ? JSON.stringify(JSON.parse(this.productVarientForm.value.top_specifications)) : '';
-      this.productVarientForm.value.all_specifications = this.productVarientForm.value.all_specifications ? JSON.stringify(JSON.parse(this.productVarientForm.value.all_specifications)) : '';
+      this.productVarientForm.value.top_specifications = this.productVarientForm.value.top_specifications ? JSON.stringify(JSON.parse(this.productVarientForm.value.top_specifications)) : null;
+      this.productVarientForm.value.all_specifications = this.productVarientForm.value.all_specifications ? JSON.stringify(JSON.parse(this.productVarientForm.value.all_specifications)) : null;
       this.productVarientForm.value.variant_size_numeric = this.productVarientForm.value.variant_size_numeric;
       if (this.selectedIndex == 0) {
         this.productVarientForm.markAllAsTouched();
