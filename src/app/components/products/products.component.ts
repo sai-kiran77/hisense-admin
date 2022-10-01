@@ -131,7 +131,7 @@ export class ProductsComponent implements OnInit {
         this.imagesDataSource = new MatTableDataSource<any>(array)
         console.log(this.imagesDataSource.data);
 
-        res.data.slider_images = res.data?.slider_images.map((obj: any,i: number)=>{
+        res.data.slider_images_admin = res.data?.slider_images_admin.map((obj: any,i: number)=>{
           this.sliderImagespriorities.push(i+1);
           return{
             ...obj,
@@ -139,7 +139,7 @@ export class ProductsComponent implements OnInit {
           }
         })
 
-        this.productImagesDataSource = new MatTableDataSource<any>(res.data.slider_images);
+        this.productImagesDataSource = new MatTableDataSource<any>(res.data.slider_images_admin);
       },
       error: err => {
         console.log(err);

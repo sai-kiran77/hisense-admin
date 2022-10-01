@@ -191,7 +191,7 @@ export class CategoryComponent implements OnInit {
             priority: obj.priority
           }
         })
-        this.api.updateProductVarientInfo(this.activatedroute.snapshot.params['id'], { category_products:  data }).subscribe({
+        this.api.updateCategoryInfo(this.activatedroute.snapshot.params['id'], { category_products:  data }).subscribe({
           next: (res: any) => {
             this.isLoading = false;
             this.toaster.success(res.message);

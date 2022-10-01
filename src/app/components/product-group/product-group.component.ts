@@ -118,7 +118,7 @@ export class ProductGroupComponent implements OnInit {
           res.data?.thumb_image_medium,
         ])
 
-        res.data.description_images = res.data?.description_images.map((obj: any, i: number) => {
+        res.data.description_images_admin = res.data?.description_images_admin.map((obj: any, i: number) => {
           this.descriptionImagespriorities.push(i + 1);
           return {
             ...obj,
@@ -126,7 +126,7 @@ export class ProductGroupComponent implements OnInit {
           }
         })
 
-        this.productImagesDataSource = new MatTableDataSource<any>(res.data.description_images);
+        this.productImagesDataSource = new MatTableDataSource<any>(res.data.description_images_admin);
       },
       error: (err: any) => {
         console.log(err);
