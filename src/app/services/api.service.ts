@@ -303,6 +303,13 @@ export class ApiService {
     })
   }
 
+  bulkUpdateFiles(body: any) {
+    const uuid = this.getLocalStorage('currentUserSession').uuid;
+    return this.http.patch(this.baseUrl + `/v1/admin/catalog-media/bulk-update`, body, {
+      headers: new HttpHeaders({ 'admin-user-uuid': uuid })
+    })
+  }
+
   changePassword(a: any, b: any): any {
 
   }
