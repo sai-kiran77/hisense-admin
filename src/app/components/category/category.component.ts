@@ -26,12 +26,13 @@ export class CategoryComponent implements OnInit {
   purchaseLinks: any = {};
   metaData: any;
 
-  displayedColumns: string[] = ['Product Group', 'Open on Website', 'Actions']; //'Purchase Link'
+  displayedColumns: string[] = ['Product Group', 'Open on Website', 'priority', 'Actions']; //'Purchase Link'
   imagesDisplayedColumns: string[] = ['Image Type', 'Current Image', 'Upload New Image'];
   productImagesDisplayedColumns: any = ['Image', 'Actions'];
   dataSource: any;
   imagesDataSource: any;
   productImagesDataSource: any;
+  priorities: any = [];
 
   isLoader = false;
   isLoading = false;
@@ -96,6 +97,14 @@ export class CategoryComponent implements OnInit {
           parent_category_id: res?.data?.parent_category_id ? res?.data?.parent_category_id : 'null',
           // short_description: res?.data?.short_description,
           is_enabled: res?.data?.is_enabled,
+        })
+
+        res.data.category_products = res.data?.category_products.map((obj: any,i: number)=>{
+          this.priorities.push(i+1);
+          return{
+            ...obj,
+            priority: i+1,
+          }
         })
 
         this.dataSource = new MatTableDataSource<any>(res?.data?.category_products);
@@ -176,7 +185,13 @@ export class CategoryComponent implements OnInit {
         })
       } else if (this.selectedIndex == 1) {
         this.isLoading = true;
-        this.api.updateProductVarientInfo(this.activatedroute.snapshot.params['id'], this.purchaseLinks).subscribe({
+        const data = this.dataSource?.data.map((obj: any)=>{
+          return {
+            id: obj.id,
+            priority: obj.priority
+          }
+        })
+        this.api.updateCategoryInfo(this.activatedroute.snapshot.params['id'], { category_products:  data }).subscribe({
           next: (res: any) => {
             this.isLoading = false;
             this.toaster.success(res.message);

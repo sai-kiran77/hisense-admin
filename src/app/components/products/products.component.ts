@@ -29,10 +29,12 @@ export class ProductsComponent implements OnInit {
 
   displayedColumns: string[] = ['Vendor', 'Update Link']; //'Purchase Link'
   imagesDisplayedColumns: string[] = ['Image Type', 'Current Image', 'Upload New Image'];
-  productImagesDisplayedColumns: any = ['Image', 'Actions'];
+  productImagesDisplayedColumns: any = ['Image', 'priority', 'is_enable', 'Actions'];
   dataSource: any;
   imagesDataSource: any;
   productImagesDataSource: any;
+  sliderImagespriorities: any = [];
+
 
   isLoader = false;
   isLoading = false;
@@ -129,7 +131,15 @@ export class ProductsComponent implements OnInit {
         this.imagesDataSource = new MatTableDataSource<any>(array)
         console.log(this.imagesDataSource.data);
 
-        this.productImagesDataSource = new MatTableDataSource<any>(res.data.slider_images);
+        res.data.slider_images_admin = res.data?.slider_images_admin.map((obj: any,i: number)=>{
+          this.sliderImagespriorities.push(i+1);
+          return{
+            ...obj,
+            priority: i+1,
+          }
+        })
+
+        this.productImagesDataSource = new MatTableDataSource<any>(res.data.slider_images_admin);
       },
       error: err => {
         console.log(err);
@@ -203,6 +213,26 @@ export class ProductsComponent implements OnInit {
           next: (res: any) => {
             this.isLoading = false;
             console.log(res);
+            this.toaster.success(res.message);
+          },
+          error: (err) => {
+            this.isLoading = false;
+            console.log(err);
+            this.toaster.error(err.error.message);
+          }
+        })
+      }else{
+        this.isLoading = true;
+        const data = this.productImagesDataSource?.data.map((obj: any)=>{
+          return {
+            id: obj.id,
+            priority: obj.priority,
+            is_enabled: obj.is_enabled ? 1 : 0
+          }
+        })
+        this.api.bulkUpdateFiles({ catalog_media:  data }).subscribe({
+          next: (res: any) => {
+            this.isLoading = false;
             this.toaster.success(res.message);
           },
           error: (err) => {

@@ -27,11 +27,13 @@ export class ProductGroupComponent implements OnInit {
   purchaseLinks: any = {};
   metaData: any;
 
-  displayedColumns: string[] = ['Product', 'Open on Website', 'Actions']; //'Purchase Link'
-  productImagesDisplayedColumns: any = ['Image', 'Actions'];
+  displayedColumns: string[] = ['Product', 'Open on Website', 'priority', 'Actions']; //'Purchase Link'
+  productImagesDisplayedColumns: any = ['Image', 'priority', 'is_enable', 'Actions'];
   dataSource: any;
   imagesDataSource: any;
   productImagesDataSource: any;
+  priorities: any = [];
+  descriptionImagespriorities: any = [];
 
   isLoader = false;
   isLoading = false;
@@ -99,6 +101,14 @@ export class ProductGroupComponent implements OnInit {
           is_enabled: res?.data?.is_enabled,
         })
 
+        res.data.product_variants = res.data?.product_variants.map((obj: any, i: number) => {
+          this.priorities.push(i + 1);
+          return {
+            ...obj,
+            priority: i + 1,
+          }
+        })
+
         this.dataSource = new MatTableDataSource<any>(res.data.product_variants);
         // res.data.thumb_image.type = 'Large Size'
         // res.data.thumb_image_medium.type = 'Medium Size'
@@ -108,7 +118,15 @@ export class ProductGroupComponent implements OnInit {
           res.data?.thumb_image_medium,
         ])
 
-        this.productImagesDataSource = new MatTableDataSource<any>(res.data.description_images);
+        res.data.description_images_admin = res.data?.description_images_admin.map((obj: any, i: number) => {
+          this.descriptionImagespriorities.push(i + 1);
+          return {
+            ...obj,
+            priority: i + 1,
+          }
+        })
+
+        this.productImagesDataSource = new MatTableDataSource<any>(res.data.description_images_admin);
       },
       error: (err: any) => {
         console.log(err);
@@ -165,6 +183,39 @@ export class ProductGroupComponent implements OnInit {
           next: (res: any) => {
             this.isLoading = false;
             console.log(res);
+            this.toaster.success(res.message);
+          },
+          error: (err) => {
+            this.isLoading = false;
+            console.log(err);
+            this.toaster.error(err.error.message);
+          }
+        })
+      } else if (this.selectedIndex == 1) {
+        this.isLoading = true;
+        this.api.updateProductGroupInfo(this.activatedroute.snapshot.params['id'], { product_variants: this.dataSource?.data }).subscribe({
+          next: (res: any) => {
+            this.isLoading = false;
+            this.toaster.success(res.message);
+          },
+          error: (err) => {
+            this.isLoading = false;
+            console.log(err);
+            this.toaster.error(err.error.message);
+          }
+        })
+      } else {
+        this.isLoading = true;
+        const data = this.productImagesDataSource?.data.map((obj: any) => {
+          return {
+            id: obj.id,
+            priority: obj.priority,
+            is_enabled: obj.is_enabled ? 1 : 0
+          }
+        })
+        this.api.bulkUpdateFiles({ catalog_media: data }).subscribe({
+          next: (res: any) => {
+            this.isLoading = false;
             this.toaster.success(res.message);
           },
           error: (err) => {
