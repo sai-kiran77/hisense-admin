@@ -27,11 +27,12 @@ export class ProductGroupComponent implements OnInit {
   purchaseLinks: any = {};
   metaData: any;
 
-  displayedColumns: string[] = ['Product', 'Open on Website', 'Actions']; //'Purchase Link'
+  displayedColumns: string[] = ['Product', 'Open on Website', 'priority', 'Actions']; //'Purchase Link'
   productImagesDisplayedColumns: any = ['Image', 'Actions'];
   dataSource: any;
   imagesDataSource: any;
   productImagesDataSource: any;
+  priorities: any = [];
 
   isLoader = false;
   isLoading = false;
@@ -97,6 +98,14 @@ export class ProductGroupComponent implements OnInit {
           product_type_id: res?.data?.product_type_id,
           category_id: res?.data?.category_products[0].category_id,
           is_enabled: res?.data?.is_enabled,
+        })
+
+        res.data.product_variants = res.data?.product_variants.map((obj: any,i: number)=>{
+          this.priorities.push(i+1);
+          return{
+            ...obj,
+            priority: i+1,
+          }
         })
 
         this.dataSource = new MatTableDataSource<any>(res.data.product_variants);
@@ -165,6 +174,19 @@ export class ProductGroupComponent implements OnInit {
           next: (res: any) => {
             this.isLoading = false;
             console.log(res);
+            this.toaster.success(res.message);
+          },
+          error: (err) => {
+            this.isLoading = false;
+            console.log(err);
+            this.toaster.error(err.error.message);
+          }
+        })
+      } else if (this.selectedIndex == 1) {
+        this.isLoading = true;
+        this.api.updateProductGroupInfo(this.activatedroute.snapshot.params['id'], { product_variants: this.dataSource?.data }).subscribe({
+          next: (res: any) => {
+            this.isLoading = false;
             this.toaster.success(res.message);
           },
           error: (err) => {
