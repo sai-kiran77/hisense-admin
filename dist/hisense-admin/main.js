@@ -1132,7 +1132,7 @@ class CategoryComponent {
                         priority: obj.priority
                     };
                 });
-                this.api.updateProductVarientInfo(this.activatedroute.snapshot.params['id'], { category_products: data }).subscribe({
+                this.api.updateCategoryInfo(this.activatedroute.snapshot.params['id'], { category_products: data }).subscribe({
                     next: (res) => {
                         this.isLoading = false;
                         this.toaster.success(res.message);
@@ -4522,14 +4522,14 @@ class ProductGroupComponent {
                     res.data?.thumb_image,
                     res.data?.thumb_image_medium,
                 ]);
-                res.data.description_images = res.data?.description_images.map((obj, i) => {
+                res.data.description_images_admin = res.data?.description_images_admin.map((obj, i) => {
                     this.descriptionImagespriorities.push(i + 1);
                     return {
                         ...obj,
                         priority: i + 1,
                     };
                 });
-                this.productImagesDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__.MatTableDataSource(res.data.description_images);
+                this.productImagesDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__.MatTableDataSource(res.data.description_images_admin);
             },
             error: (err) => {
                 console.log(err);
@@ -5900,14 +5900,14 @@ class ProductsComponent {
                 }
                 this.imagesDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__.MatTableDataSource(array);
                 console.log(this.imagesDataSource.data);
-                res.data.slider_images = res.data?.slider_images.map((obj, i) => {
+                res.data.slider_images_admin = res.data?.slider_images_admin.map((obj, i) => {
                     this.sliderImagespriorities.push(i + 1);
                     return {
                         ...obj,
                         priority: i + 1,
                     };
                 });
-                this.productImagesDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__.MatTableDataSource(res.data.slider_images);
+                this.productImagesDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__.MatTableDataSource(res.data.slider_images_admin);
             },
             error: err => {
                 console.log(err);
