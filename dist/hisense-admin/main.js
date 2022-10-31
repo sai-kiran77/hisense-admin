@@ -7776,8 +7776,8 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 const environment = {
     production: false,
-    baseUrl: 'https://hisense-apis.bloginguru.com',
-    websiteUrl: 'https://hisense-demo.bloginguru.com'
+    baseUrl: 'https://dev-api.hisense-india.com',
+    websiteUrl: 'https://dev-admin.hisense-india.com'
 };
 /*
  * For easier debugging in development mode, you can import the following file
