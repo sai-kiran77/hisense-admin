@@ -5825,8 +5825,8 @@ class ProductsComponent {
             name: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__.Validators.required]],
             variant_size: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__.Validators.required]],
             product_id: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__.Validators.required]],
-            short_description: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__.Validators.required]],
-            variant_size_numeric: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_3__.Validators.pattern(/^[0-9]*$/)],
+            short_description: [''],
+            variant_size_numeric: [''],
             is_enabled: [0]
         });
         this.imagesCatalogMedia = [];
@@ -6204,7 +6204,7 @@ ProductsComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](40, ProductsComponent_mat_error_40_Template, 2, 0, "mat-error", 19);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](41, "div", 15)(42, "mat-form-field", 16)(43, "mat-label", 17);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](44, "Product Size (Numeric)");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](44, "Product Size");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](45, "input", 24);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](46, ProductsComponent_mat_error_46_Template, 2, 0, "mat-error", 19);
