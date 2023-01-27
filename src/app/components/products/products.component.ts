@@ -45,8 +45,8 @@ export class ProductsComponent implements OnInit {
     name: ['', [Validators.required]],
     variant_size: ['', [Validators.required]],
     product_id: ['', [Validators.required]],
-    short_description: ['',[Validators.required]],
-    variant_size_numeric: ['', Validators.pattern(/^[0-9]*$/)],
+    short_description: [''],
+    variant_size_numeric: [''],
     is_enabled: [0]
   })
 
