@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://hisense-apis.bloginguru.com',
-  websiteUrl: 'https://hisense-demo.bloginguru.com'
+  baseUrl: 'https://dev-api.hisense-india.com',
+  websiteUrl: 'https://dev-admin.hisense-india.com'
 };
 
 /*
