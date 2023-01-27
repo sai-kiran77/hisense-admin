@@ -5825,7 +5825,7 @@ class ProductsComponent {
             name: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__.Validators.required]],
             variant_size: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__.Validators.required]],
             product_id: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__.Validators.required]],
-            short_description: [''],
+            short_description: [null],
             variant_size_numeric: [''],
             is_enabled: [0]
         });
@@ -5878,7 +5878,7 @@ class ProductsComponent {
                     name: res?.data?.name,
                     variant_size: res?.data?.variant_size,
                     product_id: res?.data?.product_id,
-                    short_description: res?.data?.short_description,
+                    short_description: res?.data?.short_description ? res?.data?.short_description : null,
                     is_enabled: res?.data?.is_enabled,
                 });
                 if (this.componentType == 'update') {
