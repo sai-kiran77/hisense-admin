@@ -10999,6 +10999,7 @@ mat-progress-bar .mat-progress-bar-buffer {
 .error {
   font-size: 10px;
   color: red;
+  display: block;
 }
 a {
   color: #00b3ac !important;
