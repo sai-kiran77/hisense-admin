@@ -15,7 +15,7 @@ declare var swal: any;
 })
 export class PressCoveragesComponent implements OnInit {
 
-  displayedColumns: string[] = ['title', 'description', 'image', 'vendor', 'external_url', 'Actions']; //'priority',
+  displayedColumns: string[] = ['title', 'description', 'desktop_image', 'mobile_image', 'vendor', 'external_url', 'Actions']; //'priority',
   dataSource: any;
   pageSize = 50;
   isLoading = false;
