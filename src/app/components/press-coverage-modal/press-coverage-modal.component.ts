@@ -108,18 +108,31 @@ export class PressCoverageModalComponent implements OnInit {
       return;
     }
     this.isLoading = true;
-    this.form.value.is_enabled = this.form.value.is_enabled ? 1 : 0;
+    const formData = new FormData();
+    formData.append('title', this.form.value.title + '');
+    formData.append('description', this.form.value.description + '');
+    formData.append('vendor', this.form.value.vendor + '');
+    formData.append('country', this.form.value.country + '');
+    formData.append('external_url', this.form.value.external_url + '');
+    formData.append('is_enabled', this.form.value.is_enabled ? '1' : '0');
+    formData.append('_method', 'PATCH');
+
     if(this.form.value.published_at){
       const dateObject = new Date(this.form.value.published_at);
-      this.form.value.published_at = `${dateObject.getFullYear()}-${String(dateObject.getMonth() + 1).padStart(2,'0')}-${dateObject.getDate()}`;
+      formData.append('published_at', `${dateObject.getFullYear()}-${String(dateObject.getMonth() + 1).padStart(2,'0')}-${String(dateObject.getDate()).padStart(2,'0')}`);
     }
-    if(!this.form.value.desktop_image){
-      delete this.form.value.desktop_image
+
+    formData.append('is_featured', this.form.value.is_featured);
+    formData.append('priority', this.form.value.priority);
+
+    if(this.form.value.desktop_image){
+      formData.append('desktop_image', this.desktopImgFile);
     }
-    if(!this.form.value.mobile_image){
-      delete this.form.value.mobile_image
+    if(this.form.value.mobile_image){
+      formData.append('mobile_image', this.mobileImgFile);
     }
-    this.api.updatePressCoverage(this.form.value, this.data.dataToEdit.id).subscribe({
+    this.form.value._method = 'PATCH';
+    this.api.updatePressCoverage(formData, this.data.dataToEdit.id).subscribe({
       next: (res: any) => {
         this.dialogRef.close(true);
         this.isLoading = false;

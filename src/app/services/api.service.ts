@@ -298,7 +298,7 @@ export class ApiService {
 
   updatePressCoverage(body: any, id: any) {
     const uuid = this.getLocalStorage('currentUserSession').uuid;
-    return this.http.patch(this.baseUrl + `/v1/admin/press-coverages/${id}`, body, {
+    return this.http.post(this.baseUrl + `/v1/admin/press-coverages/${id}`, body, { //using post because in patch file upload is not supported
       headers: new HttpHeaders({ 'admin-user-uuid': uuid })
     })
   }
