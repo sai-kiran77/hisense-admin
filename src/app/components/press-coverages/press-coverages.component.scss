@@ -1,0 +1,10 @@
+.text__limit__3 {
+    display: -webkit-box;
+    display: -moz-box;
+    -webkit-line-clamp: 3;
+    -moz-box-orient: vertical;
+    box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+}

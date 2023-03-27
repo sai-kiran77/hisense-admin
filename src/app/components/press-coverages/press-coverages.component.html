@@ -20,23 +20,32 @@
                     <ng-container matColumnDef="title">
                         <th mat-header-cell *matHeaderCellDef> Title </th>
                         <td mat-cell *matCellDef="let element">
-                            {{element?.title}}
+                            <div class="text__limit__3">
+                                {{element?.title}}
+                            </div>
                         </td>
                     </ng-container>
 
                     <ng-container matColumnDef="description">
                         <th mat-header-cell *matHeaderCellDef>Description </th>
                         <td mat-cell *matCellDef="let element">
-                            <div class="my-3">
+                            <div class="my-3 text__limit__3">
                                 {{element?.description || 'N/A'}}
                             </div>
                         </td>
                     </ng-container>
 
-                    <ng-container matColumnDef="image">
-                        <th mat-header-cell *matHeaderCellDef>Image </th>
+                    <ng-container matColumnDef="desktop_image">
+                        <th mat-header-cell *matHeaderCellDef>Desktop Image</th>
                         <td mat-cell *matCellDef="let element">
-                            <img [src]="element.image_full_url" width="100" height="100" class="my-3">
+                            <img [src]="element.desktop_image_full_url" width="100" height="100" class="my-3">
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="mobile_image">
+                        <th mat-header-cell *matHeaderCellDef>Mobile Image</th>
+                        <td mat-cell *matCellDef="let element">
+                            <img [src]="element.mobile_image_full_url" width="100" height="100" class="my-3">
                         </td>
                     </ng-container>
 
@@ -48,7 +57,7 @@
                     <ng-container matColumnDef="external_url">
                         <th mat-header-cell *matHeaderCellDef>External URL</th>
                         <td mat-cell *matCellDef="let element">
-                            <a *ngIf="element?.external_url" [href]="element?.external_url"
+                            <a *ngIf="element?.external_url" [href]="element?.external_url" class="text__limit__3"
                                 target="_blank">{{element?.external_url}}</a>
                             <div *ngIf="!element?.external_url">N/A</div>
                         </td>

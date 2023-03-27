@@ -45,7 +45,7 @@ export class ProductsComponent implements OnInit {
     name: ['', [Validators.required]],
     variant_size: ['', [Validators.required]],
     product_id: ['', [Validators.required]],
-    short_description: [''],
+    short_description: [null],
     variant_size_numeric: [''],
     is_enabled: [0]
   })
@@ -105,7 +105,7 @@ export class ProductsComponent implements OnInit {
           name: res?.data?.name,
           variant_size: res?.data?.variant_size,
           product_id: res?.data?.product_id,
-          short_description: res?.data?.short_description,
+          short_description: res?.data?.short_description ? res?.data?.short_description : null,
           is_enabled: res?.data?.is_enabled,
         })
 
