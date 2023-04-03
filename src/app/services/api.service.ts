@@ -310,6 +310,13 @@ export class ApiService {
     })
   }
 
+  getTechTestimonialsMetaData() {
+    const uuid = this.getLocalStorage('currentUserSession').uuid;
+    return this.http.get(this.baseUrl + `/v1/admin/tech-testimonials/creation-metadata`, {
+      headers: new HttpHeaders({ 'admin-user-uuid': uuid })
+    });
+  }
+
   changePassword(a: any, b: any): any {
 
   }

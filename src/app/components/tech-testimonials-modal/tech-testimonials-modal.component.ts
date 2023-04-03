@@ -17,12 +17,17 @@ export class TechTestimonialsModalComponent implements OnInit {
   thumbImage: any;
   UpdatedThumbImg: any;
   UpdatedThumbImgFile: any;
+  metaData: any;
 
   form: FormGroup = this.fb.group({
     description: ['', [Validators.required]],
     youtube_url: ['', [Validators.required, Validators.pattern(/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/)]],
     is_enabled: [''],
-    country: ['', [Validators.required]]
+    country: ['', [Validators.required]],
+    category_id: ['', [Validators.required]],
+    product_id: ['', [Validators.required]],
+    product_variant_id: ['', ],
+    published_at: ['', [Validators.required]]
   })
 
   constructor(
@@ -31,6 +36,8 @@ export class TechTestimonialsModalComponent implements OnInit {
     private api: ApiService,
     private toaster: ToastrService,
     private fb: FormBuilder) {
+      console.log(data);
+      this.metaData = data.metaData;
     if (this.data.isEdit) {
       this.form.addControl('priority', this.fb.control(''));
       this.form.patchValue({
@@ -39,7 +46,19 @@ export class TechTestimonialsModalComponent implements OnInit {
         is_enabled: this.data.dataToEdit.is_enabled ? true : false,
         priority: this.data.dataToEdit.priority,
         country: this.data.dataToEdit.country,
+        category_id: this.data.dataToEdit.category_id,
+        product_id: this.data.dataToEdit.product_id,
+        product_variant_id: this.data.dataToEdit.product_variant_id,
+        published_at: this.data.dataToEdit.published_at,
       })
+
+      if(this.form.value.product_id){
+        this.selectedProduct = this.metaData.products.find((product: any)=> product.id == this.form.value.product_id)
+        // if(this.selectedProduct){
+        //   // this.selectedProduct.
+        //   this.form.controls['product_variant_id'].setValue(this.selectedProduct.id);
+        // }
+      }
     }
   }
 
@@ -58,6 +77,12 @@ export class TechTestimonialsModalComponent implements OnInit {
     // formData.append('vendor',this.form.value.vendor + '');
     // formData.append('external_url',this.form.value.external_url + '');
     // formData.append('image',this.UpdatedThumbImgFile);
+
+    if(this.form.value.published_at){
+      const dateObject = new Date(this.form.value.published_at);
+      this.form.value.published_at = `${dateObject.getFullYear()}-${String(dateObject.getMonth() + 1).padStart(2,'0')}-${String(dateObject.getDate()).padStart(2,'0')}`;
+    }
+
     const is_enabled = this.form.value.is_enabled ? 1 : 0;
     this.api.createTechTestimonial({ ...this.form.value, is_enabled }).subscribe({
       next: (res: any) => {
@@ -79,6 +104,12 @@ export class TechTestimonialsModalComponent implements OnInit {
       return;
     }
     this.isLoading = true;
+
+    if(this.form.value.published_at){
+      const dateObject = new Date(this.form.value.published_at);
+      this.form.value.published_at = `${dateObject.getFullYear()}-${String(dateObject.getMonth() + 1).padStart(2,'0')}-${String(dateObject.getDate()).padStart(2,'0')}`;
+    }
+
     this.form.value.is_enabled = this.form.value.is_enabled ? 1 : 0;
     this.api.updateTechTestimonials(this.form.value, this.data.dataToEdit.id).subscribe({
       next: (res: any) => {
@@ -115,6 +146,13 @@ export class TechTestimonialsModalComponent implements OnInit {
 
   get formControl() {
     return this.form.controls;
+  }
+
+  selectedProduct: any;
+
+  onProductSelected(value: any){
+    this.form.controls['product_variant_id'].setValue('');
+    this.selectedProduct = this.metaData.products.find((product: any)=> product.id == value)
   }
 
 }
