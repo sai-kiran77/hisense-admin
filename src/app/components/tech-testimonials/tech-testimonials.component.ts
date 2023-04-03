@@ -19,6 +19,7 @@ export class TechTestimonialsComponent implements OnInit {
   dataSource: any;
   pageSize = 50;
   isLoading = false;
+  metaData: any;
 
 
   // @ViewChild(MatPaginator) paginator: any;
@@ -33,7 +34,21 @@ export class TechTestimonialsComponent implements OnInit {
     private modal: MatDialog,) { }
 
   ngOnInit(): void {
+    this.geMetaData();
     this.getTechTestimonials();
+  }
+
+  geMetaData() {
+    this.api.getTechTestimonialsMetaData().subscribe({
+      next: (res: any) => {
+        console.log(res);
+        this.metaData = res.data;
+      },
+      error: (err: any) => {
+        console.log(err);
+        this.toaster.error(err.error.message);
+      }
+    })
   }
 
   getTechTestimonials(params = { page: 1, per_page: 20 }) {
@@ -86,9 +101,9 @@ export class TechTestimonialsComponent implements OnInit {
 
   openSubscriptionModal(dataToEdit?: any, isEdit = false) {
     const dailogRef = this.modal.open(TechTestimonialsModalComponent, {
-      width: "400px",
+      width: "80vw",
       panelClass: "switcher-panel",
-      data: { isEdit, dataToEdit },
+      data: { isEdit, dataToEdit, metaData: this.metaData },
     });
 
     dailogRef.afterClosed().subscribe(

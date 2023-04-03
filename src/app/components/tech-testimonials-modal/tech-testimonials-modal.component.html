@@ -13,7 +13,7 @@
                 <div class="col-md-12">
                     <form [formGroup]="form">
                         <div class="row">
-                            <div class="col-12 form-group">
+                            <div class="col-12 col-md-4 form-group">
                                 <mat-form-field class="w-100" appearance="outline">
                                     <mat-label class="mat-label-field-padding">Description</mat-label>
                                     <input matInput formControlName="description" type="text" />
@@ -24,7 +24,7 @@
                                 </mat-form-field>
                             </div>
 
-                            <div class="col-12 form-group">
+                            <div class="col-12 col-md-4 form-group">
                                 <mat-form-field class="w-100" appearance="outline">
                                     <mat-label class="mat-label-field-padding">Youtube URL</mat-label>
                                     <input matInput formControlName="youtube_url" type="text" />
@@ -39,7 +39,7 @@
                                 </mat-form-field>
                             </div>
 
-                            <div class="col-12 form-group">
+                            <div class="col-12 col-md-4 form-group">
                                 <mat-form-field class="w-100" appearance="outline">
                                     <mat-label>Country</mat-label>
                                     <mat-select formControlName="country">
@@ -53,7 +53,59 @@
                                 </mat-form-field>
                             </div>
 
-                            <div class="col-12 form-group" *ngIf="data.isEdit">
+                            <div class="col-12 col-md-4 form-group">
+                                <mat-form-field class="w-100" appearance="outline">
+                                    <mat-label>Category</mat-label>
+                                    <mat-select formControlName="category_id">
+                                        <mat-option [value]="category.id" *ngFor="let category of metaData.categories">{{category.name}}</mat-option>
+                                    </mat-select>
+                                    <mat-error
+                                        *ngIf="formSubmitted || (formControl['category_id'].errors && formControl['category_id'].errors['required'])">
+                                        Category is required!
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-12 col-md-4 form-group">
+                                <mat-form-field class="w-100" appearance="outline">
+                                    <mat-label>Product</mat-label>
+                                    <mat-select formControlName="product_id" (selectionChange)="onProductSelected($event.value)">
+                                        <mat-option [value]="product.id" *ngFor="let product of metaData.products">{{product.name}}</mat-option>
+                                    </mat-select>
+                                    <mat-error
+                                        *ngIf="formSubmitted || (formControl['product_id'].errors && formControl['product_id'].errors['required'])">
+                                        Product is required!
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-12 col-md-4 form-group" *ngIf="form.controls['product_id'].value">
+                                <mat-form-field class="w-100" appearance="outline">
+                                    <mat-label>Product Variant</mat-label>
+                                    <mat-select formControlName="product_variant_id">
+                                        <mat-option [value]="variant.id" *ngFor="let variant of selectedProduct?.product_variants">{{variant.name}}</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-3 form-group">
+                                <mat-form-field class="w-100" appearance="outline">
+                                    <mat-label class="mat-label-field-padding">Published Date</mat-label>
+                                    <input matInput formControlName="published_at" [matDatepicker]="picker"
+                                        type="text" />
+                                    <mat-hint>mm/dd/yyyy</mat-hint>
+                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                    <mat-error class="error"
+                                        *ngIf="formSubmitted && (formControl['published_at'].errors && formControl['published_at'].errors['required'])">
+                                        Published Date is required!
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+
+
+
+                            <div class="col-12 col-md-4 form-group" *ngIf="data.isEdit">
                                 <mat-form-field class="w-100" appearance="outline">
                                     <mat-label class="mat-label-field-padding">Priority</mat-label>
                                     <input matInput formControlName="priority" type="text" />
