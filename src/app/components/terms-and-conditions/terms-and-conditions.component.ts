@@ -1,28 +1,29 @@
-import { Location } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ToastrService } from 'ngx-toastr';
+import { Location } from '@angular/common';
 import { ApiService } from 'src/app/services/api.service';
-import { TechTestimonialsModalComponent } from '../tech-testimonials-modal/tech-testimonials-modal.component';
+import { TermsAndConditionsModalComponent } from '../terms-and-conditions-modal/terms-and-conditions-modal.component';
+
 declare var swal: any;
 
 @Component({
-  selector: 'app-tech-testimonials',
-  templateUrl: './tech-testimonials.component.html',
-  styleUrls: ['./tech-testimonials.component.scss']
+  selector: 'app-terms-and-conditions',
+  templateUrl: './terms-and-conditions.component.html',
+  styleUrls: ['./terms-and-conditions.component.scss']
 })
-export class TechTestimonialsComponent implements OnInit {
+export class TermsAndConditionsComponent implements OnInit {
 
-  displayedColumns: string[] = ['description', 'youtube_url', 'Category', 'Product', 'Product Variant', 'Actions']; //'priority'
+  // date_range
+  displayedColumns: string[] = ['group_name', 'tab_name', 'heading', 'sub_heading', 'Actions']; //'priority',
   dataSource: any;
   pageSize = 50;
   isLoading = false;
-  metaData: any;
 
 
-  // @ViewChild(MatPaginator) paginator: any;
+  @ViewChild(MatPaginator) paginator: any;
 
   ngAfterViewInit() {
     // this.dataSource.paginator = this.paginator;
@@ -34,33 +35,19 @@ export class TechTestimonialsComponent implements OnInit {
     private modal: MatDialog,) { }
 
   ngOnInit(): void {
-    this.geMetaData();
-    this.getTechTestimonials();
+    this.getTermsAndConditions();
   }
 
-  geMetaData() {
-    this.api.getTechTestimonialsMetaData().subscribe({
+  getTermsAndConditions(params = { page: 1, per_page: 50 }) {
+    this.api.getTermsAndConditions(params).subscribe({
       next: (res: any) => {
         console.log(res);
-        this.metaData = res.data;
-      },
-      error: (err: any) => {
-        console.log(err);
-        this.toaster.error(err.error.message);
-      }
-    })
-  }
-
-  getTechTestimonials(params = { page: 1, per_page: 20 }) {
-    this.api.getTechTestimonials(params).subscribe({
-      next: (res: any) => {
-        console.log(res);
-        this.dataSource = new MatTableDataSource<any>(res.data);
-        // setTimeout(() => {
-        //   this.paginator.pageIndex = params.page - 1;
-        //   this.paginator.length = res.data.total;
-        // })
-        // this.dataSource.paginator = this.paginator;
+        this.dataSource = new MatTableDataSource<any>(res.data.data);
+        setTimeout(() => {
+          this.paginator.pageIndex = params.page - 1;
+          this.paginator.length = res.data.total;
+        })
+        this.dataSource.paginator = this.paginator;
         this.isLoading = false;
       },
       error: (err: any) => {
@@ -82,12 +69,12 @@ export class TechTestimonialsComponent implements OnInit {
     })
       .then((willDelete: any) => {
         console.log(el);
-        this.api.deleteTechTestimonial(el.id).subscribe({
+        this.api.deletePressCoverage(el.id).subscribe({
           next: (res: any) => {
             console.log(res);
             this.isLoading = false;
             this.toaster.success(res.message)
-            this.getTechTestimonials();
+            this.getTermsAndConditions();
           },
           error: (err: any) => {
             this.isLoading = false;
@@ -96,27 +83,26 @@ export class TechTestimonialsComponent implements OnInit {
           }
         })
       }, (error: any) => { });
-
   }
 
   openSubscriptionModal(dataToEdit?: any, isEdit = false) {
-    const dailogRef = this.modal.open(TechTestimonialsModalComponent, {
+    const dailogRef = this.modal.open(TermsAndConditionsModalComponent, {
       width: "80vw",
       panelClass: "switcher-panel",
-      data: { isEdit, dataToEdit, metaData: this.metaData },
+      data: { isEdit, dataToEdit },
     });
 
     dailogRef.afterClosed().subscribe(
       (result) => {
         if (result) {
-          this.getTechTestimonials();
+          this.getTermsAndConditions();
         }
       });
   }
 
-  // pageChanged(event: any) {
-  //   this.getPressCoverages({ page: event.pageIndex + 1, per_page: event.pageSize })
-  // }
+  pageChanged(event: any) {
+    this.getTermsAndConditions({ page: event.pageIndex + 1, per_page: event.pageSize })
+  }
 
   goBack() {
     this.location.back();

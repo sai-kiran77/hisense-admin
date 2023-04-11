@@ -17,6 +17,7 @@ import { ProductGroupsListComponent } from './components/product-groups-list/pro
 import { ProductVarientsListComponent } from './components/product-varients-list/product-varients-list.component';
 import { ProductsComponent } from './components/products/products.component';
 import { TechTestimonialsComponent } from './components/tech-testimonials/tech-testimonials.component';
+import { TermsAndConditionsComponent } from './components/terms-and-conditions/terms-and-conditions.component';
 
 const routes: Routes = [
   {
@@ -96,6 +97,10 @@ const routes: Routes = [
       {
         path: 'home-slider',
         component: HomeSliderComponent
+      },
+      {
+        path: 'terms-and-conditions',
+        component: TermsAndConditionsComponent
       },
       {
         path: '', redirectTo: '/dashboard', pathMatch: 'full'
