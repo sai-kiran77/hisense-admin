@@ -201,6 +201,14 @@ export class ApiService {
     });
   }
 
+  getTermsAndConditions(params: any) {
+    const uuid = this.getLocalStorage('currentUserSession').uuid;
+    return this.http.get(this.baseUrl + `/v1/admin/terms-and-conditions`, {
+      params,
+      headers: new HttpHeaders({ 'admin-user-uuid': uuid })
+    });
+  }
+
   getOffersAndPromotions(params: any) {
     const uuid = this.getLocalStorage('currentUserSession').uuid;
     return this.http.get(this.baseUrl + `/v1/admin/offer-promotions`, {
