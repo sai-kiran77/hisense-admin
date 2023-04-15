@@ -1,1 +1,173 @@
-<p>terms-and-conditions-modal works!</p>
+<div class="modal-container">
+    <div class="header border-bottom">
+        <h4 mat-dialog-title *ngIf="!data.isEdit">Create a Terms And Conditions</h4>
+        <h4 mat-dialog-title *ngIf="data.isEdit">Update a Terms And Conditions</h4>
+        <mat-icon [mat-dialog-close]="false" class="close-icon ">close</mat-icon>
+    </div>
+    <div class="body">
+        <mat-dialog-content class="mat-dialog">
+            <div class="row p-3">
+                <div class="col-md-12">
+                    <form [formGroup]="form">
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-3 form-group">
+                                <mat-form-field appearance="outline">
+                                    <mat-label class="mat-label-field-padding">Group Name</mat-label>
+                                    <mat-select formControlName="group_name">
+                                        <mat-option *ngFor="let option of data.metaData.groups"
+                                            [value]="option.code">{{option.name}}</mat-option>
+                                    </mat-select>
+                                    <mat-hint class="error"
+                                        *ngIf="formSubmitted && (formControl['group_name'].errors && formControl['group_name'].errors['required'])">
+                                        Group Name is required!
+                                    </mat-hint>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-3 form-group">
+                                <mat-form-field appearance="outline">
+                                    <mat-label class="mat-label-field-padding">Tab Name</mat-label>
+                                    <input matInput formControlName="tab_name" type="text" />
+                                    <mat-hint class="error"
+                                        *ngIf="formSubmitted && (formControl['tab_name'].errors && formControl['tab_name'].errors['required'])">
+                                        Tab Name is required!
+                                    </mat-hint>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-3 form-group">
+                                <mat-form-field appearance="outline">
+                                    <mat-label class="mat-label-field-padding">Heading</mat-label>
+                                    <input matInput formControlName="heading" type="text" />
+                                    <mat-hint class="error"
+                                        *ngIf="formSubmitted && (formControl['heading'].errors && formControl['heading'].errors['required'])">
+                                        Heading is required!
+                                    </mat-hint>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-3 form-group">
+                                <mat-form-field appearance="outline">
+                                    <mat-label class="mat-label-field-padding">Sub Heading</mat-label>
+                                    <input matInput formControlName="sub_heading" type="text" />
+                                    <mat-hint class="error"
+                                        *ngIf="formSubmitted && (formControl['sub_heading'].errors && formControl['sub_heading'].errors['required'])">
+                                        Sub Heading is required!
+                                    </mat-hint>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-3 form-group">
+                                <mat-form-field class="w-100" appearance="outline">
+                                    <mat-label>Content Type</mat-label>
+                                    <mat-select formControlName="content_type">
+                                        <mat-option value="1">Text</mat-option>
+                                        <mat-option value="0">Image</mat-option>
+                                    </mat-select>
+                                    <mat-hint class="error"
+                                        *ngIf="formSubmitted && (formControl['content_type'].errors && formControl['content_type'].errors['required'])">
+                                        Please Select a content Type
+                                    </mat-hint>
+                                </mat-form-field>
+                            </div>
+
+                            <!-- <div class="col-12 col-sm-6 col-md-6 col-lg-3 form-group">
+                                <mat-form-field class="w-100" appearance="outline">
+                                    <mat-label class="mat-label-field-padding">Published Date</mat-label>
+                                    <input matInput formControlName="published_at" [matDatepicker]="picker"
+                                        type="text" />
+                                    <mat-hint>mm/dd/yyyy</mat-hint>
+                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                    <mat-hint class="error"
+                                        *ngIf="formSubmitted && (formControl['published_at'].errors && formControl['published_at'].errors['required'])">
+                                        Published Date is required!
+                                    </mat-hint>
+                                </mat-form-field>
+                            </div> -->
+
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-3 form-group">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Enter a date range</mat-label>
+                                    <!-- <input matInput formControlName="date_range" [matDatepicker]="picker"
+                                        type="text" /> -->
+                                    <mat-hint>MM/DD/YYYY - MM/DD/YYYY</mat-hint>
+                                    <mat-date-range-input [rangePicker]="picker">
+                                        <input matStartDate placeholder="Start date">
+                                        <input matEndDate placeholder="End date">
+                                    </mat-date-range-input>
+                                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-date-range-picker #picker></mat-date-range-picker>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-3 form-group">
+                                <mat-form-field class="w-100" appearance="outline">
+                                    <mat-label class="mat-label-field-padding">Priority</mat-label>
+                                    <input matInput formControlName="priority" type="text" />
+                                    <mat-hint class="error"
+                                        *ngIf="formSubmitted && (formControl['priority'].errors && formControl['priority'].errors['required'])">
+                                        Priority is required!
+                                    </mat-hint>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-12 form-group my-3">
+                                <mat-slide-toggle formControlName="is_enabled" class="d-block example-margin">
+                                    Enable/Disable</mat-slide-toggle>
+                            </div>
+
+                            <!-- <div class="row">
+                                <div class="col-12 col-md-4">
+                                    <div class=" mt-4">
+                                        <h3 class="section-heading section-heading-not-first">
+                                            Desktop Image
+                                        </h3>
+                                    </div>
+
+                                    <div class="row ">
+                                        <div class=" mb-3" *ngIf="desktopUpdatedThumbImg">
+                                            <div class="logo-wrap">
+                                                <i (click)="desktopUpdatedThumbImg=null;desktopImgFile=null"
+                                                    class="fa fa-times fa-1x" aria-hidden="true"></i>
+                                                <img class="logo-btn" [src]="desktopUpdatedThumbImg" width="100"
+                                                    height="100" />
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mb-3">
+                                            <input class="file-input" id="file-upload" type="file"
+                                                accept="image/png, image/jpeg, image/webp"
+                                                (change)="preview($event, true)" />
+                                            <button mat-raised-button type="button" class="file-upload-btn">
+                                                <label for="file-upload">
+                                                    Browse and upload Desktop Image
+                                                </label>
+                                            </button>
+                                            <mat-hint class="error"
+                                                *ngIf="formSubmitted && (formControl['desktop_image'].errors && formControl['desktop_image'].errors['required'])">
+                                                Desktop image is required!
+                                            </mat-hint>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </mat-dialog-content>
+    </div>
+    <div class="footer">
+        <button class="ml-3 mb-3" style="color: black !important;" mat-raised-button (click)="dialogRef.close()">
+            Cancel
+        </button>
+        <button *ngIf="!data.isEdit" class="btn btn-info ml-3 mb-3" (click)="createTermsAndCondition()">
+            Create
+        </button>
+        <button *ngIf="data.isEdit" class="btn btn-info ml-3 mb-3" (click)="updateTermsAndCondition()">
+            Update
+        </button>
+    </div>
+</div>

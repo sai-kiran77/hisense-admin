@@ -21,6 +21,7 @@ export class TermsAndConditionsComponent implements OnInit {
   dataSource: any;
   pageSize = 50;
   isLoading = false;
+  metaData: any;
 
 
   @ViewChild(MatPaginator) paginator: any;
@@ -36,6 +37,7 @@ export class TermsAndConditionsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTermsAndConditions();
+    this.getTermsAndConditionsMetaData();
   }
 
   getTermsAndConditions(params = { page: 1, per_page: 50 }) {
@@ -48,6 +50,21 @@ export class TermsAndConditionsComponent implements OnInit {
           this.paginator.length = res.data.total;
         })
         this.dataSource.paginator = this.paginator;
+        this.isLoading = false;
+      },
+      error: (err: any) => {
+        this.isLoading = false;
+        console.log(err);
+        this.toaster.error(err.error.message);
+      }
+    })
+  }
+
+  getTermsAndConditionsMetaData() {
+    this.api.getTermsAndConditionsMetaData().subscribe({
+      next: (res: any) => {
+        console.log(res);
+        this.metaData = res.data;
         this.isLoading = false;
       },
       error: (err: any) => {
@@ -89,7 +106,7 @@ export class TermsAndConditionsComponent implements OnInit {
     const dailogRef = this.modal.open(TermsAndConditionsModalComponent, {
       width: "80vw",
       panelClass: "switcher-panel",
-      data: { isEdit, dataToEdit },
+      data: { isEdit, dataToEdit, metaData: this.metaData },
     });
 
     dailogRef.afterClosed().subscribe(
