@@ -124,7 +124,7 @@
                   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                 </table>
 
-                <div class="text-center my-3" *ngIf="!dataSource?.data?.length">No Records Found!</div>
+                <div class="text-center my-3" *ngIf="!dataSource?.length">No Records Found!</div>
 
               </div>
 
@@ -188,7 +188,7 @@
                         <tr mat-header-row *matHeaderRowDef="productImagesDisplayedColumns"></tr>
                         <tr mat-row *matRowDef="let row; columns: productImagesDisplayedColumns;"></tr>
                       </table>
-                      <div class="text-center my-3" *ngIf="!productImagesDataSource?.data?.length">No Records Found!
+                      <div class="text-center my-3" *ngIf="!productImagesDataSource?.length">No Records Found!
                       </div>
                     </div>
                     <div class="m-3" style="margin-top: 80px !important;">

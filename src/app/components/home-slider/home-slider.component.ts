@@ -1,12 +1,10 @@
 import { Location } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
-import { MatLegacyPaginator as MatPaginator } from '@angular/material/legacy-paginator';
-import { MatLegacyTableDataSource as MatTableDataSource } from '@angular/material/legacy-table';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/services/api.service';
 import { environment } from 'src/environments/environment';
 import { HomeSliderModalComponent } from '../home-slider-modal/home-slider-modal.component';
+import { MatDialog } from '@angular/material/dialog';
 
 declare var swal: any;
 
@@ -52,7 +50,8 @@ export class HomeSliderComponent implements OnInit {
             ...obj,
           }
         })
-        this.dataSource = new MatTableDataSource<any>(res.data);
+        // this.dataSource = new MatTableDataSource<any>(res.data);
+        this.dataSource = res.data;
         // setTimeout(() => {
         //   this.paginator.pageIndex = params.page - 1;
         //   this.paginator.length = res.data.length;

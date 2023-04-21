@@ -128,7 +128,7 @@
                   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                 </table>
 
-                <div class="text-center my-3" *ngIf="!dataSource?.data?.length">No Records Found!</div>
+                <div class="text-center my-3" *ngIf="!dataSource?.length">No Records Found!</div>
 
               </div>
 
@@ -166,7 +166,7 @@
                         <tr mat-header-row *matHeaderRowDef="imagesDisplayedColumns"></tr>
                         <tr mat-row *matRowDef="let row; columns: imagesDisplayedColumns;"></tr>
                       </table>
-                      <div class="text-center my-3" *ngIf="!imagesDataSource?.data?.length">No Records Found!</div>
+                      <div class="text-center my-3" *ngIf="!imagesDataSource?.length">No Records Found!</div>
 
 
                       <!-- [ngClass]="{'not-allowed': !form.valid}" -->

@@ -1,11 +1,9 @@
 import { Location } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
-import { MatLegacyPaginator as MatPaginator } from '@angular/material/legacy-paginator';
-import { MatLegacyTableDataSource as MatTableDataSource } from '@angular/material/legacy-table';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/services/api.service';
 import { TechTestimonialsModalComponent } from '../tech-testimonials-modal/tech-testimonials-modal.component';
+import { MatDialog } from '@angular/material/dialog';
 declare var swal: any;
 
 @Component({
@@ -55,12 +53,14 @@ export class TechTestimonialsComponent implements OnInit {
     this.api.getTechTestimonials(params).subscribe({
       next: (res: any) => {
         console.log(res);
-        this.dataSource = new MatTableDataSource<any>(res.data);
+        // this.dataSource = new MatTableDataSource<any>(res.data);
         // setTimeout(() => {
         //   this.paginator.pageIndex = params.page - 1;
         //   this.paginator.length = res.data.total;
         // })
         // this.dataSource.paginator = this.paginator;
+        this.dataSource = res.data;
+        // this.totalPages = res.data.total;
         this.isLoading = false;
       },
       error: (err: any) => {

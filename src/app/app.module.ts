@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import {MatLegacyInputModule as MatInputModule} from '@angular/material/legacy-input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { MaterialExampleModule } from './material.module';
@@ -69,7 +68,7 @@ import { TermsAndConditionsModalComponent } from './components/terms-and-conditi
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    MatInputModule,
+    // MatInputModule,
     ReactiveFormsModule,
     FormsModule,
     ToastrModule.forRoot({

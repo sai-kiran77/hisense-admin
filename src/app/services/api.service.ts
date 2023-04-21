@@ -246,6 +246,13 @@ export class ApiService {
     })
   }
 
+  createtermsAndConditions(body: any) {
+    const uuid = this.getLocalStorage('currentUserSession').uuid;
+    return this.http.post(this.baseUrl + '/v1/admin/terms-and-conditions', body, {
+      headers: new HttpHeaders({ 'admin-user-uuid': uuid })
+    })
+  }
+
   createOfferPromotion(body: any) {
     const uuid = this.getLocalStorage('currentUserSession').uuid;
     return this.http.post(this.baseUrl + '/v1/admin/offer-promotions', body, {
@@ -263,6 +270,13 @@ export class ApiService {
   deletePressCoverage(id: any) {
     const uuid = this.getLocalStorage('currentUserSession').uuid;
     return this.http.delete(this.baseUrl + `/v1/admin/press-coverages/${id}`, {
+      headers: new HttpHeaders({ 'admin-user-uuid': uuid })
+    })
+  }
+
+  deleteTermsAndConditions(id: any) {
+    const uuid = this.getLocalStorage('currentUserSession').uuid;
+    return this.http.delete(this.baseUrl + `/v1/admin/terms-and-conditions/${id}`, {
       headers: new HttpHeaders({ 'admin-user-uuid': uuid })
     })
   }
@@ -314,6 +328,13 @@ export class ApiService {
   updatePressCoverage(body: any, id: any) {
     const uuid = this.getLocalStorage('currentUserSession').uuid;
     return this.http.post(this.baseUrl + `/v1/admin/press-coverages/${id}`, body, { //using post because in patch file upload is not supported
+      headers: new HttpHeaders({ 'admin-user-uuid': uuid })
+    })
+  }
+
+  updateTermsAndConditions(body: any, id: any) {
+    const uuid = this.getLocalStorage('currentUserSession').uuid;
+    return this.http.post(this.baseUrl + `/v1/admin/terms-and-conditions/${id}`, body, { //using post because in patch file upload is not supported
       headers: new HttpHeaders({ 'admin-user-uuid': uuid })
     })
   }

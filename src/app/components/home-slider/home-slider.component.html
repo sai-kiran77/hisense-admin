@@ -84,7 +84,7 @@
                     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                 </table>
             </div>
-            <div class="text-center py-2 no-record" *ngIf="!dataSource?.data.length">
+            <div class="text-center py-2 no-record" *ngIf="!dataSource?.length">
                 No record found</div>
             <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" (page)="pageChanged($event)" [pageSize]="pageSize">
             </mat-paginator> -->

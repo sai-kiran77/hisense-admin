@@ -1,7 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, OnInit, ViewChild, ViewChildren } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
-import { MatLegacyTableDataSource as MatTableDataSource } from '@angular/material/legacy-table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/services/api.service';
@@ -109,14 +108,19 @@ export class ProductGroupComponent implements OnInit {
           }
         })
 
-        this.dataSource = new MatTableDataSource<any>(res.data.product_variants);
+        // this.dataSource = new MatTableDataSource<any>(res.data.product_variants);
+        this.dataSource = res.data.product_variants;
         // res.data.thumb_image.type = 'Large Size'
         // res.data.thumb_image_medium.type = 'Medium Size'
 
-        this.imagesDataSource = new MatTableDataSource<any>([
+        // this.imagesDataSource = new MatTableDataSource<any>([
+        //   res.data?.thumb_image,
+        //   res.data?.thumb_image_medium,
+        // ])
+        this.imagesDataSource = [
           res.data?.thumb_image,
           res.data?.thumb_image_medium,
-        ])
+        ];
 
         res.data.description_images_admin = res.data?.description_images_admin.map((obj: any, i: number) => {
           this.descriptionImagespriorities.push(i + 1);
@@ -126,7 +130,8 @@ export class ProductGroupComponent implements OnInit {
           }
         })
 
-        this.productImagesDataSource = new MatTableDataSource<any>(res.data.description_images_admin);
+        // this.productImagesDataSource = new MatTableDataSource<any>(res.data.description_images_admin);
+        this.productImagesDataSource = res.data.description_images_admin;
       },
       error: (err: any) => {
         console.log(err);

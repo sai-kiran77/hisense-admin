@@ -2,7 +2,6 @@ import { Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild, ViewChildren } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatLegacyTableDataSource as MatTableDataSource } from '@angular/material/legacy-table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/services/api.service';
@@ -117,7 +116,8 @@ export class ProductsComponent implements OnInit {
           })
         }
 
-        this.dataSource = new MatTableDataSource<any>(this.metaData?.product_variant_purchase_link_vendors);
+        // this.dataSource = new MatTableDataSource<any>(this.metaData?.product_variant_purchase_link_vendors);
+        this.dataSource = this.metaData?.product_variant_purchase_link_vendors;
         const array = [];
         if (res.data.thumb_image) {
           res.data.thumb_image.type = 'Large Size'
@@ -128,7 +128,8 @@ export class ProductsComponent implements OnInit {
           array.push(res.data?.thumb_image_medium);
         }
 
-        this.imagesDataSource = new MatTableDataSource<any>(array)
+        // this.imagesDataSource = new MatTableDataSource<any>(array)
+        this.imagesDataSource = array;
         console.log(this.imagesDataSource.data);
 
         res.data.slider_images_admin = res.data?.slider_images_admin.map((obj: any,i: number)=>{
@@ -139,7 +140,8 @@ export class ProductsComponent implements OnInit {
           }
         })
 
-        this.productImagesDataSource = new MatTableDataSource<any>(res.data.slider_images_admin);
+        // this.productImagesDataSource = new MatTableDataSource<any>(res.data.slider_images_admin);
+        this.productImagesDataSource = res.data.slider_images_admin;
       },
       error: err => {
         console.log(err);

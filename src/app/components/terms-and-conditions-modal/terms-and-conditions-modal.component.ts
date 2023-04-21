@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA, MatLegacyDialogRef as MatDialogRef } from '@angular/material/legacy-dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -20,11 +20,14 @@ export class TermsAndConditionsModalComponent implements OnInit {
     tab_name: ['', [Validators.required]],
     heading: ['', [Validators.required]],
     sub_heading: ['', [Validators.required]],
-    date_range: ['', [Validators.required]],
+    date_range: this.fb.group({
+      start_date: ['', [Validators.required]],
+      end_date: ['', [Validators.required]],
+    }),
     content_type: ['', [Validators.required]],
     content_text: [''],
     content_image: [''],
-    is_enabled: ['', [Validators.required]],
+    is_enabled: [''],
     priority: ['999999', [Validators.required]],
   })
 
@@ -33,53 +36,85 @@ export class TermsAndConditionsModalComponent implements OnInit {
     private api: ApiService,
     private toaster: ToastrService,
     private fb: FormBuilder) {
-      console.log(this.data);
-      // if (this.data.isEdit) {
-      //   this.form.get('desktop_image')?.setValidators([]);
-      //   this.form.get('mobile_image')?.setValidators([]);
-      //   this.form.patchValue({
-      //     description: this.data.dataToEdit.description,
-      //     title: this.data.dataToEdit.title,
-      //     vendor: this.data.dataToEdit.vendor,
-      //     external_url: this.data.dataToEdit.external_url,
-      //     is_enabled: this.data.dataToEdit.is_enabled ? true : false,
-      //     priority: this.data.dataToEdit.priority,
-      //     country: this.data.dataToEdit.country,
-      //     published_at: this.data.dataToEdit.published_at,
-      //     is_featured: this.data.dataToEdit.is_featured,
-      //   })
-      //   // this.desktopUpdatedThumbImg = this.data.dataToEdit.desktop_image_full_url;
-      //   // this.mobileUpdatedThumbImg = this.data.dataToEdit.mobile_image_full_url;
-      // }
+    this.form.controls['content_type'].valueChanges.subscribe((value) => {
+      if (value == 1) {
+        this.form.controls['content_text'].setValidators([Validators.required]);
+        this.form.controls['content_image'].removeValidators([Validators.required]);
+      } else {
+        this.form.controls['content_image'].setValidators([Validators.required]);
+        this.form.controls['content_text'].removeValidators([Validators.required]);
+      }
+      this.form.controls['content_text'].updateValueAndValidity();
+      this.form.controls['content_image'].updateValueAndValidity();
+    })
+    console.log(this.data);
+    if (this.data.isEdit) {
+      // this.form.get('desktop_image')?.setValidators([]);
+      // this.form.get('mobile_image')?.setValidators([]);
+      this.form.patchValue({
+        group_name: this.data.dataToEdit.group_name,
+        tab_name: this.data.dataToEdit.tab_name,
+        heading: this.data.dataToEdit.heading,
+        sub_heading: this.data.dataToEdit.sub_heading,
+        is_enabled: this.data.dataToEdit.is_enabled ? true : false,
+        priority: this.data.dataToEdit.priority,
+        date_range: {
+          start_date: new Date(this.data.dataToEdit.date_range.split(' - ')[0]),
+          end_date: new Date(this.data.dataToEdit.date_range.split(' - ')[1]),
+        }
+      })
+
+      if (this.data.dataToEdit.content_text) {
+        this.form.patchValue({
+          content_type: '1',
+          content_text: this.data.dataToEdit.content_text
+        })
+      } else if (this.data.dataToEdit.content_image && this.data.dataToEdit.content_image_full_url) {
+        this.form.patchValue({
+          content_type: '2',
+          // content_text: this.data.dataToEdit.content_text
+        })
+        this.contentImage = this.data.dataToEdit.content_image_full_url;
+      }
     }
+  }
 
   ngOnInit(): void {
   }
-  
+
   createTermsAndCondition() {
     this.formSubmitted = true;
+    console.log(this.form);
     if (!this.form.valid) {
       return;
     }
-    this.isLoading = true;
-    const formData = new FormData();
-    formData.append('title', this.form.value.title + '');
-    formData.append('description', this.form.value.description + '');
-    formData.append('vendor', this.form.value.vendor + '');
-    formData.append('country', this.form.value.country + '');
-    formData.append('external_url', this.form.value.external_url + '');
-    formData.append('is_enabled', this.form.value.is_enabled ? '1' : '0');
-    // formData.append('desktop_image', this.desktopImgFile);
-    // formData.append('mobile_image', this.mobileImgFile);
 
-    if(this.form.value.published_at){
-      const dateObject = new Date(this.form.value.published_at);
-      formData.append('published_at', `${dateObject.getFullYear()}-${String(dateObject.getMonth() + 1).padStart(2,'0')}-${String(dateObject.getDate()).padStart(2,'0')}`);
+    this.isLoading = true;
+
+    const startDateSplit: any = this.form.value.date_range.start_date?.toString().split(' ');
+    const endDateSplit: any = this.form.value.date_range.end_date?.toString().split(' ');
+    const formattedStartDate = `${startDateSplit[3]}-${(new Date(this.form.value.date_range.start_date as string).getMonth() + 1).toString().padStart(2, '0')}-${startDateSplit[2]}`;
+    const formattedEndDate = `${endDateSplit[3]}-${(new Date(this.form.value.date_range.end_date as string).getMonth() + 1).toString().padStart(2, '0')}-${endDateSplit[2]}`;
+    console.log(`${formattedStartDate} - ${formattedEndDate}`)
+
+    const formData = new FormData();
+    formData.append('group_name', this.form.value.group_name + '');
+    formData.append('tab_name', this.form.value.tab_name + '');
+    formData.append('heading', this.form.value.heading + '');
+    formData.append('sub_heading', this.form.value.sub_heading + '');
+    formData.append('date_range', `${formattedStartDate} - ${formattedEndDate}`);
+    formData.append('is_enabled', this.form.value.is_enabled ? '1' : '0');
+    formData.append('priority', this.form.value.priority + '');
+
+    if (this.form.value['content_type'] == 1) {
+      formData.append('content_text', this.form.value.content_text + '');
+      formData.delete('content_image');
+    } else {
+      formData.delete('content_text');
+      formData.append('content_image', this.contentImageFile);
     }
 
-    formData.append('is_featured', this.form.value.is_featured);
-    formData.append('priority', this.form.value.priority);
-    this.api.createPressCoverage(formData).subscribe({
+    this.api.createtermsAndConditions(formData).subscribe({
       next: (res: any) => {
         console.log(res);
         this.dialogRef.close(true);
@@ -99,31 +134,31 @@ export class TermsAndConditionsModalComponent implements OnInit {
       return;
     }
     this.isLoading = true;
+
+    const startDateSplit: any = this.form.value.date_range.start_date?.toString().split(' ');
+    const endDateSplit: any = this.form.value.date_range.end_date?.toString().split(' ');
+    const formattedStartDate = `${startDateSplit[3]}-${(new Date(this.form.value.date_range.start_date as string).getMonth() + 1).toString().padStart(2, '0')}-${startDateSplit[2]}`;
+    const formattedEndDate = `${endDateSplit[3]}-${(new Date(this.form.value.date_range.end_date as string).getMonth() + 1).toString().padStart(2, '0')}-${endDateSplit[2]}`;
+
     const formData = new FormData();
-    formData.append('title', this.form.value.title + '');
-    formData.append('description', this.form.value.description + '');
-    formData.append('vendor', this.form.value.vendor + '');
-    formData.append('country', this.form.value.country + '');
-    formData.append('external_url', this.form.value.external_url + '');
+    formData.append('group_name', this.form.value.group_name + '');
+    formData.append('tab_name', this.form.value.tab_name + '');
+    formData.append('heading', this.form.value.heading + '');
+    formData.append('sub_heading', this.form.value.sub_heading + '');
+    formData.append('date_range', `${formattedStartDate} - ${formattedEndDate}`);
     formData.append('is_enabled', this.form.value.is_enabled ? '1' : '0');
+    formData.append('priority', this.form.value.priority + '');
     formData.append('_method', 'PATCH');
 
-    if(this.form.value.published_at){
-      const dateObject = new Date(this.form.value.published_at);
-      formData.append('published_at', `${dateObject.getFullYear()}-${String(dateObject.getMonth() + 1).padStart(2,'0')}-${String(dateObject.getDate()).padStart(2,'0')}`);
+    if (this.form.value['content_type'] == 1) {
+      formData.append('content_text', this.form.value.content_text + '');
+      formData.delete('content_image');
+    } else {
+      formData.delete('content_text');
+      formData.append('content_image', this.contentImageFile);
     }
 
-    formData.append('is_featured', this.form.value.is_featured);
-    formData.append('priority', this.form.value.priority);
-
-    // if(this.form.value.desktop_image){
-    //   formData.append('desktop_image', this.desktopImgFile);
-    // }
-    // if(this.form.value.mobile_image){
-    //   formData.append('mobile_image', this.mobileImgFile);
-    // }
-    this.form.value._method = 'PATCH';
-    this.api.updatePressCoverage(formData, this.data.dataToEdit.id).subscribe({
+    this.api.updateTermsAndConditions(formData, this.data.dataToEdit.id).subscribe({
       next: (res: any) => {
         this.dialogRef.close(true);
         this.isLoading = false;
@@ -135,6 +170,38 @@ export class TermsAndConditionsModalComponent implements OnInit {
         this.toaster.error(err.error.message);
       }
     })
+  }
+
+  contentImage: any;
+  contentImageFile: any;
+
+  preview(event: any) {
+    let files = event.target?.files
+    if (files.length === 0)
+      return;
+
+    var mimeType = files[0].type;
+    if (mimeType.match(/image\/*/) == null) {
+      return;
+    }
+
+    var reader = new FileReader();
+    reader.readAsDataURL(files[0]);
+    reader.onload = (_event) => {
+      this.contentImage = reader.result;
+      this.contentImageFile = files[0];
+      this.form.patchValue({
+        content_image: files[0]
+      });
+    }
+  }
+
+  clearContentImage() {
+    this.contentImage = null;
+    this.contentImageFile = null;
+    this.form.patchValue({
+      content_image: null
+    });
   }
 
   get formControl() {

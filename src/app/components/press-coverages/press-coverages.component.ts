@@ -1,11 +1,9 @@
 import { Location } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
-import { MatLegacyPaginator as MatPaginator } from '@angular/material/legacy-paginator';
-import { MatLegacyTableDataSource as MatTableDataSource } from '@angular/material/legacy-table';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/services/api.service';
 import { PressCoverageModalComponent } from '../press-coverage-modal/press-coverage-modal.component';
+import { MatDialog } from '@angular/material/dialog';
 declare var swal: any;
 
 @Component({
@@ -19,9 +17,8 @@ export class PressCoveragesComponent implements OnInit {
   dataSource: any;
   pageSize = 50;
   isLoading = false;
+  totalPages = 0;
 
-
-  @ViewChild(MatPaginator) paginator: any;
 
   ngAfterViewInit() {
     // this.dataSource.paginator = this.paginator;
@@ -40,12 +37,14 @@ export class PressCoveragesComponent implements OnInit {
     this.api.getPressCoverages(params).subscribe({
       next: (res: any) => {
         console.log(res);
-        this.dataSource = new MatTableDataSource<any>(res.data.data);
-        setTimeout(() => {
-          this.paginator.pageIndex = params.page - 1;
-          this.paginator.length = res.data.total;
-        })
-        this.dataSource.paginator = this.paginator;
+        // this.dataSource = new MatTableDataSource<any>(res.data.data);
+        // setTimeout(() => {
+        //   this.paginator.pageIndex = params.page - 1;
+        //   this.paginator.length = res.data.total;
+        // })
+        // this.dataSource.paginator = this.paginator;
+        this.dataSource = res.data.data;
+        this.totalPages = res.data.total;
         this.isLoading = false;
       },
       error: (err: any) => {

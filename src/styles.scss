@@ -9,7 +9,7 @@ body {
 }
 
 /* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
+@import 'node_modules/bootstrap/scss/bootstrap';
 
 @import "./assets/scss/forms";
 @import "./assets/scss/global";
@@ -860,3 +860,5 @@ a {
 .ml-3{
   margin-left: 16px !important;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

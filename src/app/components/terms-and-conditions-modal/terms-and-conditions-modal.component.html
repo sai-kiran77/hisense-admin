@@ -62,7 +62,7 @@
                                     <mat-label>Content Type</mat-label>
                                     <mat-select formControlName="content_type">
                                         <mat-option value="1">Text</mat-option>
-                                        <mat-option value="0">Image</mat-option>
+                                        <mat-option value="2">Image</mat-option>
                                     </mat-select>
                                     <mat-hint class="error"
                                         *ngIf="formSubmitted && (formControl['content_type'].errors && formControl['content_type'].errors['required'])">
@@ -86,18 +86,20 @@
                                 </mat-form-field>
                             </div> -->
 
-                            <div class="col-12 col-sm-6 col-md-6 col-lg-3 form-group">
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-3 form-group" formGroupName="date_range">
                                 <mat-form-field appearance="outline">
                                     <mat-label>Enter a date range</mat-label>
-                                    <!-- <input matInput formControlName="date_range" [matDatepicker]="picker"
-                                        type="text" /> -->
                                     <mat-hint>MM/DD/YYYY - MM/DD/YYYY</mat-hint>
                                     <mat-date-range-input [rangePicker]="picker">
-                                        <input matStartDate placeholder="Start date">
-                                        <input matEndDate placeholder="End date">
+                                        <input matStartDate placeholder="Start date" formControlName="start_date">
+                                        <input matEndDate placeholder="End date" formControlName="end_date">
                                     </mat-date-range-input>
                                     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                                     <mat-date-range-picker #picker></mat-date-range-picker>
+                                    <mat-hint class="error"
+                                        *ngIf="formSubmitted && (formControl['date_range'].invalid)">
+                                        Date Range is required!
+                                    </mat-hint>
                                 </mat-form-field>
                             </div>
 
@@ -112,47 +114,59 @@
                                 </mat-form-field>
                             </div>
 
+                            <div class="col-12 form-group" *ngIf="formControl['content_type'].value == 1">
+                                <mat-form-field class="w-100" appearance="outline">
+                                    <mat-label class="mat-label-field-padding">Content Text</mat-label>
+                                    <textarea matInput trim="blur" style="resize: none; overflow-y: auto; padding: 8px;"
+                                        rows="5" formControlName="content_text"></textarea>
+                                    <mat-hint class="error"
+                                        *ngIf="formSubmitted && (formControl['content_text'].errors && formControl['content_text'].errors['required'])">
+                                        Content Text is required!
+                                    </mat-hint>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-12 form-group" *ngIf="formControl['content_type'].value == 2">
+                                <div class="row">
+                                    <div class="col-12 col-md-4">
+                                        <div class=" mt-4">
+                                            <h3 class="section-heading section-heading-not-first">
+                                                Content Image
+                                            </h3>
+                                        </div>
+
+                                        <div class="row ">
+                                            <div class=" mb-3" *ngIf="contentImage">
+                                                <div class="logo-wrap">
+                                                    <i (click)="clearContentImage()" class="fa fa-times fa-1x"
+                                                        aria-hidden="true"></i>
+                                                    <img class="logo-btn" [src]="contentImage" width="100"
+                                                        height="100" />
+                                                </div>
+                                            </div>
+                                            <div class="col-12 mb-3">
+                                                <input class="file-input" id="file-upload" type="file"
+                                                    accept="image/png, image/jpeg, image/webp"
+                                                    (change)="preview($event)" />
+                                                <button mat-raised-button type="button" class="file-upload-btn">
+                                                    <label for="file-upload">
+                                                        Browse and upload Content Image
+                                                    </label>
+                                                </button>
+                                                <mat-hint class="error"
+                                                    *ngIf="formSubmitted && (formControl['content_image'].errors && formControl['content_image'].errors['required'])">
+                                                    Content image is required!
+                                                </mat-hint>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="col-12 form-group my-3">
                                 <mat-slide-toggle formControlName="is_enabled" class="d-block example-margin">
                                     Enable/Disable</mat-slide-toggle>
                             </div>
-
-                            <!-- <div class="row">
-                                <div class="col-12 col-md-4">
-                                    <div class=" mt-4">
-                                        <h3 class="section-heading section-heading-not-first">
-                                            Desktop Image
-                                        </h3>
-                                    </div>
-
-                                    <div class="row ">
-                                        <div class=" mb-3" *ngIf="desktopUpdatedThumbImg">
-                                            <div class="logo-wrap">
-                                                <i (click)="desktopUpdatedThumbImg=null;desktopImgFile=null"
-                                                    class="fa fa-times fa-1x" aria-hidden="true"></i>
-                                                <img class="logo-btn" [src]="desktopUpdatedThumbImg" width="100"
-                                                    height="100" />
-                                            </div>
-                                        </div>
-                                        <div class="col-12 mb-3">
-                                            <input class="file-input" id="file-upload" type="file"
-                                                accept="image/png, image/jpeg, image/webp"
-                                                (change)="preview($event, true)" />
-                                            <button mat-raised-button type="button" class="file-upload-btn">
-                                                <label for="file-upload">
-                                                    Browse and upload Desktop Image
-                                                </label>
-                                            </button>
-                                            <mat-hint class="error"
-                                                *ngIf="formSubmitted && (formControl['desktop_image'].errors && formControl['desktop_image'].errors['required'])">
-                                                Desktop image is required!
-                                            </mat-hint>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
-
-
                         </div>
                     </form>
                 </div>

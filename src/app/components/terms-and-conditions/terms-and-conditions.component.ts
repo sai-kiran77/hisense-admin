@@ -1,11 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
-import { MatLegacyPaginator as MatPaginator } from '@angular/material/legacy-paginator';
-import { MatLegacyTableDataSource as MatTableDataSource } from '@angular/material/legacy-table';
 import { ToastrService } from 'ngx-toastr';
 import { Location } from '@angular/common';
 import { ApiService } from 'src/app/services/api.service';
 import { TermsAndConditionsModalComponent } from '../terms-and-conditions-modal/terms-and-conditions-modal.component';
+import { MatDialog } from '@angular/material/dialog';
 
 declare var swal: any;
 
@@ -22,9 +20,7 @@ export class TermsAndConditionsComponent implements OnInit {
   pageSize = 50;
   isLoading = false;
   metaData: any;
-
-
-  @ViewChild(MatPaginator) paginator: any;
+  totalPages = 0;
 
   ngAfterViewInit() {
     // this.dataSource.paginator = this.paginator;
@@ -44,12 +40,15 @@ export class TermsAndConditionsComponent implements OnInit {
     this.api.getTermsAndConditions(params).subscribe({
       next: (res: any) => {
         console.log(res);
-        this.dataSource = new MatTableDataSource<any>(res.data.data);
-        setTimeout(() => {
-          this.paginator.pageIndex = params.page - 1;
-          this.paginator.length = res.data.total;
-        })
-        this.dataSource.paginator = this.paginator;
+        // this.dataSource = new MatTableDataSource<any>(res.data.data);
+        // setTimeout(() => {
+        //   this.paginator.pageIndex = params.page - 1;
+        //   this.paginator.length = res.data.total;
+        // })
+        // this.dataSource.paginator = this.paginator;
+
+        this.dataSource = res.data.data;
+        this.totalPages = res.data.total;
         this.isLoading = false;
       },
       error: (err: any) => {
@@ -86,7 +85,7 @@ export class TermsAndConditionsComponent implements OnInit {
     })
       .then((willDelete: any) => {
         console.log(el);
-        this.api.deletePressCoverage(el.id).subscribe({
+        this.api.deleteTermsAndConditions(el.id).subscribe({
           next: (res: any) => {
             console.log(res);
             this.isLoading = false;

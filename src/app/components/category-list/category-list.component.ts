@@ -1,7 +1,5 @@
 import { Location } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatLegacyPaginator as MatPaginator } from '@angular/material/legacy-paginator';
-import { MatLegacyTableDataSource as MatTableDataSource } from '@angular/material/legacy-table';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/services/api.service';
@@ -20,8 +18,7 @@ export class CategoryListComponent implements OnInit {
   dataSource: any;
   isLoading = true;
   pageSize = 50
-
-  @ViewChild(MatPaginator) paginator: any;
+  totalPages = 0;
 
   ngAfterViewInit() {
     // this.dataSource.paginator = this.paginator;
@@ -41,12 +38,14 @@ export class CategoryListComponent implements OnInit {
     this.api.getProductCategoryList(params).subscribe({
       next: (res: any) => {
         console.log(res);
-        this.dataSource = new MatTableDataSource<any>(res.data.data);
-        setTimeout(()=>{
-          this.paginator.pageIndex = params.page - 1;
-          this.paginator.length = res.data.total;
-        })
-        this.dataSource.paginator = this.paginator;
+        // this.dataSource = new MatTableDataSource<any>(res.data.data);
+        this.dataSource = res.data.data;
+        this.totalPages = res.data.total;
+        // setTimeout(()=>{
+        //   this.paginator.pageIndex = params.page - 1;
+        //   this.paginator.length = res.data.total;
+        // })
+        // this.dataSource.paginator = this.paginator;
         this.isLoading = false;
       },
       error: (err: any) => {

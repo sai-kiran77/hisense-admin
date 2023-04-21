@@ -1,7 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, OnInit, ViewChild, ViewChildren } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
-import { MatLegacyTableDataSource as MatTableDataSource } from '@angular/material/legacy-table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/services/api.service';
@@ -107,7 +106,8 @@ export class CategoryComponent implements OnInit {
           }
         })
 
-        this.dataSource = new MatTableDataSource<any>(res?.data?.category_products);
+        // this.dataSource = new MatTableDataSource<any>(res?.data?.category_products);
+        this.dataSource = res?.data?.category_products;
 
         const array = [];
 
@@ -124,7 +124,8 @@ export class CategoryComponent implements OnInit {
           array.push(res.data.thumb_image_small)
         }
 
-        this.imagesDataSource = new MatTableDataSource<any>(array);
+        // this.imagesDataSource = new MatTableDataSource<any>(array);
+        this.imagesDataSource = array;
 
         // this.productImagesDataSource = new MatTableDataSource<any>(res.data.slider_images);
       },
