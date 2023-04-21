@@ -8817,7 +8817,7 @@ function TechTestimonialsComponent_td_26_Template(rf, ctx) {
   if (rf & 2) {
     const element_r25 = ctx.$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate1"](" ", (element_r25 == null ? null : element_r25.product_variant) || "N/A", " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate1"](" ", (element_r25 == null ? null : element_r25.product_variant == null ? null : element_r25.product_variant.name) || "N/A", " ");
   }
 }
 function TechTestimonialsComponent_th_28_Template(rf, ctx) {

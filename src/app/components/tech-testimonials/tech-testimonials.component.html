@@ -46,7 +46,7 @@
                     </ng-container>
                     <ng-container matColumnDef="Product Variant">
                         <th mat-header-cell *matHeaderCellDef>Product Variant</th>
-                        <td mat-cell *matCellDef="let element"> {{element?.product_variant || 'N/A'}} </td>
+                        <td mat-cell *matCellDef="let element"> {{element?.product_variant?.name || 'N/A'}} </td>
                     </ng-container>
 
                     <ng-container matColumnDef="priority">
