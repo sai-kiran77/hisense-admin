@@ -11,7 +11,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AppRoutingModule": () => (/* binding */ AppRoutingModule)
 /* harmony export */ });
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/router */ 124);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/router */ 124);
 /* harmony import */ var _auth_guard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./auth.guard */ 2993);
 /* harmony import */ var _components_category_list_category_list_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/category-list/category-list.component */ 3438);
 /* harmony import */ var _components_category_category_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/category/category.component */ 9053);
@@ -29,7 +29,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_products_products_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/products/products.component */ 697);
 /* harmony import */ var _components_tech_testimonials_tech_testimonials_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/tech-testimonials/tech-testimonials.component */ 5541);
 /* harmony import */ var _components_terms_and_conditions_terms_and_conditions_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/terms-and-conditions/terms-and-conditions.component */ 8048);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/core */ 2560);
+/* harmony import */ var _components_warranty_info_warranty_info_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/warranty-info/warranty-info.component */ 6398);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/core */ 2560);
+
 
 
 
@@ -127,6 +129,9 @@ const routes = [{
     path: 'terms-and-conditions',
     component: _components_terms_and_conditions_terms_and_conditions_component__WEBPACK_IMPORTED_MODULE_16__.TermsAndConditionsComponent
   }, {
+    path: 'warranty-information',
+    component: _components_warranty_info_warranty_info_component__WEBPACK_IMPORTED_MODULE_17__.WarrantyInfoComponent
+  }, {
     path: '',
     redirectTo: '/dashboard',
     pathMatch: 'full'
@@ -139,16 +144,16 @@ class AppRoutingModule {}
 AppRoutingModule.ɵfac = function AppRoutingModule_Factory(t) {
   return new (t || AppRoutingModule)();
 };
-AppRoutingModule.ɵmod = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_17__["ɵɵdefineNgModule"]({
+AppRoutingModule.ɵmod = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_18__["ɵɵdefineNgModule"]({
   type: AppRoutingModule
 });
-AppRoutingModule.ɵinj = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_17__["ɵɵdefineInjector"]({
-  imports: [_angular_router__WEBPACK_IMPORTED_MODULE_18__.RouterModule.forRoot(routes), _angular_router__WEBPACK_IMPORTED_MODULE_18__.RouterModule]
+AppRoutingModule.ɵinj = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_18__["ɵɵdefineInjector"]({
+  imports: [_angular_router__WEBPACK_IMPORTED_MODULE_19__.RouterModule.forRoot(routes), _angular_router__WEBPACK_IMPORTED_MODULE_19__.RouterModule]
 });
 (function () {
-  (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_17__["ɵɵsetNgModuleScope"](AppRoutingModule, {
-    imports: [_angular_router__WEBPACK_IMPORTED_MODULE_18__.RouterModule],
-    exports: [_angular_router__WEBPACK_IMPORTED_MODULE_18__.RouterModule]
+  (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_18__["ɵɵsetNgModuleScope"](AppRoutingModule, {
+    imports: [_angular_router__WEBPACK_IMPORTED_MODULE_19__.RouterModule],
+    exports: [_angular_router__WEBPACK_IMPORTED_MODULE_19__.RouterModule]
   });
 })();
 
@@ -224,15 +229,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AppModule": () => (/* binding */ AppModule)
 /* harmony export */ });
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! @angular/platform-browser */ 4497);
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! @angular/platform-browser/animations */ 7146);
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! @angular/platform-browser */ 4497);
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! @angular/platform-browser/animations */ 7146);
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./app-routing.module */ 158);
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app.component */ 5041);
 /* harmony import */ var _components_login_login_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/login/login.component */ 7143);
-/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ 4534);
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! @angular/common/http */ 8987);
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! @angular/forms */ 2508);
-/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ngx-toastr */ 4817);
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ 4534);
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! @angular/common/http */ 8987);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! @angular/forms */ 2508);
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ngx-toastr */ 4817);
 /* harmony import */ var _material_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./material.module */ 3806);
 /* harmony import */ var _components_layout_layout_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/layout/layout.component */ 9520);
 /* harmony import */ var _components_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/sidebar/sidebar.component */ 9201);
@@ -258,7 +263,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _session_interceptor_service__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./session-interceptor.service */ 2904);
 /* harmony import */ var _components_terms_and_conditions_terms_and_conditions_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/terms-and-conditions/terms-and-conditions.component */ 8048);
 /* harmony import */ var _components_terms_and_conditions_modal_terms_and_conditions_modal_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/terms-and-conditions-modal/terms-and-conditions-modal.component */ 8603);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! @angular/core */ 2560);
+/* harmony import */ var _components_warranty_info_warranty_info_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/warranty-info/warranty-info.component */ 6398);
+/* harmony import */ var _components_warranty_info_modal_warranty_info_modal_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/warranty-info-modal/warranty-info-modal.component */ 9648);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! @angular/core */ 2560);
+
+
 
 
 
@@ -299,30 +308,30 @@ class AppModule {}
 AppModule.ɵfac = function AppModule_Factory(t) {
   return new (t || AppModule)();
 };
-AppModule.ɵmod = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_28__["ɵɵdefineNgModule"]({
+AppModule.ɵmod = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_30__["ɵɵdefineNgModule"]({
   type: AppModule,
   bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_1__.AppComponent]
 });
-AppModule.ɵinj = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_28__["ɵɵdefineInjector"]({
+AppModule.ɵinj = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_30__["ɵɵdefineInjector"]({
   providers: [{
-    provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_29__.HTTP_INTERCEPTORS,
+    provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_31__.HTTP_INTERCEPTORS,
     useClass: _session_interceptor_service__WEBPACK_IMPORTED_MODULE_25__.LoaderInterceptor,
     multi: true
   }],
-  imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_30__.BrowserModule, _app_routing_module__WEBPACK_IMPORTED_MODULE_0__.AppRoutingModule, _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_31__.NgbModule, _angular_common_http__WEBPACK_IMPORTED_MODULE_29__.HttpClientModule,
+  imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_32__.BrowserModule, _app_routing_module__WEBPACK_IMPORTED_MODULE_0__.AppRoutingModule, _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_33__.NgbModule, _angular_common_http__WEBPACK_IMPORTED_MODULE_31__.HttpClientModule,
   // MatInputModule,
-  _angular_forms__WEBPACK_IMPORTED_MODULE_32__.ReactiveFormsModule, _angular_forms__WEBPACK_IMPORTED_MODULE_32__.FormsModule, ngx_toastr__WEBPACK_IMPORTED_MODULE_33__.ToastrModule.forRoot({
+  _angular_forms__WEBPACK_IMPORTED_MODULE_34__.ReactiveFormsModule, _angular_forms__WEBPACK_IMPORTED_MODULE_34__.FormsModule, ngx_toastr__WEBPACK_IMPORTED_MODULE_35__.ToastrModule.forRoot({
     timeOut: 6000,
     positionClass: 'toast-top-right',
     preventDuplicates: true
-  }), _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_34__.BrowserAnimationsModule, _material_module__WEBPACK_IMPORTED_MODULE_3__.MaterialExampleModule]
+  }), _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_36__.BrowserAnimationsModule, _material_module__WEBPACK_IMPORTED_MODULE_3__.MaterialExampleModule]
 });
 (function () {
-  (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_28__["ɵɵsetNgModuleScope"](AppModule, {
-    declarations: [_app_component__WEBPACK_IMPORTED_MODULE_1__.AppComponent, _components_login_login_component__WEBPACK_IMPORTED_MODULE_2__.LoginComponent, _components_layout_layout_component__WEBPACK_IMPORTED_MODULE_4__.LayoutComponent, _components_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_5__.SidebarComponent, _components_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_6__.DashboardComponent, _components_products_products_component__WEBPACK_IMPORTED_MODULE_7__.ProductsComponent, _components_my_profile_my_profile_component__WEBPACK_IMPORTED_MODULE_8__.MyProfileComponent, _components_product_varients_list_product_varients_list_component__WEBPACK_IMPORTED_MODULE_9__.ProductVarientsListComponent, _components_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_10__.NavbarComponent, _components_product_groups_list_product_groups_list_component__WEBPACK_IMPORTED_MODULE_11__.ProductGroupsListComponent, _components_product_group_product_group_component__WEBPACK_IMPORTED_MODULE_12__.ProductGroupComponent, _components_category_list_category_list_component__WEBPACK_IMPORTED_MODULE_13__.CategoryListComponent, _components_category_category_component__WEBPACK_IMPORTED_MODULE_14__.CategoryComponent, _components_stats_card_stats_card_component__WEBPACK_IMPORTED_MODULE_15__.StatsCardComponent, _components_contact_requests_contact_requests_component__WEBPACK_IMPORTED_MODULE_16__.ContactRequestsComponent, _components_press_coverages_press_coverages_component__WEBPACK_IMPORTED_MODULE_17__.PressCoveragesComponent, _components_press_coverage_modal_press_coverage_modal_component__WEBPACK_IMPORTED_MODULE_18__.PressCoverageModalComponent, _components_tech_testimonials_tech_testimonials_component__WEBPACK_IMPORTED_MODULE_19__.TechTestimonialsComponent, _components_tech_testimonials_modal_tech_testimonials_modal_component__WEBPACK_IMPORTED_MODULE_20__.TechTestimonialsModalComponent, _components_offers_and_promotions_offers_and_promotions_component__WEBPACK_IMPORTED_MODULE_21__.OffersAndPromotionsComponent, _components_offers_and_promotions_modal_offers_and_promotions_modal_component__WEBPACK_IMPORTED_MODULE_22__.OffersAndPromotionsModalComponent, _components_home_slider_home_slider_component__WEBPACK_IMPORTED_MODULE_23__.HomeSliderComponent, _components_home_slider_modal_home_slider_modal_component__WEBPACK_IMPORTED_MODULE_24__.HomeSliderModalComponent, _components_terms_and_conditions_terms_and_conditions_component__WEBPACK_IMPORTED_MODULE_26__.TermsAndConditionsComponent, _components_terms_and_conditions_modal_terms_and_conditions_modal_component__WEBPACK_IMPORTED_MODULE_27__.TermsAndConditionsModalComponent],
-    imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_30__.BrowserModule, _app_routing_module__WEBPACK_IMPORTED_MODULE_0__.AppRoutingModule, _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_31__.NgbModule, _angular_common_http__WEBPACK_IMPORTED_MODULE_29__.HttpClientModule,
+  (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_30__["ɵɵsetNgModuleScope"](AppModule, {
+    declarations: [_app_component__WEBPACK_IMPORTED_MODULE_1__.AppComponent, _components_login_login_component__WEBPACK_IMPORTED_MODULE_2__.LoginComponent, _components_layout_layout_component__WEBPACK_IMPORTED_MODULE_4__.LayoutComponent, _components_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_5__.SidebarComponent, _components_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_6__.DashboardComponent, _components_products_products_component__WEBPACK_IMPORTED_MODULE_7__.ProductsComponent, _components_my_profile_my_profile_component__WEBPACK_IMPORTED_MODULE_8__.MyProfileComponent, _components_product_varients_list_product_varients_list_component__WEBPACK_IMPORTED_MODULE_9__.ProductVarientsListComponent, _components_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_10__.NavbarComponent, _components_product_groups_list_product_groups_list_component__WEBPACK_IMPORTED_MODULE_11__.ProductGroupsListComponent, _components_product_group_product_group_component__WEBPACK_IMPORTED_MODULE_12__.ProductGroupComponent, _components_category_list_category_list_component__WEBPACK_IMPORTED_MODULE_13__.CategoryListComponent, _components_category_category_component__WEBPACK_IMPORTED_MODULE_14__.CategoryComponent, _components_stats_card_stats_card_component__WEBPACK_IMPORTED_MODULE_15__.StatsCardComponent, _components_contact_requests_contact_requests_component__WEBPACK_IMPORTED_MODULE_16__.ContactRequestsComponent, _components_press_coverages_press_coverages_component__WEBPACK_IMPORTED_MODULE_17__.PressCoveragesComponent, _components_press_coverage_modal_press_coverage_modal_component__WEBPACK_IMPORTED_MODULE_18__.PressCoverageModalComponent, _components_tech_testimonials_tech_testimonials_component__WEBPACK_IMPORTED_MODULE_19__.TechTestimonialsComponent, _components_tech_testimonials_modal_tech_testimonials_modal_component__WEBPACK_IMPORTED_MODULE_20__.TechTestimonialsModalComponent, _components_offers_and_promotions_offers_and_promotions_component__WEBPACK_IMPORTED_MODULE_21__.OffersAndPromotionsComponent, _components_offers_and_promotions_modal_offers_and_promotions_modal_component__WEBPACK_IMPORTED_MODULE_22__.OffersAndPromotionsModalComponent, _components_home_slider_home_slider_component__WEBPACK_IMPORTED_MODULE_23__.HomeSliderComponent, _components_home_slider_modal_home_slider_modal_component__WEBPACK_IMPORTED_MODULE_24__.HomeSliderModalComponent, _components_terms_and_conditions_terms_and_conditions_component__WEBPACK_IMPORTED_MODULE_26__.TermsAndConditionsComponent, _components_warranty_info_warranty_info_component__WEBPACK_IMPORTED_MODULE_28__.WarrantyInfoComponent, _components_terms_and_conditions_modal_terms_and_conditions_modal_component__WEBPACK_IMPORTED_MODULE_27__.TermsAndConditionsModalComponent, _components_warranty_info_modal_warranty_info_modal_component__WEBPACK_IMPORTED_MODULE_29__.WarrantyInfoModalComponent],
+    imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_32__.BrowserModule, _app_routing_module__WEBPACK_IMPORTED_MODULE_0__.AppRoutingModule, _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_33__.NgbModule, _angular_common_http__WEBPACK_IMPORTED_MODULE_31__.HttpClientModule,
     // MatInputModule,
-    _angular_forms__WEBPACK_IMPORTED_MODULE_32__.ReactiveFormsModule, _angular_forms__WEBPACK_IMPORTED_MODULE_32__.FormsModule, ngx_toastr__WEBPACK_IMPORTED_MODULE_33__.ToastrModule, _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_34__.BrowserAnimationsModule, _material_module__WEBPACK_IMPORTED_MODULE_3__.MaterialExampleModule]
+    _angular_forms__WEBPACK_IMPORTED_MODULE_34__.ReactiveFormsModule, _angular_forms__WEBPACK_IMPORTED_MODULE_34__.FormsModule, ngx_toastr__WEBPACK_IMPORTED_MODULE_35__.ToastrModule, _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_36__.BrowserAnimationsModule, _material_module__WEBPACK_IMPORTED_MODULE_3__.MaterialExampleModule]
   });
 })();
 
@@ -7924,6 +7933,15 @@ const ROUTES = [
   icon: 'product-icon',
   visible: true,
   path: '/terms-and-conditions'
+}, {
+  user: 'admin',
+  dropdown: false,
+  userName: false,
+  className: true,
+  title: 'Warranty Information',
+  icon: 'product-icon',
+  visible: true,
+  path: '/warranty-information'
 }
 // {
 //   user: 'admin', dropdown: false, userName: false, className: true, title: 'My Profile', icon: 'fas fa-id-card', visible: true, path: '/user-profile'
@@ -9945,6 +9963,747 @@ TermsAndConditionsComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED
 
 /***/ }),
 
+/***/ 9648:
+/*!*********************************************************************************!*\
+  !*** ./src/app/components/warranty-info-modal/warranty-info-modal.component.ts ***!
+  \*********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "WarrantyInfoModalComponent": () => (/* binding */ WarrantyInfoModalComponent)
+/* harmony export */ });
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ 2508);
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/dialog */ 1484);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 2560);
+/* harmony import */ var src_app_services_api_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/app/services/api.service */ 5830);
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-toastr */ 4817);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ 4666);
+/* harmony import */ var _angular_material_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/core */ 9121);
+/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/button */ 4522);
+/* harmony import */ var _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/datepicker */ 2298);
+/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/icon */ 7822);
+/* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/input */ 8562);
+/* harmony import */ var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/form-field */ 5074);
+/* harmony import */ var _angular_material_select__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/select */ 7371);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function WarrantyInfoModalComponent_h4_2_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "h4", 28);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1, "Create Warranty");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+  }
+}
+function WarrantyInfoModalComponent_h4_3_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "h4", 28);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1, "Update Warranty");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+  }
+}
+function WarrantyInfoModalComponent_mat_option_17_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "mat-option", 29);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+  }
+  if (rf & 2) {
+    const option_r14 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("value", option_r14.code);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate"](option_r14.name);
+  }
+}
+function WarrantyInfoModalComponent_mat_hint_18_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "mat-hint", 30);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1, " Purchase Mode is required! ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+  }
+}
+function WarrantyInfoModalComponent_mat_error_29_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "mat-error", 30);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1, " Start Date is required! ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+  }
+}
+function WarrantyInfoModalComponent_mat_error_40_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "mat-error", 30);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1, " End Date is required! ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+  }
+}
+function WarrantyInfoModalComponent_mat_hint_46_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "mat-hint", 30);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1, " Warranty Description is required! ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+  }
+}
+function WarrantyInfoModalComponent_span_54_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "span", 31);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+  }
+  if (rf & 2) {
+    const ctx_r9 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate2"](" (+", ((ctx_r9.formControl["product_varients"].value == null ? null : ctx_r9.formControl["product_varients"].value.length) || 0) - 1, " ", (ctx_r9.formControl["product_varients"].value == null ? null : ctx_r9.formControl["product_varients"].value.length) === 2 ? "other" : "others", ") ");
+  }
+}
+function WarrantyInfoModalComponent_mat_option_55_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "mat-option", 29);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+  }
+  if (rf & 2) {
+    const pv_r15 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("value", pv_r15.id);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate"](pv_r15.name);
+  }
+}
+function WarrantyInfoModalComponent_mat_error_56_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "mat-error", 30);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1, " Please Select a Product Varient! ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+  }
+}
+function WarrantyInfoModalComponent_button_60_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r17 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "button", 32);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function WarrantyInfoModalComponent_button_60_Template_button_click_0_listener() {
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r17);
+      const ctx_r16 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
+      return _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵresetView"](ctx_r16.createWarranty());
+    });
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1, " Create ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+  }
+}
+function WarrantyInfoModalComponent_button_61_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r19 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "button", 32);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function WarrantyInfoModalComponent_button_61_Template_button_click_0_listener() {
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r19);
+      const ctx_r18 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
+      return _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵresetView"](ctx_r18.updateWarranty());
+    });
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1, " Update ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+  }
+}
+class WarrantyInfoModalComponent {
+  constructor(data, dialogRef, api, toaster, fb) {
+    this.data = data;
+    this.dialogRef = dialogRef;
+    this.api = api;
+    this.toaster = toaster;
+    this.fb = fb;
+    this.formSubmitted = false;
+    this.isLoading = false;
+    this.productsIdNameMap = {};
+    this.form = this.fb.group({
+      purchase_mode: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__.Validators.required]],
+      warranty_description_text: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__.Validators.required]],
+      product_varients: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__.Validators.required],
+      warranty_duration_start_date: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__.Validators.required]],
+      warranty_duration_end_date: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__.Validators.required]]
+    });
+    console.log(this.data);
+    data.metaData?.products.forEach(obj => {
+      this.productsIdNameMap[obj.id] = obj.name;
+    });
+    if (this.data.isEdit) {
+      this.form.patchValue({
+        purchase_mode: this.data.dataToEdit.purchase_mode,
+        warranty_description_text: this.data.dataToEdit.warranty_description_text,
+        product_varients: this.data.dataToEdit.warranty_information_product_variants.map(obj => obj.product_variant.id),
+        warranty_duration_start_date: new Date(this.data.dataToEdit.warranty_duration_start_date),
+        warranty_duration_end_date: new Date(this.data.dataToEdit.warranty_duration_end_date)
+      });
+    }
+  }
+  createWarranty() {
+    this.formSubmitted = true;
+    console.log(this.form);
+    if (!this.form.valid) {
+      return;
+    }
+    this.isLoading = true;
+    const startDateSplit = this.form.value.warranty_duration_start_date?.toString().split(' ');
+    const endDateSplit = this.form.value.warranty_duration_end_date?.toString().split(' ');
+    const formattedStartDate = `${startDateSplit[3]}-${(new Date(this.form.value.warranty_duration_start_date).getMonth() + 1).toString().padStart(2, '0')}-${startDateSplit[2]}`;
+    const formattedEndDate = `${endDateSplit[3]}-${(new Date(this.form.value.warranty_duration_end_date).getMonth() + 1).toString().padStart(2, '0')}-${endDateSplit[2]}`;
+    const formData = new FormData();
+    formData.append('purchase_mode', this.form.value.purchase_mode + '');
+    formData.append('warranty_description_text', this.form.value.warranty_description_text + '');
+    formData.append('warranty_duration_start_date', formattedStartDate + '');
+    formData.append('warranty_duration_end_date', formattedEndDate + '');
+    let index = 0;
+    for (let varient of this.form.value.product_varients) {
+      formData.append(`warranty_information_product_variants[${index}][product_variant_id]`, varient.toString());
+      index++;
+    }
+    this.api.createWarranty(formData).subscribe({
+      next: res => {
+        console.log(res);
+        this.dialogRef.close(true);
+        this.isLoading = false;
+      },
+      error: err => {
+        this.isLoading = false;
+        console.log(err);
+        this.toaster.error(err.error.message);
+      }
+    });
+  }
+  updateWarranty() {
+    this.formSubmitted = true;
+    if (!this.form.valid) {
+      return;
+    }
+    this.isLoading = true;
+    const startDateSplit = this.form.value.warranty_duration_start_date?.toString().split(' ');
+    const endDateSplit = this.form.value.warranty_duration_end_date?.toString().split(' ');
+    const formattedStartDate = `${startDateSplit[3]}-${(new Date(this.form.value.warranty_duration_start_date).getMonth() + 1).toString().padStart(2, '0')}-${startDateSplit[2]}`;
+    const formattedEndDate = `${endDateSplit[3]}-${(new Date(this.form.value.warranty_duration_end_date).getMonth() + 1).toString().padStart(2, '0')}-${endDateSplit[2]}`;
+    const formData = new FormData();
+    formData.append('purchase_mode', this.form.value.purchase_mode + '');
+    formData.append('warranty_description_text', this.form.value.warranty_description_text + '');
+    formData.append('warranty_duration_start_date', formattedStartDate + '');
+    formData.append('warranty_duration_end_date', formattedEndDate + '');
+    formData.append('_method', 'PATCH');
+    let index = 0;
+    for (let varient of this.form.value.product_varients) {
+      formData.append(`warranty_information_product_variants[${index}][product_variant_id]`, varient.toString());
+      index++;
+    }
+    this.api.updateWarranty(formData, this.data.dataToEdit.id).subscribe({
+      next: res => {
+        this.dialogRef.close(true);
+        this.isLoading = false;
+        this.toaster.success(res.message);
+      },
+      error: err => {
+        this.isLoading = false;
+        console.log(err);
+        this.toaster.error(err.error.message);
+      }
+    });
+  }
+  get formControl() {
+    return this.form.controls;
+  }
+}
+WarrantyInfoModalComponent.ɵfac = function WarrantyInfoModalComponent_Factory(t) {
+  return new (t || WarrantyInfoModalComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__.MAT_DIALOG_DATA), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__.MatDialogRef), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_api_service__WEBPACK_IMPORTED_MODULE_0__.ApiService), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](ngx_toastr__WEBPACK_IMPORTED_MODULE_4__.ToastrService), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_2__.FormBuilder));
+};
+WarrantyInfoModalComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({
+  type: WarrantyInfoModalComponent,
+  selectors: [["app-warranty-info-modal"]],
+  decls: 62,
+  vars: 21,
+  consts: [[1, "modal-container"], [1, "header", "border-bottom"], ["mat-dialog-title", "", 4, "ngIf"], [1, "close-icon", 3, "mat-dialog-close"], [1, "body"], [1, "mat-dialog"], [1, "row", "p-3"], [1, "col-md-12"], [3, "formGroup"], [1, "row"], [1, "col-12", "col-sm-6", "col-md-6", "col-lg-3", "form-group"], ["appearance", "outline"], [1, "mat-label-field-padding"], ["formControlName", "purchase_mode"], [3, "value", 4, "ngFor", "ngForOf"], ["class", "error", 4, "ngIf"], ["appearance", "outline", 1, "w-100"], ["matInput", "", "formControlName", "warranty_duration_start_date", "type", "text", 3, "max", "matDatepicker"], ["matSuffix", "", 3, "for"], ["picker1", ""], ["matInput", "", "formControlName", "warranty_duration_end_date", "type", "text", 3, "min", "matDatepicker"], ["picker", ""], ["matInput", "", "formControlName", "warranty_description_text", "type", "text"], ["formControlName", "product_varients", "multiple", ""], ["class", "example-additional-selection", 4, "ngIf"], [1, "footer"], ["mat-raised-button", "", 1, "ml-3", "mb-3", 2, "color", "black !important", 3, "click"], ["class", "btn btn-info ml-3 mb-3", 3, "click", 4, "ngIf"], ["mat-dialog-title", ""], [3, "value"], [1, "error"], [1, "example-additional-selection"], [1, "btn", "btn-info", "ml-3", "mb-3", 3, "click"]],
+  template: function WarrantyInfoModalComponent_Template(rf, ctx) {
+    if (rf & 1) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 0)(1, "div", 1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](2, WarrantyInfoModalComponent_h4_2_Template, 2, 0, "h4", 2);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](3, WarrantyInfoModalComponent_h4_3_Template, 2, 0, "h4", 2);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](4, "mat-icon", 3);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](5, "close");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](6, "div", 4)(7, "mat-dialog-content", 5)(8, "div", 6)(9, "div", 7)(10, "form", 8)(11, "div", 9)(12, "div", 10)(13, "mat-form-field", 11)(14, "mat-label", 12);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](15, "Purchase Mode");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](16, "mat-select", 13);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](17, WarrantyInfoModalComponent_mat_option_17_Template, 2, 2, "mat-option", 14);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](18, WarrantyInfoModalComponent_mat_hint_18_Template, 2, 0, "mat-hint", 15);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](19, "div", 10)(20, "mat-form-field", 16)(21, "mat-label", 12);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](22, "State Date");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](23, "input", 17);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](24, "mat-hint");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](25, "mm/dd/yyyy");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](26, "mat-datepicker-toggle", 18)(27, "mat-datepicker", null, 19);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](29, WarrantyInfoModalComponent_mat_error_29_Template, 2, 0, "mat-error", 15);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](30, "div", 10)(31, "mat-form-field", 16)(32, "mat-label", 12);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](33, "End Date");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](34, "input", 20);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](35, "mat-hint");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](36, "mm/dd/yyyy");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](37, "mat-datepicker-toggle", 18)(38, "mat-datepicker", null, 21);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](40, WarrantyInfoModalComponent_mat_error_40_Template, 2, 0, "mat-error", 15);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](41, "div", 10)(42, "mat-form-field", 11)(43, "mat-label", 12);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](44, "Warranty Description");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](45, "input", 22);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](46, WarrantyInfoModalComponent_mat_hint_46_Template, 2, 0, "mat-hint", 15);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](47, "div", 10)(48, "mat-form-field", 11)(49, "mat-label");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](50, "Product Variants");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](51, "mat-select", 23)(52, "mat-select-trigger");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](53);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](54, WarrantyInfoModalComponent_span_54_Template, 2, 2, "span", 24);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](55, WarrantyInfoModalComponent_mat_option_55_Template, 2, 2, "mat-option", 14);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](56, WarrantyInfoModalComponent_mat_error_56_Template, 2, 0, "mat-error", 15);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()()()()()()()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](57, "div", 25)(58, "button", 26);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function WarrantyInfoModalComponent_Template_button_click_58_listener() {
+        return ctx.dialogRef.close();
+      });
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](59, " Cancel ");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](60, WarrantyInfoModalComponent_button_60_Template, 2, 0, "button", 27);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](61, WarrantyInfoModalComponent_button_61_Template, 2, 0, "button", 27);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
+    }
+    if (rf & 2) {
+      const _r4 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵreference"](28);
+      const _r6 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵreference"](39);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", !ctx.data.isEdit);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx.data.isEdit);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("mat-dialog-close", false);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](6);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("formGroup", ctx.form);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](7);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngForOf", ctx.data.metaData == null ? null : ctx.data.metaData.purchase_modes);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx.formSubmitted && ctx.formControl["purchase_mode"].errors && ctx.formControl["purchase_mode"].errors["required"]);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](5);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("max", ctx.formControl["warranty_duration_end_date"].value)("matDatepicker", _r4);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("for", _r4);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx.formSubmitted && ctx.formControl["warranty_duration_start_date"].errors && ctx.formControl["warranty_duration_start_date"].errors["required"]);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](5);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("min", ctx.formControl["warranty_duration_start_date"].value)("matDatepicker", _r6);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("for", _r6);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx.formSubmitted && ctx.formControl["warranty_duration_end_date"].errors && ctx.formControl["warranty_duration_end_date"].errors["required"]);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](6);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx.formSubmitted && ctx.formControl["warranty_description_text"].errors && ctx.formControl["warranty_description_text"].errors["required"]);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](7);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" ", ctx.productsIdNameMap[ctx.formControl["product_varients"].value == null ? null : ctx.formControl["product_varients"].value[0]] || "", " ");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ((ctx.formControl["product_varients"].value == null ? null : ctx.formControl["product_varients"].value.length) || 0) > 1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngForOf", ctx.data.metaData == null ? null : ctx.data.metaData.products);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx.formSubmitted && ctx.formControl["product_varients"].errors && ctx.formControl["product_varients"].errors["required"]);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](4);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", !ctx.data.isEdit);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx.data.isEdit);
+    }
+  },
+  dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_5__.NgForOf, _angular_common__WEBPACK_IMPORTED_MODULE_5__.NgIf, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.FormGroupDirective, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.FormControlName, _angular_material_core__WEBPACK_IMPORTED_MODULE_6__.MatOption, _angular_material_button__WEBPACK_IMPORTED_MODULE_7__.MatButton, _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_8__.MatDatepicker, _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_8__.MatDatepickerInput, _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_8__.MatDatepickerToggle, _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__.MatDialogClose, _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__.MatDialogTitle, _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__.MatDialogContent, _angular_material_icon__WEBPACK_IMPORTED_MODULE_9__.MatIcon, _angular_material_input__WEBPACK_IMPORTED_MODULE_10__.MatInput, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_11__.MatFormField, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_11__.MatLabel, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_11__.MatHint, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_11__.MatError, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_11__.MatSuffix, _angular_material_select__WEBPACK_IMPORTED_MODULE_12__.MatSelect, _angular_material_select__WEBPACK_IMPORTED_MODULE_12__.MatSelectTrigger],
+  styles: ["[_ngcontent-%COMP%]:root {\n  --primary: #00b3ac;\n  --white: #fff;\n  --black: #000;\n}\n\n.modal-container[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 5px 10px;\n}\n\nh4[mat-dialog-title][_ngcontent-%COMP%] {\n  margin: 0 0 7px !important;\n}\n\n.subscription-card[_ngcontent-%COMP%] {\n  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 3px 0px, rgba(27, 31, 35, 0.1) 0px 0px 0px 1px;\n  border-radius: 13px;\n}\n\n.plans-container[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));\n  gap: 25px;\n  margin: 15px 0;\n}\n\n.card-content[_ngcontent-%COMP%] {\n  padding: 12px;\n  display: flex;\n  flex-direction: column;\n  gap: 22px;\n  min-height: 270px;\n}\n\n.check-icon[_ngcontent-%COMP%] {\n  color: green;\n}\n\n.active[_ngcontent-%COMP%] {\n  color: var(--primary);\n  font-size: 36px;\n}\n\n.active-b[_ngcontent-%COMP%] {\n  border: 1px solid var(--primary);\n}\n\n.current-plan[_ngcontent-%COMP%] {\n  width: 100%;\n  color: var(--primary);\n  font-size: 16px;\n  font-weight: 400;\n  border-top-left-radius: 13px;\n  border-top-right-radius: 13px;\n  box-shadow: 0px 1px 3px var(--primary);\n}\n\n.recommended-plan[_ngcontent-%COMP%] {\n  mix-blend-mode: luminosity;\n}\n\n.planName[_ngcontent-%COMP%] {\n  font-weight: 400;\n  font-size: 22px;\n  text-align: center;\n}\n\n.plan-price[_ngcontent-%COMP%] {\n  font-size: 38px;\n  text-align: center;\n}\n.plan-price[_ngcontent-%COMP%]   .fs-small[_ngcontent-%COMP%] {\n  font-size: 16px;\n}\n\n.planDesc[_ngcontent-%COMP%] {\n  text-align: center;\n  font-size: 16px;\n  font-weight: 500;\n}\n\n.mat-dialog[_ngcontent-%COMP%] {\n  margin: 0 !important;\n}\n\n.features-heading[_ngcontent-%COMP%] {\n  font-size: 16px;\n  font-weight: 500;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 10px;\n  width: 100%;\n  border: none;\n  background: transparent;\n}\n.features-heading[_ngcontent-%COMP%]   .icon-wrapper[_ngcontent-%COMP%] {\n  width: 25px;\n  height: 25px;\n  background: #e7e0e0;\n  border-radius: 50%;\n}\n.features-heading[_ngcontent-%COMP%]   .icon-wrapper[_ngcontent-%COMP%]   .fa-caret-down[_ngcontent-%COMP%] {\n  font-size: 24px;\n  transform: rotate(-180deg);\n  transition: transform 250ms ease-in-out;\n}\n\n.collapsed[_ngcontent-%COMP%]   .fa-caret-down[_ngcontent-%COMP%] {\n  transform: rotate(0deg) !important;\n}\n\n@media screen and (max-width: 768px) {\n  .plans-container[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n}\n.footer[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 1rem;\n  justify-content: flex-end;\n  align-items: center;\n  padding: 1rem;\n  border-top: 1px solid rgba(0, 0, 0, 0.2);\n}\n\n.file-input[_ngcontent-%COMP%] {\n  display: none;\n}\n\n.file-upload-btn[_ngcontent-%COMP%] {\n  display: flex;\n  padding: 0;\n}\n.file-upload-btn[_ngcontent-%COMP%]   .mat-button-wrapper[_ngcontent-%COMP%] {\n  display: flex;\n}\n.file-upload-btn[_ngcontent-%COMP%]   label[_ngcontent-%COMP%] {\n  height: 100%;\n  width: 100%;\n  cursor: pointer;\n  margin: 0;\n  padding: 12px;\n  background-color: var(--primary);\n  color: white !important;\n}\n\nmat-form-field[_ngcontent-%COMP%] {\n  width: 95%;\n}\n\n  .mat-form-field-hint-wrapper {\n  display: block !important;\n}\n\n  .mat-mdc-form-field-hint-wrapper {\n  display: block;\n}\n\nmat-hint[_ngcontent-%COMP%] {\n  white-space: nowrap;\n}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9hc3NldHMvc2Nzcy9jb3JlL3RoZW1lcy9wcmltYXJ5LnNjc3MiLCJ3ZWJwYWNrOi8vLi8uLi8uLi8uLi8uLi9TYWklMjBLaXJhbi9Eb2N1bWVudHMvYWRtaW4taGlzZW5zZS9oaXNlbnNlLWFkbWluL3NyYy9hcHAvY29tcG9uZW50cy93YXJyYW50eS1pbmZvLW1vZGFsL3dhcnJhbnR5LWluZm8tbW9kYWwuY29tcG9uZW50LnNjc3MiLCJ3ZWJwYWNrOi8vLi9zcmMvYXBwL2NvbXBvbmVudHMvd2FycmFudHktaW5mby1tb2RhbC93YXJyYW50eS1pbmZvLW1vZGFsLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUlBO0VBQ0ksa0JBQUE7RUFDQSxhQUFBO0VBQ0EsYUFBQTtBQ0hKOztBQ0RFO0VBQ0UsYUFBQTtFQUNBLDhCQUFBO0VBQ0EsbUJBQUE7RUFDQSxpQkFBQTtBRElKOztBQ0FBO0VBQ0UsMEJBQUE7QURHRjs7QUNBQTtFQUNFLHFGQUFBO0VBQ0EsbUJBQUE7QURHRjs7QUNBQTtFQUNFLGFBQUE7RUFDQSwyREFBQTtFQUNBLFNBQUE7RUFDQSxjQUFBO0FER0Y7O0FDQUE7RUFDRSxhQUFBO0VBQ0EsYUFBQTtFQUNBLHNCQUFBO0VBQ0EsU0FBQTtFQUNBLGlCQUFBO0FER0Y7O0FDQUE7RUFDRSxZQUFBO0FER0Y7O0FDQUE7RUFDRSxxQkZ4Q2M7RUV5Q2QsZUFBQTtBREdGOztBQ0FBO0VBQ0UsZ0NBQUE7QURHRjs7QUNBQTtFQUNFLFdBQUE7RUFDQSxxQkZsRGM7RUVtRGQsZUFBQTtFQUNBLGdCQUFBO0VBQ0EsNEJBQUE7RUFDQSw2QkFBQTtFQUNBLHNDQUFBO0FER0Y7O0FDQUE7RUFDRSwwQkFBQTtBREdGOztBQ0FBO0VBQ0UsZ0JBQUE7RUFDQSxlQUFBO0VBQ0Esa0JBQUE7QURHRjs7QUNBQTtFQUNFLGVBQUE7RUFDQSxrQkFBQTtBREdGO0FDREU7RUFDRSxlQUFBO0FER0o7O0FDQ0E7RUFDRSxrQkFBQTtFQUNBLGVBQUE7RUFDQSxnQkFBQTtBREVGOztBQ0NBO0VBQ0Usb0JBQUE7QURFRjs7QUNDQTtFQUNFLGVBQUE7RUFDQSxnQkFBQTtFQUNBLGFBQUE7RUFDQSw4QkFBQTtFQUNBLG1CQUFBO0VBQ0EsYUFBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0VBQ0EsdUJBQUE7QURFRjtBQ0FFO0VBQ0UsV0FBQTtFQUNBLFlBQUE7RUFDQSxtQkFBQTtFQUNBLGtCQUFBO0FERUo7QUNBSTtFQUNFLGVBQUE7RUFDQSwwQkFBQTtFQUNBLHVDQUFBO0FERU47O0FDSUU7RUFDRSxrQ0FBQTtBRERKOztBQ0tBO0VBQ0U7SUFDRSwwQkFBQTtFREZGO0FBQ0Y7QUNLQTtFQUNFLGFBQUE7RUFDQSxTQUFBO0VBQ0EseUJBQUE7RUFDQSxtQkFBQTtFQUNBLGFBQUE7RUFDQSx3Q0FBQTtBREhGOztBQ09BO0VBQ0UsYUFBQTtBREpGOztBQ09BO0VBQ0UsYUFBQTtFQUNBLFVBQUE7QURKRjtBQ01FO0VBQ0UsYUFBQTtBREpKO0FDT0U7RUFDRSxZQUFBO0VBQ0EsV0FBQTtFQUNBLGVBQUE7RUFDQSxTQUFBO0VBQ0EsYUFBQTtFQUNBLGdDRnhKWTtFRXlKWix1QkFBQTtBRExKOztBQ1NBO0VBQ0UsVUFBQTtBRE5GOztBQ1NBO0VBQ0UseUJBQUE7QURORjs7QUNTQTtFQUNFLGNBQUE7QURORjs7QUNTQTtFQUNFLG1CQUFBO0FETkYiLCJzb3VyY2VzQ29udGVudCI6WyIkY29sb3ItcHJpbWFyeTogdmFyKC0tcHJpbWFyeSk7XHJcbiR3aGl0ZS1jb2xvcjogdmFyKC0td2hpdGUpO1xyXG4kYmxhY2stY29sb3I6IHZhcigtLWJsYWNrKTtcclxuXHJcbjpyb290e1xyXG4gICAgLS1wcmltYXJ5OiAjMDBiM2FjO1xyXG4gICAgLS13aGl0ZTogI2ZmZjtcclxuICAgIC0tYmxhY2s6ICMwMDA7XHJcbn0iLCI6cm9vdCB7XG4gIC0tcHJpbWFyeTogIzAwYjNhYztcbiAgLS13aGl0ZTogI2ZmZjtcbiAgLS1ibGFjazogIzAwMDtcbn1cblxuLm1vZGFsLWNvbnRhaW5lciAuaGVhZGVyIHtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuICBwYWRkaW5nOiA1cHggMTBweDtcbn1cblxuaDRbbWF0LWRpYWxvZy10aXRsZV0ge1xuICBtYXJnaW46IDAgMCA3cHggIWltcG9ydGFudDtcbn1cblxuLnN1YnNjcmlwdGlvbi1jYXJkIHtcbiAgYm94LXNoYWRvdzogcmdiYSgwLCAwLCAwLCAwLjIpIDBweCAxcHggM3B4IDBweCwgcmdiYSgyNywgMzEsIDM1LCAwLjEpIDBweCAwcHggMHB4IDFweDtcbiAgYm9yZGVyLXJhZGl1czogMTNweDtcbn1cblxuLnBsYW5zLWNvbnRhaW5lciB7XG4gIGRpc3BsYXk6IGdyaWQ7XG4gIGdyaWQtdGVtcGxhdGUtY29sdW1uczogcmVwZWF0KGF1dG8tZml0LCBtaW5tYXgoMTAwcHgsIDFmcikpO1xuICBnYXA6IDI1cHg7XG4gIG1hcmdpbjogMTVweCAwO1xufVxuXG4uY2FyZC1jb250ZW50IHtcbiAgcGFkZGluZzogMTJweDtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAgZ2FwOiAyMnB4O1xuICBtaW4taGVpZ2h0OiAyNzBweDtcbn1cblxuLmNoZWNrLWljb24ge1xuICBjb2xvcjogZ3JlZW47XG59XG5cbi5hY3RpdmUge1xuICBjb2xvcjogdmFyKC0tcHJpbWFyeSk7XG4gIGZvbnQtc2l6ZTogMzZweDtcbn1cblxuLmFjdGl2ZS1iIHtcbiAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tcHJpbWFyeSk7XG59XG5cbi5jdXJyZW50LXBsYW4ge1xuICB3aWR0aDogMTAwJTtcbiAgY29sb3I6IHZhcigtLXByaW1hcnkpO1xuICBmb250LXNpemU6IDE2cHg7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIGJvcmRlci10b3AtbGVmdC1yYWRpdXM6IDEzcHg7XG4gIGJvcmRlci10b3AtcmlnaHQtcmFkaXVzOiAxM3B4O1xuICBib3gtc2hhZG93OiAwcHggMXB4IDNweCB2YXIoLS1wcmltYXJ5KTtcbn1cblxuLnJlY29tbWVuZGVkLXBsYW4ge1xuICBtaXgtYmxlbmQtbW9kZTogbHVtaW5vc2l0eTtcbn1cblxuLnBsYW5OYW1lIHtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgZm9udC1zaXplOiAyMnB4O1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5cbi5wbGFuLXByaWNlIHtcbiAgZm9udC1zaXplOiAzOHB4O1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG4ucGxhbi1wcmljZSAuZnMtc21hbGwge1xuICBmb250LXNpemU6IDE2cHg7XG59XG5cbi5wbGFuRGVzYyB7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgZm9udC1zaXplOiAxNnB4O1xuICBmb250LXdlaWdodDogNTAwO1xufVxuXG4ubWF0LWRpYWxvZyB7XG4gIG1hcmdpbjogMCAhaW1wb3J0YW50O1xufVxuXG4uZmVhdHVyZXMtaGVhZGluZyB7XG4gIGZvbnQtc2l6ZTogMTZweDtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuICBwYWRkaW5nOiAxMHB4O1xuICB3aWR0aDogMTAwJTtcbiAgYm9yZGVyOiBub25lO1xuICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDtcbn1cbi5mZWF0dXJlcy1oZWFkaW5nIC5pY29uLXdyYXBwZXIge1xuICB3aWR0aDogMjVweDtcbiAgaGVpZ2h0OiAyNXB4O1xuICBiYWNrZ3JvdW5kOiAjZTdlMGUwO1xuICBib3JkZXItcmFkaXVzOiA1MCU7XG59XG4uZmVhdHVyZXMtaGVhZGluZyAuaWNvbi13cmFwcGVyIC5mYS1jYXJldC1kb3duIHtcbiAgZm9udC1zaXplOiAyNHB4O1xuICB0cmFuc2Zvcm06IHJvdGF0ZSgtMTgwZGVnKTtcbiAgdHJhbnNpdGlvbjogdHJhbnNmb3JtIDI1MG1zIGVhc2UtaW4tb3V0O1xufVxuXG4uY29sbGFwc2VkIC5mYS1jYXJldC1kb3duIHtcbiAgdHJhbnNmb3JtOiByb3RhdGUoMGRlZykgIWltcG9ydGFudDtcbn1cblxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogNzY4cHgpIHtcbiAgLnBsYW5zLWNvbnRhaW5lciB7XG4gICAgZ3JpZC10ZW1wbGF0ZS1jb2x1bW5zOiAxZnI7XG4gIH1cbn1cbi5mb290ZXIge1xuICBkaXNwbGF5OiBmbGV4O1xuICBnYXA6IDFyZW07XG4gIGp1c3RpZnktY29udGVudDogZmxleC1lbmQ7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIHBhZGRpbmc6IDFyZW07XG4gIGJvcmRlci10b3A6IDFweCBzb2xpZCByZ2JhKDAsIDAsIDAsIDAuMik7XG59XG5cbi5maWxlLWlucHV0IHtcbiAgZGlzcGxheTogbm9uZTtcbn1cblxuLmZpbGUtdXBsb2FkLWJ0biB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIHBhZGRpbmc6IDA7XG59XG4uZmlsZS11cGxvYWQtYnRuIC5tYXQtYnV0dG9uLXdyYXBwZXIge1xuICBkaXNwbGF5OiBmbGV4O1xufVxuLmZpbGUtdXBsb2FkLWJ0biBsYWJlbCB7XG4gIGhlaWdodDogMTAwJTtcbiAgd2lkdGg6IDEwMCU7XG4gIGN1cnNvcjogcG9pbnRlcjtcbiAgbWFyZ2luOiAwO1xuICBwYWRkaW5nOiAxMnB4O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1wcmltYXJ5KTtcbiAgY29sb3I6IHdoaXRlICFpbXBvcnRhbnQ7XG59XG5cbm1hdC1mb3JtLWZpZWxkIHtcbiAgd2lkdGg6IDk1JTtcbn1cblxuOjpuZy1kZWVwIC5tYXQtZm9ybS1maWVsZC1oaW50LXdyYXBwZXIge1xuICBkaXNwbGF5OiBibG9jayAhaW1wb3J0YW50O1xufVxuXG46Om5nLWRlZXAgLm1hdC1tZGMtZm9ybS1maWVsZC1oaW50LXdyYXBwZXIge1xuICBkaXNwbGF5OiBibG9jaztcbn1cblxubWF0LWhpbnQge1xuICB3aGl0ZS1zcGFjZTogbm93cmFwO1xufSIsIkBpbXBvcnQgXCIuLi8uLi8uLi9hc3NldHMvc2Nzcy9jb3JlL3RoZW1lcy9wcmltYXJ5LnNjc3NcIjtcclxuXHJcbi5tb2RhbC1jb250YWluZXIge1xyXG4gIC5oZWFkZXIge1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcclxuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbiAgICBwYWRkaW5nOiA1cHggMTBweDtcclxuICB9XHJcbn1cclxuXHJcbmg0W21hdC1kaWFsb2ctdGl0bGVdIHtcclxuICBtYXJnaW46IDAgMCA3cHggIWltcG9ydGFudDtcclxufVxyXG5cclxuLnN1YnNjcmlwdGlvbi1jYXJkIHtcclxuICBib3gtc2hhZG93OiByZ2JhKDAsIDAsIDAsIDAuMikgMHB4IDFweCAzcHggMHB4LCByZ2JhKDI3LCAzMSwgMzUsIDAuMSkgMHB4IDBweCAwcHggMXB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDEzcHg7XHJcbn1cclxuXHJcbi5wbGFucy1jb250YWluZXIge1xyXG4gIGRpc3BsYXk6IGdyaWQ7XHJcbiAgZ3JpZC10ZW1wbGF0ZS1jb2x1bW5zOiByZXBlYXQoYXV0by1maXQsIG1pbm1heCgxMDBweCwgMWZyKSk7XHJcbiAgZ2FwOiAyNXB4O1xyXG4gIG1hcmdpbjogMTVweCAwO1xyXG59XHJcblxyXG4uY2FyZC1jb250ZW50IHtcclxuICBwYWRkaW5nOiAxMnB4O1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICBnYXA6IDIycHg7XHJcbiAgbWluLWhlaWdodDogMjcwcHg7XHJcbn1cclxuXHJcbi5jaGVjay1pY29uIHtcclxuICBjb2xvcjogZ3JlZW47XHJcbn1cclxuXHJcbi5hY3RpdmUge1xyXG4gIGNvbG9yOiAkY29sb3ItcHJpbWFyeTtcclxuICBmb250LXNpemU6IDM2cHg7XHJcbn1cclxuXHJcbi5hY3RpdmUtYiB7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgJGNvbG9yLXByaW1hcnk7XHJcbn1cclxuXHJcbi5jdXJyZW50LXBsYW4ge1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGNvbG9yOiAkY29sb3ItcHJpbWFyeTtcclxuICBmb250LXNpemU6IDE2cHg7XHJcbiAgZm9udC13ZWlnaHQ6IDQwMDtcclxuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiAxM3B4O1xyXG4gIGJvcmRlci10b3AtcmlnaHQtcmFkaXVzOiAxM3B4O1xyXG4gIGJveC1zaGFkb3c6IDBweCAxcHggM3B4IHZhcigtLXByaW1hcnkpO1xyXG59XHJcblxyXG4ucmVjb21tZW5kZWQtcGxhbiB7XHJcbiAgbWl4LWJsZW5kLW1vZGU6IGx1bWlub3NpdHk7XHJcbn1cclxuXHJcbi5wbGFuTmFtZSB7XHJcbiAgZm9udC13ZWlnaHQ6IDQwMDtcclxuICBmb250LXNpemU6IDIycHg7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG59XHJcblxyXG4ucGxhbi1wcmljZSB7XHJcbiAgZm9udC1zaXplOiAzOHB4O1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuXHJcbiAgLmZzLXNtYWxsIHtcclxuICAgIGZvbnQtc2l6ZTogMTZweDtcclxuICB9XHJcbn1cclxuXHJcbi5wbGFuRGVzYyB7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIGZvbnQtc2l6ZTogMTZweDtcclxuICBmb250LXdlaWdodDogNTAwO1xyXG59XHJcblxyXG4ubWF0LWRpYWxvZyB7XHJcbiAgbWFyZ2luOiAwICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi5mZWF0dXJlcy1oZWFkaW5nIHtcclxuICBmb250LXNpemU6IDE2cHg7XHJcbiAgZm9udC13ZWlnaHQ6IDUwMDtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcclxuICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gIHBhZGRpbmc6IDEwcHg7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgYm9yZGVyOiBub25lO1xyXG4gIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50O1xyXG5cclxuICAuaWNvbi13cmFwcGVyIHtcclxuICAgIHdpZHRoOiAyNXB4O1xyXG4gICAgaGVpZ2h0OiAyNXB4O1xyXG4gICAgYmFja2dyb3VuZDogI2U3ZTBlMDtcclxuICAgIGJvcmRlci1yYWRpdXM6IDUwJTtcclxuXHJcbiAgICAuZmEtY2FyZXQtZG93biB7XHJcbiAgICAgIGZvbnQtc2l6ZTogMjRweDtcclxuICAgICAgdHJhbnNmb3JtOiByb3RhdGUoLTE4MGRlZyk7XHJcbiAgICAgIHRyYW5zaXRpb246IHRyYW5zZm9ybSAyNTBtcyBlYXNlLWluLW91dDtcclxuICAgIH1cclxuICB9XHJcbn1cclxuXHJcbi5jb2xsYXBzZWQge1xyXG4gIC5mYS1jYXJldC1kb3duIHtcclxuICAgIHRyYW5zZm9ybTogcm90YXRlKDBkZWcpICFpbXBvcnRhbnQ7XHJcbiAgfVxyXG59XHJcblxyXG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOjc2OHB4KSB7XHJcbiAgLnBsYW5zLWNvbnRhaW5lciB7XHJcbiAgICBncmlkLXRlbXBsYXRlLWNvbHVtbnM6IDFmcjtcclxuICB9XHJcbn1cclxuXHJcbi5mb290ZXIge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZ2FwOiAxcmVtO1xyXG4gIGp1c3RpZnktY29udGVudDogZmxleC1lbmQ7XHJcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICBwYWRkaW5nOiAxcmVtO1xyXG4gIGJvcmRlci10b3A6IDFweCBzb2xpZCByZ2JhKDAsIDAsIDAsIDAuMik7XHJcbn1cclxuXHJcblxyXG4uZmlsZS1pbnB1dCB7XHJcbiAgZGlzcGxheTogbm9uZTtcclxufVxyXG5cclxuLmZpbGUtdXBsb2FkLWJ0biB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBwYWRkaW5nOiAwO1xyXG5cclxuICAubWF0LWJ1dHRvbi13cmFwcGVyIHtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgfVxyXG5cclxuICBsYWJlbCB7XHJcbiAgICBoZWlnaHQ6IDEwMCU7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxuICAgIG1hcmdpbjogMDtcclxuICAgIHBhZGRpbmc6IDEycHg7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAkY29sb3ItcHJpbWFyeTtcclxuICAgIGNvbG9yOiB3aGl0ZSAhaW1wb3J0YW50O1xyXG4gIH1cclxufVxyXG5cclxubWF0LWZvcm0tZmllbGR7XHJcbiAgd2lkdGg6IDk1JTtcclxufVxyXG5cclxuOjpuZy1kZWVwIC5tYXQtZm9ybS1maWVsZC1oaW50LXdyYXBwZXJ7XHJcbiAgZGlzcGxheTogYmxvY2sgIWltcG9ydGFudDtcclxufVxyXG5cclxuOjpuZy1kZWVwIC5tYXQtbWRjLWZvcm0tZmllbGQtaGludC13cmFwcGVye1xyXG4gIGRpc3BsYXk6IGJsb2NrO1xyXG59XHJcblxyXG5tYXQtaGludHtcclxuICB3aGl0ZS1zcGFjZTogbm93cmFwO1xyXG59Il0sInNvdXJjZVJvb3QiOiIifQ== */"]
+});
+
+/***/ }),
+
+/***/ 6398:
+/*!*********************************************************************!*\
+  !*** ./src/app/components/warranty-info/warranty-info.component.ts ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "WarrantyInfoComponent": () => (/* binding */ WarrantyInfoComponent)
+/* harmony export */ });
+/* harmony import */ var _warranty_info_modal_warranty_info_modal_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../warranty-info-modal/warranty-info-modal.component */ 9648);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 2560);
+/* harmony import */ var src_app_services_api_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/services/api.service */ 5830);
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-toastr */ 4817);
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material/dialog */ 1484);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ 4666);
+/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/icon */ 7822);
+/* harmony import */ var _angular_material_paginator__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/paginator */ 6060);
+/* harmony import */ var _angular_material_table__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/table */ 5288);
+/* harmony import */ var _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/tooltip */ 6896);
+
+
+
+
+
+
+
+
+
+
+function WarrantyInfoComponent_th_13_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "th", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](1, "Start Date");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+  }
+}
+function WarrantyInfoComponent_td_14_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "td", 21)(1, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()();
+  }
+  if (rf & 2) {
+    const element_r15 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate1"](" ", element_r15 == null ? null : element_r15.warranty_duration_start_date, " ");
+  }
+}
+function WarrantyInfoComponent_th_16_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "th", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](1, "End Date");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+  }
+}
+function WarrantyInfoComponent_td_17_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "td", 21)(1, "div", 22);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()();
+  }
+  if (rf & 2) {
+    const element_r16 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate1"](" ", (element_r16 == null ? null : element_r16.warranty_duration_end_date) || "N/A", " ");
+  }
+}
+function WarrantyInfoComponent_th_19_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "th", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](1, "Purchase Mode");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+  }
+}
+function WarrantyInfoComponent_td_20_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "td", 21)(1, "div", 22);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()();
+  }
+  if (rf & 2) {
+    const element_r17 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate1"](" ", (element_r17 == null ? null : element_r17.purchase_mode) || "N/A", " ");
+  }
+}
+function WarrantyInfoComponent_th_22_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "th", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](1, "Warranty Description");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+  }
+}
+function WarrantyInfoComponent_td_23_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "td", 21)(1, "div", 22);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()();
+  }
+  if (rf & 2) {
+    const element_r18 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate1"](" ", (element_r18 == null ? null : element_r18.warranty_description_text) || "N/A", " ");
+  }
+}
+function WarrantyInfoComponent_th_25_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "th", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](1, "Product Variants");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+  }
+}
+function WarrantyInfoComponent_td_26_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "td", 21)(1, "div", 22);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()();
+  }
+  if (rf & 2) {
+    const element_r19 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate1"](" ", (element_r19 == null ? null : element_r19.product_varients) || "N/A", " ");
+  }
+}
+function WarrantyInfoComponent_th_28_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "th", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](1, " Actions ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+  }
+}
+function WarrantyInfoComponent_td_29_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r22 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "td", 21)(1, "a", 23);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function WarrantyInfoComponent_td_29_Template_a_click_1_listener() {
+      const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵrestoreView"](_r22);
+      const element_r20 = restoredCtx.$implicit;
+      const ctx_r21 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"]();
+      return _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵresetView"](ctx_r21.openSubscriptionModal(element_r20, true));
+    });
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](2, "i", 24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](3, "a", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function WarrantyInfoComponent_td_29_Template_a_click_3_listener() {
+      const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵrestoreView"](_r22);
+      const element_r20 = restoredCtx.$implicit;
+      const ctx_r23 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"]();
+      return _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵresetView"](ctx_r23.deleteItem(element_r20));
+    });
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](4, "i", 26);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()();
+  }
+  if (rf & 2) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("matTooltip", "Delete");
+  }
+}
+function WarrantyInfoComponent_tr_30_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](0, "tr", 27);
+  }
+}
+function WarrantyInfoComponent_tr_31_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](0, "tr", 28);
+  }
+}
+function WarrantyInfoComponent_div_32_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 29);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](1, " No record found");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+  }
+}
+const _c0 = function () {
+  return [50, 100, 200];
+};
+class WarrantyInfoComponent {
+  constructor(api, toaster, modal) {
+    this.api = api;
+    this.toaster = toaster;
+    this.modal = modal;
+    this.displayedColumns = ['start_date', 'end_date', 'purchase_mode', 'warranty_description_text', 'product_varients', 'Actions']; //'priority',
+    this.pageSize = 50;
+    this.isLoading = false;
+    this.totalPages = 0;
+    this.allWarrantyData = [];
+  }
+  ngOnInit() {
+    this.getList();
+    this.getMetaData();
+  }
+  getList(params = {
+    page: 1,
+    per_page: 50
+  }) {
+    this.api.getWarrantyInfo(params).subscribe({
+      next: res => {
+        console.log(res);
+        // this.dataSource = new MatTableDataSource<any>(res.data.data);
+        // setTimeout(() => {
+        //   this.paginator.pageIndex = params.page - 1;
+        //   this.paginator.length = res.data.total;
+        // })
+        // this.dataSource.paginator = this.paginator;
+        this.allWarrantyData = res.data.map(obj => {
+          const product_varients = [];
+          obj.warranty_information_product_variants.forEach(element => {
+            if (element?.product_variant?.code) {
+              product_varients.push(element.product_variant.code);
+            }
+          });
+          obj.product_varients = product_varients.join(', ');
+          return obj;
+        });
+        this.dataSource = this.allWarrantyData.slice((params.page - 1) * params.per_page, params.page * params.per_page - 1);
+        this.totalPages = res.data.length;
+        this.isLoading = false;
+      },
+      error: err => {
+        this.isLoading = false;
+        console.log(err);
+        this.toaster.error(err.error.message);
+      }
+    });
+  }
+  pageChanged(event) {
+    // this.getList({ page: event.pageIndex + 1, per_page: event.pageSize })
+    const params = {
+      page: event.pageIndex + 1,
+      per_page: event.pageSize
+    };
+    this.dataSource = this.allWarrantyData.slice((params.page - 1) * params.per_page, params.page * params.per_page - 1);
+  }
+  getMetaData() {
+    this.api.getWarrantyMetaData().subscribe({
+      next: res => {
+        console.log(res);
+        this.metaData = res.data;
+        this.isLoading = false;
+      },
+      error: err => {
+        this.isLoading = false;
+        console.log(err);
+        this.toaster.error(err.error.message);
+      }
+    });
+  }
+  deleteItem(el) {
+    swal({
+      text: 'Are you sure you want to delete?',
+      type: 'warning',
+      showConfirmButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No'
+    }).then(willDelete => {
+      console.log(el);
+      this.api.deleteWarranty(el.id).subscribe({
+        next: res => {
+          console.log(res);
+          this.isLoading = false;
+          this.toaster.success(res.message);
+          this.getList();
+        },
+        error: err => {
+          this.isLoading = false;
+          console.log(err);
+          this.toaster.error(err.error.message);
+        }
+      });
+    }, error => {});
+  }
+  openSubscriptionModal(dataToEdit, isEdit = false) {
+    const dailogRef = this.modal.open(_warranty_info_modal_warranty_info_modal_component__WEBPACK_IMPORTED_MODULE_0__.WarrantyInfoModalComponent, {
+      width: "80vw",
+      panelClass: "switcher-panel",
+      data: {
+        isEdit,
+        dataToEdit,
+        metaData: this.metaData
+      }
+    });
+    dailogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.getList();
+      }
+    });
+  }
+}
+WarrantyInfoComponent.ɵfac = function WarrantyInfoComponent_Factory(t) {
+  return new (t || WarrantyInfoComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](src_app_services_api_service__WEBPACK_IMPORTED_MODULE_1__.ApiService), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](ngx_toastr__WEBPACK_IMPORTED_MODULE_3__.ToastrService), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__.MatDialog));
+};
+WarrantyInfoComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({
+  type: WarrantyInfoComponent,
+  selectors: [["app-warranty-info"]],
+  decls: 34,
+  vars: 8,
+  consts: [[1, "card"], [1, "card-header", "card-box-shadow", "bt-4", "d-flex", "justify-content-between", "p-3"], [1, "card-title", "m-0", "float-left", "font-weight-bold"], [1, "d-flex", "justify-content-end"], ["matTooltip", "Add a Press Coverage", "matTooltipClass", "custom-tooltip", 1, "pr-3", "card-header-icon", "pointer", 3, "click"], [1, "card-body"], [1, "w-100", "table-responsive"], ["mat-table", "", 1, "w-100", 3, "dataSource"], ["matColumnDef", "start_date"], ["mat-header-cell", "", 4, "matHeaderCellDef"], ["mat-cell", "", 4, "matCellDef"], ["matColumnDef", "end_date"], ["matColumnDef", "purchase_mode"], ["matColumnDef", "warranty_description_text"], ["matColumnDef", "product_varients"], ["matColumnDef", "Actions"], ["mat-header-row", "", 4, "matHeaderRowDef"], ["mat-row", "", 4, "matRowDef", "matRowDefColumns"], ["class", "text-center py-2 no-record", 4, "ngIf"], [3, "length", "pageSizeOptions", "pageSize", "page"], ["mat-header-cell", ""], ["mat-cell", ""], [1, "my-3"], ["matTooltip", "Edit", "matTooltipClass", "custom-tooltip", 1, "pointer", 3, "click"], [1, "fas", "fa-2x", "fa-pen-square", 2, "font-size", "1.6em", "color", "#00b3ac"], ["matTooltipClass", "custom-tooltip", 1, "pointer", "ml-3", 3, "matTooltip", "click"], [1, "fas", "fa-2x", "fa-trash-alt", 2, "font-size", "1.6em", "color", "#c41414"], ["mat-header-row", ""], ["mat-row", ""], [1, "text-center", "py-2", "no-record"]],
+  template: function WarrantyInfoComponent_Template(rf, ctx) {
+    if (rf & 1) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "section")(1, "div", 0)(2, "div", 1)(3, "h4", 2);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](4, " Warranty Information ");
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](5, "div", 3)(6, "div")(7, "mat-icon", 4);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function WarrantyInfoComponent_Template_mat_icon_click_7_listener() {
+        return ctx.openSubscriptionModal();
+      });
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](8, " add ");
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()()()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](9, "div", 5)(10, "div", 6)(11, "table", 7);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementContainerStart"](12, 8);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](13, WarrantyInfoComponent_th_13_Template, 2, 0, "th", 9);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](14, WarrantyInfoComponent_td_14_Template, 3, 1, "td", 10);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementContainerEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementContainerStart"](15, 11);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](16, WarrantyInfoComponent_th_16_Template, 2, 0, "th", 9);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](17, WarrantyInfoComponent_td_17_Template, 3, 1, "td", 10);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementContainerEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementContainerStart"](18, 12);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](19, WarrantyInfoComponent_th_19_Template, 2, 0, "th", 9);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](20, WarrantyInfoComponent_td_20_Template, 3, 1, "td", 10);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementContainerEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementContainerStart"](21, 13);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](22, WarrantyInfoComponent_th_22_Template, 2, 0, "th", 9);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](23, WarrantyInfoComponent_td_23_Template, 3, 1, "td", 10);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementContainerEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementContainerStart"](24, 14);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](25, WarrantyInfoComponent_th_25_Template, 2, 0, "th", 9);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](26, WarrantyInfoComponent_td_26_Template, 3, 1, "td", 10);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementContainerEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementContainerStart"](27, 15);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](28, WarrantyInfoComponent_th_28_Template, 2, 0, "th", 9);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](29, WarrantyInfoComponent_td_29_Template, 5, 1, "td", 10);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementContainerEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](30, WarrantyInfoComponent_tr_30_Template, 1, 0, "tr", 16);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](31, WarrantyInfoComponent_tr_31_Template, 1, 0, "tr", 17);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](32, WarrantyInfoComponent_div_32_Template, 2, 0, "div", 18);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](33, "mat-paginator", 19);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("page", function WarrantyInfoComponent_Template_mat_paginator_page_33_listener($event) {
+        return ctx.pageChanged($event);
+      });
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()()()();
+    }
+    if (rf & 2) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](11);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("dataSource", ctx.dataSource);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](19);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("matHeaderRowDef", ctx.displayedColumns);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("matRowDefColumns", ctx.displayedColumns);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngIf", !(ctx.dataSource == null ? null : ctx.dataSource.length));
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("length", ctx.totalPages)("pageSizeOptions", _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpureFunction0"](7, _c0))("pageSize", ctx.pageSize);
+    }
+  },
+  dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_5__.NgIf, _angular_material_icon__WEBPACK_IMPORTED_MODULE_6__.MatIcon, _angular_material_paginator__WEBPACK_IMPORTED_MODULE_7__.MatPaginator, _angular_material_table__WEBPACK_IMPORTED_MODULE_8__.MatTable, _angular_material_table__WEBPACK_IMPORTED_MODULE_8__.MatHeaderCellDef, _angular_material_table__WEBPACK_IMPORTED_MODULE_8__.MatHeaderRowDef, _angular_material_table__WEBPACK_IMPORTED_MODULE_8__.MatColumnDef, _angular_material_table__WEBPACK_IMPORTED_MODULE_8__.MatCellDef, _angular_material_table__WEBPACK_IMPORTED_MODULE_8__.MatRowDef, _angular_material_table__WEBPACK_IMPORTED_MODULE_8__.MatHeaderCell, _angular_material_table__WEBPACK_IMPORTED_MODULE_8__.MatCell, _angular_material_table__WEBPACK_IMPORTED_MODULE_8__.MatHeaderRow, _angular_material_table__WEBPACK_IMPORTED_MODULE_8__.MatRow, _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_9__.MatTooltip],
+  styles: ["\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsInNvdXJjZVJvb3QiOiIifQ== */"]
+});
+
+/***/ }),
+
 /***/ 3806:
 /*!************************************!*\
   !*** ./src/app/material.module.ts ***!
@@ -10302,9 +11061,26 @@ class ApiService {
       })
     });
   }
+  getWarrantyInfo(params) {
+    const uuid = this.getLocalStorage('currentUserSession').uuid;
+    return this.http.get(this.baseUrl + `/v1/admin/warranty-information`, {
+      params,
+      headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders({
+        'admin-user-uuid': uuid
+      })
+    });
+  }
   getTermsAndConditionsMetaData() {
     const uuid = this.getLocalStorage('currentUserSession').uuid;
     return this.http.get(this.baseUrl + `/v1/admin/terms-and-conditions/metadata`, {
+      headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders({
+        'admin-user-uuid': uuid
+      })
+    });
+  }
+  getWarrantyMetaData() {
+    const uuid = this.getLocalStorage('currentUserSession').uuid;
+    return this.http.get(this.baseUrl + `/v1/admin/warranty-information/creation-metadata`, {
       headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders({
         'admin-user-uuid': uuid
       })
@@ -10352,6 +11128,14 @@ class ApiService {
       })
     });
   }
+  createWarranty(body) {
+    const uuid = this.getLocalStorage('currentUserSession').uuid;
+    return this.http.post(this.baseUrl + '/v1/admin/warranty-information', body, {
+      headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders({
+        'admin-user-uuid': uuid
+      })
+    });
+  }
   createOfferPromotion(body) {
     const uuid = this.getLocalStorage('currentUserSession').uuid;
     return this.http.post(this.baseUrl + '/v1/admin/offer-promotions', body, {
@@ -10379,6 +11163,14 @@ class ApiService {
   deleteTermsAndConditions(id) {
     const uuid = this.getLocalStorage('currentUserSession').uuid;
     return this.http.delete(this.baseUrl + `/v1/admin/terms-and-conditions/${id}`, {
+      headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders({
+        'admin-user-uuid': uuid
+      })
+    });
+  }
+  deleteWarranty(id) {
+    const uuid = this.getLocalStorage('currentUserSession').uuid;
+    return this.http.delete(this.baseUrl + `/v1/admin/warranty-information/${id}`, {
       headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders({
         'admin-user-uuid': uuid
       })
@@ -10445,6 +11237,14 @@ class ApiService {
   updateTermsAndConditions(body, id) {
     const uuid = this.getLocalStorage('currentUserSession').uuid;
     return this.http.post(this.baseUrl + `/v1/admin/terms-and-conditions/${id}`, body, {
+      headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders({
+        'admin-user-uuid': uuid
+      })
+    });
+  }
+  updateWarranty(body, id) {
+    const uuid = this.getLocalStorage('currentUserSession').uuid;
+    return this.http.post(this.baseUrl + `/v1/admin/warranty-information/${id}`, body, {
       headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders({
         'admin-user-uuid': uuid
       })
