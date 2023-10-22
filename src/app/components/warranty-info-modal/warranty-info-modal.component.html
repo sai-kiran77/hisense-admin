@@ -1,0 +1,107 @@
+<div class="modal-container">
+    <div class="header border-bottom">
+        <h4 mat-dialog-title *ngIf="!data.isEdit">Create Warranty</h4>
+        <h4 mat-dialog-title *ngIf="data.isEdit">Update Warranty</h4>
+        <mat-icon [mat-dialog-close]="false" class="close-icon ">close</mat-icon>
+    </div>
+    <div class="body">
+        <mat-dialog-content class="mat-dialog">
+            <div class="row p-3">
+                <div class="col-md-12">
+                    <form [formGroup]="form">
+                        <div class="row">
+
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-3 form-group">
+                                <mat-form-field appearance="outline">
+                                    <mat-label class="mat-label-field-padding">Purchase Mode</mat-label>
+                                    <mat-select formControlName="purchase_mode">
+                                        <mat-option *ngFor="let option of data.metaData?.purchase_modes"
+                                            [value]="option.code">{{option.name}}</mat-option>
+                                    </mat-select>
+                                    <mat-hint class="error"
+                                        *ngIf="formSubmitted && (formControl['purchase_mode'].errors && formControl['purchase_mode'].errors['required'])">
+                                        Purchase Mode is required!
+                                    </mat-hint>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-3 form-group">
+                                <mat-form-field class="w-100" appearance="outline">
+                                    <mat-label class="mat-label-field-padding">State Date</mat-label>
+                                    <input matInput formControlName="warranty_duration_start_date" [max]="formControl['warranty_duration_end_date'].value" [matDatepicker]="picker1"
+                                        type="text" />
+                                    <mat-hint>mm/dd/yyyy</mat-hint>
+                                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker1></mat-datepicker>
+                                    <mat-error class="error"
+                                        *ngIf="formSubmitted && (formControl['warranty_duration_start_date'].errors && formControl['warranty_duration_start_date'].errors['required'])">
+                                        Start Date is required!
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-3 form-group">
+                                <mat-form-field class="w-100" appearance="outline">
+                                    <mat-label class="mat-label-field-padding">End Date</mat-label>
+                                    <input matInput [min]="formControl['warranty_duration_start_date'].value" formControlName="warranty_duration_end_date" [matDatepicker]="picker"
+                                        type="text" />
+                                    <mat-hint>mm/dd/yyyy</mat-hint>
+                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                    <mat-error class="error"
+                                        *ngIf="formSubmitted && (formControl['warranty_duration_end_date'].errors && formControl['warranty_duration_end_date'].errors['required'])">
+                                        End Date is required!
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-3 form-group">
+                                <mat-form-field appearance="outline">
+                                    <mat-label class="mat-label-field-padding">Warranty Description</mat-label>
+                                    <input matInput formControlName="warranty_description_text" type="text" />
+                                    <mat-hint class="error"
+                                        *ngIf="formSubmitted && (formControl['warranty_description_text'].errors && formControl['warranty_description_text'].errors['required'])">
+                                        Warranty Description is required!
+                                    </mat-hint>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-3 form-group">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Product Variants</mat-label>
+                                    <mat-select formControlName="product_varients" multiple>
+                                        <mat-select-trigger>
+                                            {{productsIdNameMap[formControl['product_varients'].value?.[0]] || ''}}
+                                            <span *ngIf="(formControl['product_varients'].value?.length || 0) > 1"
+                                                class="example-additional-selection">
+                                                (+{{(formControl['product_varients'].value?.length || 0) - 1}} {{formControl['product_varients'].value?.length === 2 ?
+                                                'other' : 'others'}})
+                                            </span>
+                                        </mat-select-trigger>
+                                        <mat-option *ngFor="let pv of data.metaData?.products"
+                                            [value]="pv.id">{{pv.name}}</mat-option>
+                                    </mat-select>
+                                    <mat-error class="error"
+                                        *ngIf="formSubmitted && (formControl['product_varients'].errors && formControl['product_varients'].errors['required'])">
+                                         Please Select a Product Varient!
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </mat-dialog-content>
+    </div>
+    <div class="footer">
+        <button class="ml-3 mb-3" style="color: black !important;" mat-raised-button (click)="dialogRef.close()">
+            Cancel
+        </button>
+        <button *ngIf="!data.isEdit" class="btn btn-info ml-3 mb-3" (click)="createWarranty()">
+            Create
+        </button>
+        <button *ngIf="data.isEdit" class="btn btn-info ml-3 mb-3" (click)="updateWarranty()">
+            Update
+        </button>
+    </div>
+</div>

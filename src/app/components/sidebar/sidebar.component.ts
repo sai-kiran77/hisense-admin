@@ -86,6 +86,9 @@ export const ROUTES: any[] = [
   {
     user: 'admin', dropdown: false, userName: false, className: true, title: 'Terms And Conditions', icon: 'product-icon', visible: true, path: '/terms-and-conditions'
   },
+  {
+    user: 'admin', dropdown: false, userName: false, className: true, title: 'Warranty Information', icon: 'product-icon', visible: true, path: '/warranty-information'
+  },
   // {
   //   user: 'admin', dropdown: false, userName: false, className: true, title: 'My Profile', icon: 'fas fa-id-card', visible: true, path: '/user-profile'
   // }

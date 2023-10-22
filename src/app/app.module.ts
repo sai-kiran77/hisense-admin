@@ -34,6 +34,8 @@ import { HomeSliderModalComponent } from './components/home-slider-modal/home-sl
 import { LoaderInterceptor } from './session-interceptor.service';
 import { TermsAndConditionsComponent } from './components/terms-and-conditions/terms-and-conditions.component';
 import { TermsAndConditionsModalComponent } from './components/terms-and-conditions-modal/terms-and-conditions-modal.component';
+import { WarrantyInfoComponent } from './components/warranty-info/warranty-info.component';
+import { WarrantyInfoModalComponent } from './components/warranty-info-modal/warranty-info-modal.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +63,9 @@ import { TermsAndConditionsModalComponent } from './components/terms-and-conditi
     HomeSliderComponent,
     HomeSliderModalComponent,
     TermsAndConditionsComponent,
-    TermsAndConditionsModalComponent
+    WarrantyInfoComponent,
+    TermsAndConditionsModalComponent,
+    WarrantyInfoModalComponent
   ],
   imports: [
     BrowserModule,

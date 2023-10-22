@@ -18,6 +18,7 @@ import { ProductVarientsListComponent } from './components/product-varients-list
 import { ProductsComponent } from './components/products/products.component';
 import { TechTestimonialsComponent } from './components/tech-testimonials/tech-testimonials.component';
 import { TermsAndConditionsComponent } from './components/terms-and-conditions/terms-and-conditions.component';
+import { WarrantyInfoComponent } from './components/warranty-info/warranty-info.component';
 
 const routes: Routes = [
   {
@@ -101,6 +102,10 @@ const routes: Routes = [
       {
         path: 'terms-and-conditions',
         component: TermsAndConditionsComponent
+      },
+      {
+        path: 'warranty-information',
+        component: WarrantyInfoComponent
       },
       {
         path: '', redirectTo: '/dashboard', pathMatch: 'full'

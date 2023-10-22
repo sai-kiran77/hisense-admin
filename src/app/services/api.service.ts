@@ -209,9 +209,24 @@ export class ApiService {
     });
   }
 
+  getWarrantyInfo(params: any) {
+    const uuid = this.getLocalStorage('currentUserSession').uuid;
+    return this.http.get(this.baseUrl + `/v1/admin/warranty-information`, {
+      params,
+      headers: new HttpHeaders({ 'admin-user-uuid': uuid })
+    });
+  }
+
   getTermsAndConditionsMetaData() {
     const uuid = this.getLocalStorage('currentUserSession').uuid;
     return this.http.get(this.baseUrl + `/v1/admin/terms-and-conditions/metadata`, {
+      headers: new HttpHeaders({ 'admin-user-uuid': uuid })
+    });
+  }
+
+  getWarrantyMetaData() {
+    const uuid = this.getLocalStorage('currentUserSession').uuid;
+    return this.http.get(this.baseUrl + `/v1/admin/warranty-information/creation-metadata`, {
       headers: new HttpHeaders({ 'admin-user-uuid': uuid })
     });
   }
@@ -253,6 +268,13 @@ export class ApiService {
     })
   }
 
+  createWarranty(body: any) {
+    const uuid = this.getLocalStorage('currentUserSession').uuid;
+    return this.http.post(this.baseUrl + '/v1/admin/warranty-information', body, {
+      headers: new HttpHeaders({ 'admin-user-uuid': uuid })
+    })
+  }
+
   createOfferPromotion(body: any) {
     const uuid = this.getLocalStorage('currentUserSession').uuid;
     return this.http.post(this.baseUrl + '/v1/admin/offer-promotions', body, {
@@ -277,6 +299,13 @@ export class ApiService {
   deleteTermsAndConditions(id: any) {
     const uuid = this.getLocalStorage('currentUserSession').uuid;
     return this.http.delete(this.baseUrl + `/v1/admin/terms-and-conditions/${id}`, {
+      headers: new HttpHeaders({ 'admin-user-uuid': uuid })
+    })
+  }
+
+  deleteWarranty(id: any) {
+    const uuid = this.getLocalStorage('currentUserSession').uuid;
+    return this.http.delete(this.baseUrl + `/v1/admin/warranty-information/${id}`, {
       headers: new HttpHeaders({ 'admin-user-uuid': uuid })
     })
   }
@@ -335,6 +364,13 @@ export class ApiService {
   updateTermsAndConditions(body: any, id: any) {
     const uuid = this.getLocalStorage('currentUserSession').uuid;
     return this.http.post(this.baseUrl + `/v1/admin/terms-and-conditions/${id}`, body, { //using post because in patch file upload is not supported
+      headers: new HttpHeaders({ 'admin-user-uuid': uuid })
+    })
+  }
+
+  updateWarranty(body: any, id: any) {
+    const uuid = this.getLocalStorage('currentUserSession').uuid;
+    return this.http.post(this.baseUrl + `/v1/admin/warranty-information/${id}`, body, { //using post because in patch file upload is not supported
       headers: new HttpHeaders({ 'admin-user-uuid': uuid })
     })
   }
